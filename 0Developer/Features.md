@@ -1,7 +1,7 @@
 
 <!-- 1. Client Setup -->
 
-2. Setup React Routers for all Components and create components => Welcome, Signup, Login, Home, Portfolio, Wishlist, Wallet, Profile, Setting
+<!-- 2. Setup React Routers for all Components and create components => Welcome, Signup, Login, Home, Portfolio, Wishlist, Wallet, Profile, Setting -->
 
 3. Welcome Page
 
