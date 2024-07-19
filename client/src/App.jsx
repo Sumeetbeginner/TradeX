@@ -12,6 +12,8 @@ import Setting from './components/Setting/Setting'
 import Wallet from './components/Wallet/Wallet'
 
 const App = () => {
+
+
   return (
     <>
     <BrowserRouter>
