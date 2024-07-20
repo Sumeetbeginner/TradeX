@@ -1,0 +1,47 @@
+
+.topAppL{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16%;
+}
+
+.topAppL img{
+    width: 20%;
+}
+
+.navEleL i{
+    font-size: 22px;
+    margin-left: 23%;
+}
+
+.navEleL{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 6%;
+    /* background-color: var(--material); */
+    width: 95%;
+    margin: auto;
+    height: 7.4vh;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 8%;
+}
+
+#navHome{
+    margin-top: 18%;
+}
+
+.navEleL:hover{
+    background-color: #7479ff43;
+}
+#navG{
+    text-align: center;
+    font-size: 22px;
+    margin-top: 10%;
+}
+
+#navG span{
+    color: var(--logo);
+}

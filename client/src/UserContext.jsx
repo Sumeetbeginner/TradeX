@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { auth, database } from "./firebase.js"; 
+import { auth, database } from "./firebase.js";
 import { ref, set, onValue, off } from "firebase/database";
 
 export const UserContext = createContext();
@@ -19,20 +19,21 @@ export const UserProvider = ({ children }) => {
         };
 
         onValue(userRef, handleUserData, {
-          onlyOnce: true 
+          onlyOnce: true,
         });
 
-        return () => off(userRef, 'value', handleUserData);
+        return () => off(userRef, "value", handleUserData);
       } else {
         setUser(null);
         setLoading(false);
       }
     });
 
-    return () => unsubscribe(); 
+    return () => unsubscribe();
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     if (user) {
       const userRef = ref(database, `users/${user.uid}`);
       set(userRef, user).catch((error) => {
@@ -41,7 +42,6 @@ export const UserProvider = ({ children }) => {
 
       console.log(user);
       setLoading(false);
-
     }
   }, [user]);
 

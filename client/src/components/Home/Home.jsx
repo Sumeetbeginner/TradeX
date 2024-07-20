@@ -6,18 +6,9 @@ const Home = () => {
   const { user, loading } = useContext(UserContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!loading) {
-      if (!user) {
-        navigate('/welcome');
-      }
-    }
-  }, [user, loading, navigate]);
-
-  if(loading) return <div className="loader"></div>
 
   return (
-    <div>
+    <div className='rightE'>
      Home
     </div>
   );
