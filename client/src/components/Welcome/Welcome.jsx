@@ -38,6 +38,7 @@ const Welcome = () => {
 
   return (
     <>
+    <div>
       <div className="top-full">
         <div className="flex-center">
           <h1>Trade</h1>
@@ -139,6 +140,7 @@ const Welcome = () => {
             <span className="p td">₹1,293.80<i class="fa-solid fa-arrow-trend-down"></i></span>
           </p>
         </div>
+      </div>
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 
 import React, {useContext, useEffect, useLayoutEffect} from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar'; 
 import Home from './components/Home/Home';
 import Welcome from './components/Welcome/Welcome';
@@ -17,16 +17,9 @@ import Search from './components/Search/Search.jsx';
 
 const Main2 = () => {
   const location = useLocation();
-  const noNavbarPaths = ['/welcome', '/signup', '/login', '/setting'];
+  const navigate = useNavigate()
+  const noNavbarPaths = ['/welcome', '/signup', '/login', '/setting', '/profile'];
   const { user, loading } = useContext(UserContext);
-
-  useLayoutEffect(() => {
-    if (!loading) {
-      if (!user) {
-        location('/welcome');
-      }
-    }
-  }, [user, loading, location]);
 
 
   if(loading) return <div className="loader"></div>

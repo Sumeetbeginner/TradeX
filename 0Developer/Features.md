@@ -13,9 +13,9 @@
 
 7. When Page reloads and user is authenticated retrieve its data and store that into global variable -->
 
-<!-- 8. Navbar with Element and active -> Home, Portfolio,Search, Wishlist, wallet, setting -->
+<!-- 8. Navbar with Element and active -> Home, Portfolio,Search, Wishlist, wallet, setting, profile -->
 
-9. Logout functionality with first popup warning
+9. Logout functionality
 
 
 
