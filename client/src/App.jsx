@@ -10,12 +10,14 @@ import Wishlist from './components/Wishlist/Wishlist'
 import Profile from './components/Profile/Profile'
 import Setting from './components/Setting/Setting'
 import Wallet from './components/Wallet/Wallet'
+import { UserProvider } from './UserContext'
 
 const App = () => {
 
 
   return (
     <>
+    <UserProvider>
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home/>}/>
@@ -29,6 +31,7 @@ const App = () => {
       <Route path='/wallet' element={<Wallet/>}/>
     </Routes>
     </BrowserRouter>
+    </UserProvider>
     </>
   )
 }

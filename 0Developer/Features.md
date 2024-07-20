@@ -9,7 +9,10 @@
 
 <!-- 5. Signup Page with Auth and save data in firebase -->
 
-6. Login Page with Auth and retrieve data from firebase
+<!-- 6. Login Page with Auth and retrieve data from firebase and store in global variable
+
+7. When Page reloads and user is authenticated retrieve its data and store that into global variable -->
+
 
 
 

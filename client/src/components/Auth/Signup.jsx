@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { auth, database } from "../../firebase.js"; // Adjust the import path based on your project structure
+import { auth, database } from "../../firebase.js"; 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, set, get, child } from "firebase/database";
 import appLogo from "../../assets/icons/appLogo.png";
@@ -14,7 +14,7 @@ const Signup = () => {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
+  useEffect(() => { 
     setLoading(false)
   }, [])
 

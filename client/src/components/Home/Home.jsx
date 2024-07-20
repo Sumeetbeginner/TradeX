@@ -1,20 +1,20 @@
-
-import React, {useLayoutEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useLayoutEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../UserContext.jsx'; 
 
 const Home = () => {
-
-  const location = useNavigate()
+  const { user } = useContext(UserContext); 
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
-    if(!localStorage.getItem('userAuth')){
-      location('/welcome')
+    if (!user) {
+      navigate('/welcome');
     }
-  }, [])
-
+  }, [user, navigate]); 
+  
   return (
     <div>Home</div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
