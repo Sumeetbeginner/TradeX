@@ -60,3 +60,8 @@ body {
         margin-top: 50%;
     }
 }
+
+button :hover{
+    opacity: 0.8;
+    
+}

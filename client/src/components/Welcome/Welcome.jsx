@@ -34,7 +34,7 @@ const Welcome = () => {
     
   }
 
-  if (loading) return <div className="loading">Loading...</div>;
+  if (loading) return <div className="loader"></div>;
 
   return (
     <>
@@ -89,7 +89,7 @@ const Welcome = () => {
               <h2>Monthly Virtual Money Credited as a Salary</h2>
               <p>
                 Receive a virtual salary each month to your trading account
-                based on the amount you set. This allows you to continuously
+                This allows you to continuously
                 engage in trading activities, strategize, and improve your
                 skills over time. Keep the momentum going with fresh virtual
                 funds every month.

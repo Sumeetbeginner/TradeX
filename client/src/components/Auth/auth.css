@@ -1,0 +1,95 @@
+
+.signupForm{
+    width: 33%;
+    height: 83vh;
+    border-radius: 14px;
+    background-color: var(--dark);
+    display: block;
+    margin: auto;
+    margin-top: 4%;
+}
+
+.topSign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    background-color: var(--material);
+    border-radius: 14px 14px 0px 0px;
+}
+
+.topSign img{
+    width: 15%;
+}
+
+.signupForm input{
+    display: block;
+    width: 90%;
+    height: 6.4vh;
+    background-color: var(--light);
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 18px;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 8%;
+    color: white;
+}
+
+.signupForm button{
+    display: block;
+    margin: auto;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    padding: 2.5% 10%;
+    margin-top: 8%;
+    background-color: var(--material);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.signupForm button:hover{
+    opacity: 0.8;
+}
+
+.signupForm p{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 8%;
+}
+
+.signupForm span{
+    color: var(--lmaterial);
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
+
+.signupForm input:focus{
+
+    border: solid 2px var(--material);
+
+}
+
+#showError{
+    background-color: var(--red);
+    width: fit-content;
+    padding: 2% 4%;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 9%;
+}
+#showSuccess{
+    background-color: green;
+    width: fit-content;
+    padding: 2% 4%;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 9%;
+}

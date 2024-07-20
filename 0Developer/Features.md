@@ -7,7 +7,7 @@
 
 <!-- 4. Welcome Page -->
 
-5. Signup Page with Auth and save data in firebase
+<!-- 5. Signup Page with Auth and save data in firebase -->
 
 6. Login Page with Auth and retrieve data from firebase
 
