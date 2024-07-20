@@ -1,19 +1,25 @@
-import React, { useLayoutEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../UserContext.jsx'; 
+import { UserContext } from '../../UserContext.jsx';
 
 const Home = () => {
-  const { user } = useContext(UserContext); 
+  const { user, loading } = useContext(UserContext);
   const navigate = useNavigate();
 
-  useLayoutEffect(() => {
-    if (!user) {
-      navigate('/welcome');
+  useEffect(() => {
+    if (!loading) {
+      if (!user) {
+        navigate('/welcome');
+      }
     }
-  }, [user, navigate]); 
-  
+  }, [user, loading, navigate]);
+
+  if(loading) return <div className="loader"></div>
+
   return (
-    <div>Home</div>
+    <div>
+     Home
+    </div>
   );
 };
 
