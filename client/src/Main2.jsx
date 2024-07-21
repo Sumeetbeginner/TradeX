@@ -1,5 +1,5 @@
 
-import React, {useContext, useEffect, useLayoutEffect} from 'react';
+import React, {useContext, useEffect, useLayoutEffect, useState} from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar'; 
 import Home from './components/Home/Home';
@@ -13,15 +13,15 @@ import Setting from './components/Setting/Setting';
 import Wallet from './components/Wallet/Wallet';
 import { UserContext } from './UserContext.jsx';
 import Search from './components/Search/Search.jsx';
-import StockDetails from './stocks/StockDetails.jsx';
-
+import StockDetails from './components/stocks/StockDetails.jsx';
 
 const Main2 = () => {
+
   const location = useLocation();
   const navigate = useNavigate()
   const noNavbarPaths = ['/welcome', '/signup', '/login', '/setting', '/profile', '/stockinfo'];
-  const { user, loading } = useContext(UserContext);
 
+  const { user, loading } = useContext(UserContext);
 
   if(loading) return <div className="loader"></div>
 

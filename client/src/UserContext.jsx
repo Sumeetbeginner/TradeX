@@ -34,20 +34,22 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    setLoading(true);
     if (user) {
       const userRef = ref(database, `users/${user.uid}`);
       set(userRef, user).catch((error) => {
         console.error("Error updating user data:", error);
       });
+    }
+  }, [user]);
 
-      console.log(user);
+  useEffect(() => {
+    if (user !== null) {
       setLoading(false);
     }
   }, [user]);
 
   return (
-    <UserContext.Provider value={{ user, setUser, loading , currStockData, setCurrStockData}}>
+    <UserContext.Provider value={{ user, setUser, loading, currStockData, setCurrStockData }}>
       {children}
     </UserContext.Provider>
   );

@@ -15,8 +15,10 @@
 
 <!-- 8. Navbar with Element and active -> Home, Portfolio,Search, Wishlist, wallet, setting, profile -->
 
-9. Create a Search bar a on search page and search stock based on  nse csv file and store that stock file currStock Variable Global
+<!-- 9. Create a Search bar a on search page and search stock based on  nse csv file and store that stock file currStock Variable Global -->
 
+10. Setup flask and Start Flask Server and create an api to get currStockDetails with the help of stockticker with the help of yfinance api
+and pass the stock data on stockinfo page var
 
 
 
