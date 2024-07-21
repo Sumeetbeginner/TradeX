@@ -20,5 +20,7 @@
 <!-- 10. Setup flask and Start Flask Server and create an api to get currStockDetails with the help of stockticker with the help of yfinance api
 and pass the stock data on stockinfo page var -->
 
-11. Show Stock Data on Dashboard with Buy and Sell Buttons (Big Process)
+<!-- 11. Filter More Imp Data to show on Dashboard -->
+
+12. Show Stock Data on Dashboard with Buy and Sell Buttons (Big Process)
 
