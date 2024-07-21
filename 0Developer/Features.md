@@ -22,5 +22,9 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 11. Filter More Imp Data to show on Dashboard -->
 
-12. Show Stock Data on Dashboard with Buy and Sell Buttons (Big Process)
+<!-- 12. Show Stock Name Price and Change and Navbar -->
+
+13. User Chartjs and show open, low, high , current on line chart
+
+
 

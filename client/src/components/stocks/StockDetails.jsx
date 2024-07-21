@@ -38,6 +38,7 @@ const StockInfo = () => {
       } catch (error) {
         console.error("Error fetching stock data:", error);
         setError("Failed to fetch stock data. Please try again.");
+        
         setStockData(null);
       }
     };
@@ -51,32 +52,39 @@ const StockInfo = () => {
         if (!stockData) return;
 
         console.log(stockData);
-        let stockMoneyC = Number(stockData.result.currentPrice) - Number(stockData.result.open);
-        let stockPChange = ((stockMoneyC / Number(stockData.result.open)) * 100).toFixed(2);
+        let stockMoneyC =
+          Number(stockData.result.currentPrice) - Number(stockData.result.open);
+
+        stockMoneyC = stockMoneyC.toFixed(2);
+        let stockPChange = (
+          (stockMoneyC / Number(stockData.result.open)) *
+          100
+        ).toFixed(2);
         console.log(stockMoneyC);
 
         setImpStockData({
           name: stockData.result.shortName,
+          symbol: stockData.result.symbol,
           open: stockData.result.open,
           dayHigh: stockData.result.dayHigh,
           dayLow: stockData.result.dayLow,
           currPrice: stockData.result.currentPrice,
           percentageChange: stockPChange,
-          stockPriceChange : stockMoneyC,
-          currVolume : stockData.result.volume,
-          avgVolume : stockData.result.averageVolume,
-          address : stockData.result.address2,
-          fiftyDayAverage : stockData.result.fiftyDayAverage,
-          fiftyTwoWeekHigh : stockData.result.fiftyTwoWeekHigh,
-          industry : stockData.result.industry,longBusinessSummary : stockData.result.longBusinessSummary,
-          marketCap : stockData.result.marketCap,
-          previousClose : stockData.result.previousClose,
-          sector : stockData.result.sector,
-          totalDebt : stockData.result.totalDebt,
-          totalRevenue : stockData.result.totalRevenue,
-          twoHundredDayAverage : stockData.result.twoHundredDayAverage,
-          website : stockData.result.website,
-          
+          stockPriceChange: stockMoneyC,
+          currVolume: stockData.result.volume,
+          avgVolume: stockData.result.averageVolume,
+          address: stockData.result.address2,
+          fiftyDayAverage: stockData.result.fiftyDayAverage,
+          fiftyTwoWeekHigh: stockData.result.fiftyTwoWeekHigh,
+          industry: stockData.result.industry,
+          longBusinessSummary: stockData.result.longBusinessSummary,
+          marketCap: stockData.result.marketCap,
+          previousClose: stockData.result.previousClose,
+          sector: stockData.result.sector,
+          totalDebt: stockData.result.totalDebt,
+          totalRevenue: stockData.result.totalRevenue,
+          twoHundredDayAverage: stockData.result.twoHundredDayAverage,
+          website: stockData.result.website,
         });
 
         console.log(impStockData);
@@ -111,20 +119,51 @@ const StockInfo = () => {
             <div className="leftStock">
               <div className="topDetails">
                 <div className="stockDL">
-                  <h1 className="stockName">{impStockData?.name}</h1>
+                  <h1 className="stockName">{impStockData?.name} </h1>
                   <h3 className="stockSymbol">{impStockData?.symbol}</h3>
+                </div>
 
-                  <div className="stockP">
-                    <h2 className="stockPrice">₹{(impStockData?.currPrice)}</h2>
-                    <p className="stockPriceC"> ₹{impStockData?.stockPriceChange}</p>
-                    <p className="stockChange"> {impStockData?.percentageChange}%</p>
+                <div className="stockP">
+                  <h2 className="stockPrice">₹{impStockData?.currPrice}</h2>
+
+                  <div className="flexC">
+                    <p
+                      className="stockPriceC"
+                      style={{
+                        color:
+                          Number(impStockData?.stockPriceChange) >= 0
+                            ? "green"
+                            : "red",
+                      }}
+                    >
+                      ₹{impStockData?.stockPriceChange}
+                      <i
+                        className={`fa-solid ${
+                          Number(impStockData?.stockPriceChange) >= 0
+                            ? "fa-arrow-trend-up"
+                            : "fa-arrow-trend-down"
+                        }`}
+                      ></i>
+                    </p>
+                    <p
+                      className="stockChange"
+                      style={{
+                        color:
+                          Number(impStockData?.percentageChange) >= 0
+                            ? "green"
+                            : "red",
+                      }}
+                    >
+                      ({Number(impStockData?.percentageChange).toFixed(2)}%)
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-
             <div className="rightStock"></div>
           </div>
+
+
         </div>
       ) : (
         <div className="loader"></div>

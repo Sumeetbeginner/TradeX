@@ -49,12 +49,57 @@
     cursor: pointer;
 }
 
-.stockTopBar i:hover{
+.topDetails{
+    width: 100%!important;
+    display: flex;
+    height: fit-content!important;
+    margin-top: 3%;
+   
+}
+
+.flexC{
+    height: fit-content !important;
+    display: flex;
+    margin-top: 1.4%;
+}
+
+.flexC p{
+    white-space: nowrap;
+}
+
+.stockChange{
+    margin-left: 10%;
+    font-size: 19px;
+}
+
+.stockPriceC{
+    font-size: 19px;
+}
+
+.stockP{
+    font-size: 20px;
+    width: 40% !important;
+    margin-left: 20%;
+    height: fit-content!important;
+}
+
+.stockDL{
+    height: fit-content!important;
+}
+
+.stockName{
     color: var(--logo);
+    font-weight: 600;
+    margin-left: 10%;
+    white-space: nowrap;
 }
 
-.leftI{
-    margin-left: 3%;
+.stockSymbol{
+    opacity: 0.5;
+    margin-left: 10%;
+    margin-top: 1.4%;
 }
 
-
+.fa-arrow-left{
+    margin-left: 100%;
+}
