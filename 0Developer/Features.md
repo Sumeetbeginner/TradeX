@@ -17,9 +17,8 @@
 
 <!-- 9. Create a Search bar a on search page and search stock based on  nse csv file and store that stock file currStock Variable Global -->
 
-10. Setup flask and Start Flask Server and create an api to get currStockDetails with the help of stockticker with the help of yfinance api
-and pass the stock data on stockinfo page var
+<!-- 10. Setup flask and Start Flask Server and create an api to get currStockDetails with the help of stockticker with the help of yfinance api
+and pass the stock data on stockinfo page var -->
 
-
-
+11. Show Stock Data on Dashboard with Buy and Sell Buttons (Big Process)
 

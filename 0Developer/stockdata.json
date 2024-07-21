@@ -1,0 +1,404 @@
+
+{
+    "news": [
+        {
+            "link": "https://finance.yahoo.com/m/c2681e1a-97aa-3284-888a-29826de7c357/insect-infestation-ravages.html",
+            "providerPublishTime": 1721534177,
+            "publisher": "AFP",
+            "thumbnail": {
+                "resolutions": [
+                    {
+                        "height": 512,
+                        "tag": "original",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/G2dtf_SUxzIqAHIOWqVBTg--~B/aD01MTI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/afp.com/20e6bd8aa4826922ce95ab8a78d397ad",
+                        "width": 768
+                    },
+                    {
+                        "height": 140,
+                        "tag": "140x140",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/of82Zol7VKfkiH12NCvJ2A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/afp.com/20e6bd8aa4826922ce95ab8a78d397ad",
+                        "width": 140
+                    }
+                ]
+            },
+            "title": "Insect infestation ravages North African prickly pear",
+            "type": "STORY",
+            "uuid": "c2681e1a-97aa-3284-888a-29826de7c357"
+        },
+        {
+            "link": "https://finance.yahoo.com/news/ontario-lottery-gaming-corporation-evening-034800197.html",
+            "providerPublishTime": 1721533680,
+            "publisher": "CNW Group",
+            "thumbnail": {
+                "resolutions": [
+                    {
+                        "height": 16,
+                        "tag": "original",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/hQt4topDf4785wCkwqKG6Q--~B/aD0xNjt3PTE2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/cnwgroup.com/7b0548f062a7de9915acca40900862d0",
+                        "width": 16
+                    },
+                    {
+                        "height": 140,
+                        "tag": "140x140",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/9ZsMevR8UcQuc1EFMN9jzQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/cnwgroup.com/7b0548f062a7de9915acca40900862d0",
+                        "width": 140
+                    }
+                ]
+            },
+            "title": "Ontario Lottery and Gaming Corporation - EVENING LOTTERY WINNING NUMBERS - July 20, 2024",
+            "type": "STORY",
+            "uuid": "445d4bf0-cef0-32f9-baed-730a9816d64f"
+        },
+        {
+            "link": "https://finance.yahoo.com/m/5ab7d13e-bf70-3755-9765-371dedc80d4d/us-homeland-chief-hits-back.html",
+            "providerPublishTime": 1721533663,
+            "publisher": "AFP",
+            "thumbnail": {
+                "resolutions": [
+                    {
+                        "height": 522,
+                        "tag": "original",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/FljEg.vX7ar.d459GtiwSA--~B/aD01MjI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/afp.com/9b807dc6eb62757f532b81494a3fc53b",
+                        "width": 768
+                    },
+                    {
+                        "height": 140,
+                        "tag": "140x140",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/HLRKhTJLo5cZBkdz1MwmyA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/afp.com/9b807dc6eb62757f532b81494a3fc53b",
+                        "width": 140
+                    }
+                ]
+            },
+            "title": "US homeland chief hits back at attacks on women Secret Service agents",
+            "type": "STORY",
+            "uuid": "5ab7d13e-bf70-3755-9765-371dedc80d4d"
+        },
+        {
+            "link": "https://finance.yahoo.com/news/chinese-textile-expertise-dazzles-france-034400401.html",
+            "providerPublishTime": 1721533440,
+            "publisher": "Business Wire",
+            "thumbnail": {
+                "resolutions": [
+                    {
+                        "height": 320,
+                        "tag": "original",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/r08YXIg_vl.nZv2aEUc76w--~B/aD0zMjA7dz00ODA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/business-wire.com/b8d34d1fdd357bbcc87fbafdaa8b75c9",
+                        "width": 480
+                    },
+                    {
+                        "height": 140,
+                        "tag": "140x140",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/Xv_6kVdkiHcR7cLUcbvebw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/b8d34d1fdd357bbcc87fbafdaa8b75c9",
+                        "width": 140
+                    }
+                ]
+            },
+            "title": "Chinese Textile Expertise Dazzles France: When Intangible Cultural Heritage Reinvents Fashion",
+            "type": "STORY",
+            "uuid": "f98a7eec-a2ce-3719-8a5f-17be70b11f1c"
+        },
+        {
+            "link": "https://finance.yahoo.com/news/eyes-ai-drive-big-tech-032724037.html",
+            "providerPublishTime": 1721532444,
+            "publisher": "AFP",
+            "thumbnail": {
+                "resolutions": [
+                    {
+                        "height": 512,
+                        "tag": "original",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/1tD8e7VFVHWhbIh.1erG1w--~B/aD01MTI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/afp.com/99d9035fcb7940d6977a732969a8616a",
+                        "width": 768
+                    },
+                    {
+                        "height": 140,
+                        "tag": "140x140",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/ddktQFfzGCBgiJbyQUeG8w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/afp.com/99d9035fcb7940d6977a732969a8616a",
+                        "width": 140
+                    }
+                ]
+            },
+            "title": "All eyes on AI to drive Big Tech earnings",
+            "type": "STORY",
+            "uuid": "55a55c65-aec8-395f-b524-321f2d3c3160"
+        },
+        {
+            "link": "https://finance.yahoo.com/m/fac68488-2cd9-308c-892b-458cd301301d/five-takeaways-from-trump%27s.html",
+            "providerPublishTime": 1721531564,
+            "publisher": "AFP",
+            "thumbnail": {
+                "resolutions": [
+                    {
+                        "height": 512,
+                        "tag": "original",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/p1ZiR8Z3ykokfZgmKqc7vg--~B/aD01MTI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/afp.com/6e73cd1c323f9193ee8e7e99c7ced87e",
+                        "width": 768
+                    },
+                    {
+                        "height": 140,
+                        "tag": "140x140",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/1NcFFm8AbLFGvGFMGbdVUA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/afp.com/6e73cd1c323f9193ee8e7e99c7ced87e",
+                        "width": 140
+                    }
+                ]
+            },
+            "title": "Five takeaways from Trump's first rally since assassination bid",
+            "type": "STORY",
+            "uuid": "fac68488-2cd9-308c-892b-458cd301301d"
+        },
+        {
+            "link": "https://finance.yahoo.com/m/136a95ab-46b0-35d1-a288-68c558acf661/messi-less-miami-beat-chicago.html",
+            "providerPublishTime": 1721531318,
+            "publisher": "AFP",
+            "thumbnail": {
+                "resolutions": [
+                    {
+                        "height": 512,
+                        "tag": "original",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/F890RvayEM6xC_r8m8_.bA--~B/aD01MTI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/afp.com/db4d7a98e2e4ec996c78feb65ccde2c5",
+                        "width": 768
+                    },
+                    {
+                        "height": 140,
+                        "tag": "140x140",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/J3p_l16cdzP059tg0I3rdA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/afp.com/db4d7a98e2e4ec996c78feb65ccde2c5",
+                        "width": 140
+                    }
+                ]
+            },
+            "title": "Messi-less Miami beat Chicago 2-1 to stretch MLS lead",
+            "type": "STORY",
+            "uuid": "136a95ab-46b0-35d1-a288-68c558acf661"
+        },
+        {
+            "link": "https://finance.yahoo.com/m/a9327154-58d2-318a-9684-6594b16cb1a8/oil-tainted-lake-a-symptom%2C.html",
+            "providerPublishTime": 1721530313,
+            "publisher": "AFP",
+            "thumbnail": {
+                "resolutions": [
+                    {
+                        "height": 512,
+                        "tag": "original",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/6ebF060MdrZQENjpm1PoLw--~B/aD01MTI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/afp.com/5c6ac3336fca0039a08a7922e1ad0f87",
+                        "width": 768
+                    },
+                    {
+                        "height": 140,
+                        "tag": "140x140",
+                        "url": "https://s.yimg.com/uu/api/res/1.2/Zj1_c49MqbnfFL7A8_uwdg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/afp.com/5c6ac3336fca0039a08a7922e1ad0f87",
+                        "width": 140
+                    }
+                ]
+            },
+            "title": "Oil-tainted lake a symptom, and symbol, of Venezuela's collapse",
+            "type": "STORY",
+            "uuid": "a9327154-58d2-318a-9684-6594b16cb1a8"
+        }
+    ],
+    "result": {
+        "52WeekChange": 0.57330155,
+        "SandP52WeekChange": 0.2086575,
+        "address1": "Ahura Centre",
+        "address2": "4th Floor 82 Mahakali Caves Road, MIDC Andheri (East)",
+        "auditRisk": 3,
+        "averageDailyVolume10Day": 9230883,
+        "averageVolume": 11979064,
+        "averageVolume10days": 9230883,
+        "beta": 1.813,
+        "boardRisk": 5,
+        "bookValue": 221.588,
+        "city": "Mumbai",
+        "companyOfficers": [
+            {
+                "age": 54,
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Mr. Pathamadai Balachandran Balaji",
+                "title": "Group Chief Financial Officer",
+                "totalPay": 149174000,
+                "unexercisedValue": 0,
+                "yearBorn": 1969
+            },
+            {
+                "age": 52,
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Mr. Maloy Kumar Gupta",
+                "title": "Compliance Officer & Company Secretary",
+                "totalPay": 14982000,
+                "unexercisedValue": 0,
+                "yearBorn": 1971
+            },
+            {
+                "age": 53,
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Mr. Girish Arun Wagh",
+                "title": "President of Commercial Vehicles Business Unit & Executive Director",
+                "totalPay": 54825000,
+                "unexercisedValue": 0,
+                "yearBorn": 1970
+            },
+            {
+                "age": 56,
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Mr. Petkar M. Rajendra",
+                "title": "CTO & President",
+                "unexercisedValue": 0,
+                "yearBorn": 1967
+            },
+            {
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Mr. Rajesh  Kannan",
+                "title": "President and Chief Digital & Information Officer",
+                "unexercisedValue": 0
+            },
+            {
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Ms. Namrata  Divekar",
+                "title": "Head of Treasury and Investor Relations",
+                "unexercisedValue": 0
+            },
+            {
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Mr. Sudeep  Bhalla",
+                "title": "Head of Corporate Communications",
+                "unexercisedValue": 0
+            },
+            {
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Mr. Shubhranshu  Singh",
+                "title": "Vice President of Marketing of Domestic & International business",
+                "unexercisedValue": 0
+            },
+            {
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Mr. Sitaram  Kandi",
+                "title": "Chief Human Resource Officer",
+                "unexercisedValue": 0
+            },
+            {
+                "age": 60,
+                "exercisedValue": 0,
+                "fiscalYear": 2024,
+                "maxAge": 1,
+                "name": "Mr. R.  Ramakrishnan",
+                "title": "Global Head of Customer Care",
+                "unexercisedValue": 0,
+                "yearBorn": 1963
+            }
+        ],
+        "compensationAsOfEpochDate": 1735603200,
+        "compensationRisk": 8,
+        "country": "India",
+        "currency": "INR",
+        "currentPrice": 990,
+        "currentRatio": 0.97,
+        "dayHigh": 1024,
+        "dayLow": 986.65,
+        "debtToEquity": 117.15,
+        "dividendRate": 3,
+        "dividendYield": 0.003,
+        "earningsGrowth": 2.217,
+        "earningsQuarterlyGrowth": 2.219,
+        "ebitda": 485433016320,
+        "ebitdaMargins": 0.11085,
+        "enterpriseToEbitda": 9.125,
+        "enterpriseToRevenue": 1.011,
+        "enterpriseValue": 4429435109376,
+        "exDividendDate": 1718064000,
+        "exchange": "NSI",
+        "fiftyDayAverage": 973.029,
+        "fiftyTwoWeekHigh": 1065.6,
+        "fiftyTwoWeekLow": 593.3,
+        "financialCurrency": "INR",
+        "firstTradeDateEpochUtc": 662787900,
+        "fiveYearAvgDividendYield": 1.11,
+        "floatShares": 2136168278,
+        "freeCashflow": 170351886336,
+        "fullTimeEmployees": 91496,
+        "gmtOffSetMilliseconds": 19800000,
+        "governanceEpochDate": 1719792000,
+        "grossMargins": 0.43827,
+        "heldPercentInsiders": 0.47926998,
+        "heldPercentInstitutions": 0.23431998,
+        "impliedSharesOutstanding": 3852760064,
+        "industry": "Auto Manufacturers",
+        "industryDisp": "Auto Manufacturers",
+        "industryKey": "auto-manufacturers",
+        "lastDividendDate": 1718064000,
+        "lastDividendValue": 3,
+        "lastFiscalYearEnd": 1711843200,
+        "lastSplitDate": 1315785600,
+        "lastSplitFactor": "5:1",
+        "longBusinessSummary": "Tata Motors Limited designs, develops, manufactures, and sells various automotive vehicles. The company offers passenger cars; sports utility vehicles; intermediate and light commercial vehicles; small, medium, and heavy commercial vehicles; defense vehicles; pickups, wingers, buses, vans, and trucks; and electric vehicles, as well as related spare parts and accessories. It also manufactures engines for industrial applications, and aggregates comprising axles and transmissions for commercial vehicles; and factory automation equipment, as well as provides information technology and vehicle financing services. The company offers its products under the Tata, Daewoo, Harrier, Safari, Fiat, Nexon, Altroz, Punch, Tiago, Tigor, Jaguar, and Land Rover brands. It operates in India, China, the United States, the United Kingdom, rest of Europe, and internationally. It offers its products to fleet owners, transporters, government agencies, defense, public transport utilities, small and medium enterprises (SMEs), agriculture and rural segment, mining and construction industry, etc. The company was incorporated in 1945 and is headquartered in Mumbai, India.",
+        "longName": "Tata Motors Limited",
+        "marketCap": 3635695845376,
+        "maxAge": 86400,
+        "messageBoardId": "finmb_874652",
+        "mostRecentQuarter": 1711843200,
+        "netIncomeToCommon": 313990905856,
+        "nextFiscalYearEnd": 1743379200,
+        "open": 1024,
+        "operatingCashflow": 679153631232,
+        "operatingMargins": 0.06937,
+        "overallRisk": 6,
+        "payoutRatio": 0.024400001,
+        "phone": "91 22 6240 7101",
+        "previousClose": 1024.55,
+        "priceHint": 2,
+        "priceToBook": 4.467751,
+        "priceToSalesTrailing12Months": 0.8302044,
+        "profitMargins": 0.0717,
+        "quickRatio": 0.62,
+        "quoteType": "EQUITY",
+        "recommendationKey": "none",
+        "regularMarketDayHigh": 1024,
+        "regularMarketDayLow": 986.65,
+        "regularMarketOpen": 1024,
+        "regularMarketPreviousClose": 1024.55,
+        "regularMarketVolume": 7398271,
+        "returnOnAssets": 0.06245,
+        "returnOnEquity": 0.42200002,
+        "revenueGrowth": 0.133,
+        "revenuePerShare": 1143.185,
+        "sector": "Consumer Cyclical",
+        "sectorDisp": "Consumer Cyclical",
+        "sectorKey": "consumer-cyclical",
+        "shareHolderRightsRisk": 7,
+        "sharesOutstanding": 3324659968,
+        "shortName": "TATA MOTORS LTD.",
+        "symbol": "TATAMOTORS.NS",
+        "timeZoneFullName": "Asia/Kolkata",
+        "timeZoneShortName": "IST",
+        "totalCash": 592166387712,
+        "totalCashPerShare": 154.522,
+        "totalDebt": 1120443695104,
+        "totalRevenue": 4379277787136,
+        "trailingAnnualDividendRate": 3,
+        "trailingAnnualDividendYield": 0.0029281147,
+        "trailingEps": 81.87,
+        "trailingPE": 12.092341,
+        "trailingPegRatio": null,
+        "twoHundredDayAverage": 878.0795,
+        "underlyingSymbol": "TATAMOTORS.NS",
+        "uuid": "ddba5579-685b-35a6-8ca9-fdc0ae8f12f6",
+        "volume": 7398271,
+        "website": "https://www.tatamotors.com",
+        "zip": "400 093"
+    }
+}

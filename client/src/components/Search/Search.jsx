@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../UserContext.jsx";
 import stocksData from "../../assets/data/nse.json"; 
 import "./search.css";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const { setCurrStockData } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,7 +33,7 @@ const Search = () => {
 
   const handleSuggestionClick = (stock) => {
     console.log("Selected stock:", stock); 
-    setCurrStockData(stock);
+    localStorage.setItem('currStockData', stock.SYMBOL)
     navigate("/stockinfo");
   };
 

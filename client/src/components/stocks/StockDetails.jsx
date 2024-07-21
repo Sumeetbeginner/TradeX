@@ -4,15 +4,17 @@ import './stocks.css'
 import { useNavigate } from 'react-router-dom';
 
 const StockInfo = () => {
-  const { currStockData } = useContext(UserContext);
+ 
   const [stockData, setStockData] = useState(null);
   const [error, setError] = useState('');
+
+  let currStockData = localStorage.getItem('currStockData') || null;
 
   const navigate = useNavigate()
 
   useEffect(() => {
     const fetchStockInfo = async () => {
-      if (!currStockData || !currStockData.SYMBOL) {
+      if (!currStockData) {
         navigate('/')
         setError('No stock selected');
         return;
@@ -24,7 +26,7 @@ const StockInfo = () => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ stockTicker: currStockData.SYMBOL })
+          body: JSON.stringify({ stockTicker: currStockData })
         });
 
         if (!response.ok) {
@@ -33,6 +35,7 @@ const StockInfo = () => {
 
         const data = await response.json();
         setStockData(data);
+        console.log(data);
         setError('');
       } catch (error) {
         console.error('Error fetching stock data:', error);
@@ -44,9 +47,9 @@ const StockInfo = () => {
     fetchStockInfo();
   }, [currStockData]);
 
-  useEffect(() => {
-    console.log(currStockData);
-  }, [currStockData])
+  // useEffect(() => {
+  //   console.log(currStockData);
+  // }, [currStockData])
 
   return (
     <div className='stockDBody'>
