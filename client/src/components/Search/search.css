@@ -1,0 +1,53 @@
+
+.search-container {
+    position: relative;
+    width: 80%;
+  }
+  
+  .suggestions {
+    position: absolute;
+    top: 11.5%;
+    left: 6.1%;
+    right: 0;
+    border-radius: 10px;
+    /* background-color: var(--dark); */
+    z-index: 1000;
+    width: 50%;
+  
+  
+  }
+  
+  .suggestion {
+    padding: 10px;
+    cursor: pointer;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    padding: 0% 3%;
+    font-size: 17px;
+    border: solid 2px var(--light);
+    border-radius: 10px;
+    background-color: var(--dark);
+  }
+  
+  .suggestion:hover {
+    background-color: var(--material);
+  }
+  
+  .search-container input{
+    width: 55%;
+    height: 6vh;
+    border: none;
+    outline: none;
+    margin-left: 6%;
+    background-color: var(--dark);
+    font-size: 18px;
+    padding: 0.2% 2%;
+    color: white;
+    margin-top: 2.5%;
+    border-radius: 10px;
+  }
+
+  .suggestion:active{
+    background-color: var(--material);
+  }

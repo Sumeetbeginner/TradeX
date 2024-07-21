@@ -15,7 +15,7 @@
 
 <!-- 8. Navbar with Element and active -> Home, Portfolio,Search, Wishlist, wallet, setting, profile -->
 
-9. Logout functionality
+9. Create a Search bar a on search page and search stock based on  nse csv file and store that stock file currStock Variable Global
 
 
 

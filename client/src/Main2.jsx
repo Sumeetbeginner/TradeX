@@ -13,12 +13,13 @@ import Setting from './components/Setting/Setting';
 import Wallet from './components/Wallet/Wallet';
 import { UserContext } from './UserContext.jsx';
 import Search from './components/Search/Search.jsx';
+import StockDetails from './stocks/StockDetails.jsx';
 
 
 const Main2 = () => {
   const location = useLocation();
   const navigate = useNavigate()
-  const noNavbarPaths = ['/welcome', '/signup', '/login', '/setting', '/profile'];
+  const noNavbarPaths = ['/welcome', '/signup', '/login', '/setting', '/profile', '/stockinfo'];
   const { user, loading } = useContext(UserContext);
 
 
@@ -39,6 +40,7 @@ const Main2 = () => {
         <Route path='/profile' element={<Profile />} />
         <Route path='/wallet' element={<Wallet />} />
         <Route path='/search' element={<Search />} />
+        <Route path='/stockinfo' element={<StockDetails />} />
       </Routes>
       </div>
     </>
