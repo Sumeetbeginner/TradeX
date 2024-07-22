@@ -24,7 +24,7 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 12. Show Stock Name Price and Change and Navbar -->
 
-13. User Chartjs and show open, low, high , current on line chart
+<!-- 13. User Chartjs and show open, low, high , current on line chart -->
 
 
 

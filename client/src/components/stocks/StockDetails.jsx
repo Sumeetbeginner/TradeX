@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import StockLineChart from "./StockChart";
 import "./stocks.css";
 
 const StockInfo = () => {
@@ -38,7 +39,6 @@ const StockInfo = () => {
       } catch (error) {
         console.error("Error fetching stock data:", error);
         setError("Failed to fetch stock data. Please try again.");
-        
         setStockData(null);
       }
     };
@@ -51,16 +51,12 @@ const StockInfo = () => {
       const setImpStock = () => {
         if (!stockData) return;
 
-        console.log(stockData);
         let stockMoneyC =
           Number(stockData.result.currentPrice) - Number(stockData.result.open);
-
-        stockMoneyC = stockMoneyC.toFixed(2);
         let stockPChange = (
           (stockMoneyC / Number(stockData.result.open)) *
           100
         ).toFixed(2);
-        console.log(stockMoneyC);
 
         setImpStockData({
           name: stockData.result.shortName,
@@ -70,7 +66,7 @@ const StockInfo = () => {
           dayLow: stockData.result.dayLow,
           currPrice: stockData.result.currentPrice,
           percentageChange: stockPChange,
-          stockPriceChange: stockMoneyC,
+          stockPriceChange: stockMoneyC.toFixed(2),
           currVolume: stockData.result.volume,
           avgVolume: stockData.result.averageVolume,
           address: stockData.result.address2,
@@ -86,8 +82,6 @@ const StockInfo = () => {
           twoHundredDayAverage: stockData.result.twoHundredDayAverage,
           website: stockData.result.website,
         });
-
-        console.log(impStockData);
       };
 
       setImpStock();
@@ -98,6 +92,7 @@ const StockInfo = () => {
     <div className="stockDBody">
       {error && <p style={{ color: "red" }}>{error}</p>}
       {stockData ? (
+
         <div className="stockDashboard">
           <div className="stockTopBar">
             <div className="leftI">
@@ -116,55 +111,71 @@ const StockInfo = () => {
           </div>
 
           <div className="flexStock">
+
             <div className="leftStock">
-              <div className="topDetails">
-                <div className="stockDL">
-                  <h1 className="stockName">{impStockData?.name} </h1>
-                  <h3 className="stockSymbol">{impStockData?.symbol}</h3>
-                </div>
 
-                <div className="stockP">
-                  <h2 className="stockPrice">₹{impStockData?.currPrice}</h2>
+              <div className="topDetailsBro">
 
-                  <div className="flexC">
-                    <p
-                      className="stockPriceC"
-                      style={{
-                        color:
-                          Number(impStockData?.stockPriceChange) >= 0
-                            ? "green"
-                            : "red",
-                      }}
-                    >
-                      ₹{impStockData?.stockPriceChange}
-                      <i
-                        className={`fa-solid ${
-                          Number(impStockData?.stockPriceChange) >= 0
-                            ? "fa-arrow-trend-up"
-                            : "fa-arrow-trend-down"
-                        }`}
-                      ></i>
-                    </p>
-                    <p
-                      className="stockChange"
-                      style={{
-                        color:
-                          Number(impStockData?.percentageChange) >= 0
-                            ? "green"
-                            : "red",
-                      }}
-                    >
-                      ({Number(impStockData?.percentageChange).toFixed(2)}%)
-                    </p>
+                  <div className="stockNameTop">
+
+                    <h1 className="stockName">{impStockData?.name}</h1>
+
+                    <h3 className="stockSymbol">{impStockData?.symbol}</h3>
                   </div>
-                </div>
+
+                  <div className="stockPBro">
+
+                    <h2 className="stockPrice">
+                      ₹{Number(impStockData?.currPrice).toFixed(2)}
+                    </h2>
+
+                    <div className="flexCBro">
+                      <p
+                        className="stockPriceC"
+                        style={{
+                          color:
+                            Number(impStockData?.stockPriceChange) >= 0
+                              ? "green"
+                              : "red",
+                        }}
+                      >
+                        ₹{impStockData?.stockPriceChange}
+                        <i
+                          className={`fa-solid ${
+                            Number(impStockData?.stockPriceChange) >= 0
+                              ? "fa-arrow-trend-up"
+                              : "fa-arrow-trend-down"
+                          }`}
+                        ></i>
+                      </p>
+                      <p
+                        className="stockChange"
+                        style={{
+                          color:
+                            Number(impStockData?.percentageChange) >= 0
+                              ? "green"
+                              : "red",
+                        }}
+                      >
+                        ({Number(impStockData?.percentageChange).toFixed(2)}%)
+                      </p>
+                    </div>
+
+                  </div>
+               
               </div>
+
+              <div className="stockChart">
+                {impStockData && <StockLineChart stockData={impStockData} />}
+              </div>
+
             </div>
+
             <div className="rightStock"></div>
           </div>
 
-
         </div>
+
       ) : (
         <div className="loader"></div>
       )}
