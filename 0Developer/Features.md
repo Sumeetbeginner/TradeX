@@ -29,3 +29,5 @@ and pass the stock data on stockinfo page var -->
 <!-- 14. Update Value Call server stock update Every 5 second and reload functionality -->
 
 <!-- 15. Button Buy and Sell and imp info unscrollable on left side box -->
+
+<!-- 16. All Other Data on right side stock box scrollable -->

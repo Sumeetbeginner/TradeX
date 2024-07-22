@@ -56,18 +56,17 @@ const StockInfo = () => {
 
   const formatNumber = (num) => {
     if (num >= 1e12) {
-      return (num / 1e12).toFixed(1) + 'T';
+      return (num / 1e12).toFixed(1) + "T";
     } else if (num >= 1e9) {
-      return (num / 1e9).toFixed(1) + 'B';
+      return (num / 1e9).toFixed(1) + "B";
     } else if (num >= 1e6) {
-      return (num / 1e6).toFixed(1) + 'M';
+      return (num / 1e6).toFixed(1) + "M";
     } else if (num >= 1e3) {
-      return (num / 1e3).toFixed(1) + 'K';
+      return (num / 1e3).toFixed(1) + "K";
     } else {
       return num.toString();
     }
   };
-  
 
   useEffect(() => {
     if (stockData) {
@@ -90,20 +89,24 @@ const StockInfo = () => {
           currPrice: stockData.result.currentPrice, //Done
           percentageChange: stockPChange, //Done
           stockPriceChange: stockMoneyC.toFixed(2), //Done
-          currVolume: stockData.result.volume,
-          avgVolume: stockData.result.averageVolume,
-          address: stockData.result.address2,
-          fiftyDayAverage: Number(stockData.result.fiftyDayAverage).toFixed(2),
-          fiftyTwoWeekHigh: stockData.result.fiftyTwoWeekHigh,
-          industry: stockData.result.industry,
-          longBusinessSummary: stockData.result.longBusinessSummary,
-          marketCap: formatNumber(stockData.result.marketCap),
-          previousClose: stockData.result.previousClose,
-          sector: stockData.result.sector,
-          totalDebt: stockData.result.totalDebt,
-          totalRevenue: stockData.result.totalRevenue,
-          twoHundredDayAverage: Number(stockData.result.twoHundredDayAverage).toFixed(2),
+          currVolume: formatNumber(Number(stockData.result.volume)), //Done
+          avgVolume: formatNumber(Number(stockData.result.averageVolume)), //Done
+          address: stockData.result.address2, //Done
+          fiftyDayAverage: Number(stockData.result.fiftyDayAverage).toFixed(2), // Done
+          fiftyTwoWeekHigh: stockData.result.fiftyTwoWeekHigh, //Done
+          fiftyTwoWeekLow: stockData.result.fiftyTwoWeekLow, //Done
+          industry: stockData.result.industry, //Done
+          longBusinessSummary: stockData.result.longBusinessSummary, //Done
+          marketCap: formatNumber(stockData.result.marketCap), //Done
+          previousClose: stockData.result.previousClose,//Done
+          totalDebt: formatNumber(Number(stockData.result.totalDebt)), //Done
+          totalRevenue: formatNumber(Number(stockData.result.totalRevenue)), //Done
+          twoHundredDayAverage: Number(
+            stockData.result.twoHundredDayAverage
+          ).toFixed(2), //Done
           website: stockData.result.website,
+          longName: stockData.result.longName, //Done
+          city: stockData.result.city, //Done
         });
       };
 
@@ -206,7 +209,8 @@ const StockInfo = () => {
                   </span>
                   <span className="spanBro">
                     {" "}
-                    <span>200 Day Avg</span> : ₹{impStockData?.twoHundredDayAverage}
+                    <span>200 Day Avg</span> : ₹
+                    {impStockData?.twoHundredDayAverage}
                   </span>
                 </div>
               </div>
@@ -216,7 +220,62 @@ const StockInfo = () => {
               </div>
             </div>
 
-            <div className="rightStock"></div>
+            <div className="rightStock">
+              <div className="industryT">
+                <span>Industry : </span> {impStockData?.industry}
+              </div>
+
+              <div className="impDataDown impD2">
+                <div className="impDC">
+                  <span className="spanBro sp2">
+                    {" "}
+                    <span>52 Week High</span> : ₹
+                    {impStockData?.fiftyTwoWeekHigh}
+                  </span>
+                  <span className="spanBro">
+                    {" "}
+                    <span>52 Week Low</span> : ₹{impStockData?.fiftyTwoWeekLow}
+                  </span>
+                  <span className="spanBro">
+                    {" "}
+                    <span>Avg Volume</span> : {impStockData?.avgVolume}
+                  </span>
+                </div>
+                <hr className="lineB"></hr>
+                <div className="impDC">
+                  <span className="spanBro sp2">
+                    {" "}
+                    <span>Total Debt</span> : ₹{impStockData?.totalDebt}
+                  </span>
+                  <span className="spanBro">
+                    {" "}
+                    <span>Total Revenue</span> : ₹{impStockData?.totalRevenue}
+                  </span>
+                  <span className="spanBro">
+                    {" "}
+                    <span>Previous Close</span> : ₹{impStockData?.previousClose}
+                  </span>
+                </div>
+              </div>
+
+              <div className="companyInfo">
+                <h1>{impStockData?.longName}</h1>
+
+                <details>
+                  <summary>Company Information</summary>
+                
+                  <p>{impStockData?.longBusinessSummary}</p>
+                  
+                </details>
+
+                <div className="companyAdd">
+                  <span>Address : </span> {impStockData?.address}, {impStockData?.city}
+                </div>
+                <div className="companyWeb">
+                  <span>Website : </span> <a target="_blank" href={impStockData?.website}>{impStockData?.website}</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       ) : (
