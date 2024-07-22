@@ -19,7 +19,7 @@
 
 }
 
-.flexStock div{
+.leftStock, .rightStock{
     width: 48%;
     border-radius: 15px;
     height: 85vh;
@@ -35,7 +35,7 @@
 
 .rightI{
     display: flex;
-    margin-right: 23%;
+    margin-right: 20%;
     gap: 40%;    
 }
 
@@ -43,84 +43,123 @@
     cursor: pointer;
 }
 
+.leftI{
+    margin-left: 3%;
+}
 
 .topDetailsBro{
-    width: 100% !important;
-    /* background-color: red !important; */
     display: flex;
-    height: fit-content !important;
+    margin-top: 4%;
+}
+
+.stockNameTop{
+    margin-right: auto;
+    margin-left: 5%;
+}
+
+.stockPBro{
+    margin-right: 7%;
+    font-weight: 600;
+}
+
+.stockPrice{
+    font-size: 32px;
+    
+}
+
+.stockPriceC{
+    font-size: 19px
 }
 
 .flexCBro{
     display: flex;
-    height: fit-content !important;
 }
 
 .flexCBro p{
-    height: fit-content !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8%;
 }
 
-.topDetailsBro div{
-    height: fit-content !important;
+.stockChange{
+    margin-left: 12%;
+    font-size: 19px
 }
 
-.stockChart{
-    height: fit-content !important;
-    width:90% !important;
-  
+.stockChart {
+    width: 90%;
+    display: block;
     margin: auto;
-    margin-top: 6%;
-}
-
-.stockPBro{
-    width: fit-content !important;
-    margin-left: auto;
-    margin-right: 6%;
-    margin-top: 3%;
-}
-
-.leftI {
-    margin-left: 3%;
-}
-
-.stockPrice{
-    font-size: 33px;
-    
+    margin-top: 4%;
+    height: 39vh;
 }
 
 .stockName{
-    font-size: 30px;
-    margin-top: 7%;
-    margin-left: 8%;
-    white-space: nowrap;
     color: var(--logo);
 }
 
 .stockSymbol{
-    font-size: 20px;
-    margin-left: 8%;
     opacity: 0.5;
-    margin-top: 1.3%;
+    margin-top: 1.1%;
 }
 
-
-.stockPriceC{
+.impDataDown{
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 5%;
-    font-size: 22px;
+    gap: 10%;
+    margin-top: 3%;
 }
 
-.stockPriceC i{
-    font-size: 22px;
+.impDataDown div{
+    font-size: 19px;
 }
 
-.stockChange{
-    margin-left: 14%;
-    font-size: 22px;
+.sp2{
+    margin-top: 0% !important;
 }
 
-.stockTopBar i:hover{
+.spanBro{
+    display: block;
+    margin-top: 15%;
+}
+
+.spanBro span{
     color: var(--logo);
+    font-weight: 600;
+   
+}
+
+.lineB{
+    width: 0.7%;
+    background-color: var(--logo);
+    border: none;
+    outline: none;
+}
+
+.btnActionBS{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 7%;
+}
+
+.btnActionBS button{
+    width: 20%;
+    height: 5vh;
+    font-size: 19px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buyBtn{
+    background-color: red;
+    color: white;
+}
+
+.sellBtn{
+    background-color: green;
+    color: white;
 }

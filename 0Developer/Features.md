@@ -26,5 +26,6 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 13. User Chartjs and show open, low, high , current on line chart -->
 
+<!-- 14. Update Value Call server stock update Every 5 second and reload functionality -->
 
-
+<!-- 15. Button Buy and Sell and imp info unscrollable on left side box -->
