@@ -31,3 +31,7 @@ and pass the stock data on stockinfo page var -->
 <!-- 15. Button Buy and Sell and imp info unscrollable on left side box -->
 
 <!-- 16. All Other Data on right side stock box scrollable -->
+
+<!-- 17. Create a Save functionality -->
+
+18. Fix a Bug in Saved functionality everything is working right but if its saved and at initialization it doesnt check

@@ -6,7 +6,6 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  // const [currStockData, setCurrStockData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -33,6 +32,18 @@ export const UserProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+  const toggleSavedStock = (ticker) => {
+    setUser((prevData) => {
+      const savedStocks = prevData.savedStocks || [];
+      const isSaved = savedStocks.includes(ticker);
+      const updatedSavedStocks = isSaved
+        ? savedStocks.filter((stock) => stock !== ticker)
+        : [...savedStocks, ticker];
+
+      return { ...prevData, savedStocks: updatedSavedStocks };
+    });
+  };
+
   useEffect(() => {
     if (user) {
       const userRef = ref(database, `users/${user.uid}`);
@@ -42,6 +53,12 @@ export const UserProvider = ({ children }) => {
     }
   }, [user]);
 
+  const isStockSaved = (ticker) => {
+    console.log(user);
+    return user?.savedStocks?.includes(ticker) || false;
+  };
+  
+
   useEffect(() => {
     if (user !== null) {
       setLoading(false);
@@ -49,7 +66,7 @@ export const UserProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <UserContext.Provider value={{ user, setUser, loading }}>
+    <UserContext.Provider value={{ user, setUser, loading, toggleSavedStock, isStockSaved }}>
       {children}
     </UserContext.Provider>
   );

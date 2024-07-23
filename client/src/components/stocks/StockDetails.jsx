@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import StockLineChart from "./StockChart";
+import { UserContext } from "../../UserContext";
 import "./stocks.css";
 
 const StockInfo = () => {
   const [stockData, setStockData] = useState(null);
   const [impStockData, setImpStockData] = useState(null);
   const [error, setError] = useState("");
+  const [savedTrue, setSavedTrue] = useState(false); // Initialize as boolean
+  const savedIconRef = useRef(null);
 
   const currStockData = localStorage.getItem("currStockData");
 
   const navigate = useNavigate();
+
+  const { setUser, user, toggleSavedStock, isStockSaved } = useContext(UserContext);
 
   const fetchStockInfo = async () => {
     if (!currStockData) {
@@ -34,7 +39,6 @@ const StockInfo = () => {
 
       const data = await response.json();
       setStockData(data);
-      console.log(data);
       setError("");
     } catch (error) {
       console.error("Error fetching stock data:", error);
@@ -45,14 +49,28 @@ const StockInfo = () => {
 
   useEffect(() => {
     fetchStockInfo();
-  }, []);
+  }, [currStockData]);
 
   useEffect(() => {
-    const intervalId = setInterval(fetchStockInfo, 500000);
-    // Change it the five seconds later
+    if (currStockData) {
+      const checkSavedStatus = async () => {
+        try {
+          const isSaved = await isStockSaved(currStockData); // Ensure it returns a boolean
+          console.log("Is stock saved:", isSaved); // Debugging line
+          setSavedTrue(isSaved);
+        } catch (error) {
+          console.error("Error checking stock saved status:", error);
+        }
+      };
+      checkSavedStatus();
+    }
+  }, [currStockData, isStockSaved]);
 
-    return () => clearInterval(intervalId);
-  }, [currStockData]);
+  useEffect(() => {
+    if (savedIconRef.current) {
+      savedIconRef.current.style.color = savedTrue ? "var(--logo)" : "white";
+    }
+  }, [savedTrue]); // Ensure this effect runs when savedTrue changes
 
   const formatNumber = (num) => {
     if (num >= 1e12) {
@@ -65,6 +83,13 @@ const StockInfo = () => {
       return (num / 1e3).toFixed(1) + "K";
     } else {
       return num.toString();
+    }
+  };
+
+  const handleSaveClick = () => {
+    if (currStockData) {
+      toggleSavedStock(currStockData);
+      setSavedTrue(prevSavedTrue => !prevSavedTrue); // Toggle the state
     }
   };
 
@@ -81,32 +106,30 @@ const StockInfo = () => {
         ).toFixed(2);
 
         setImpStockData({
-          name: stockData.result.shortName, //Done
-          symbol: stockData.result.symbol, //Done
-          open: stockData.result.open, //Done
-          dayHigh: stockData.result.dayHigh, //Done
-          dayLow: stockData.result.dayLow, //Done
-          currPrice: stockData.result.currentPrice, //Done
-          percentageChange: stockPChange, //Done
-          stockPriceChange: stockMoneyC.toFixed(2), //Done
-          currVolume: formatNumber(Number(stockData.result.volume)), //Done
-          avgVolume: formatNumber(Number(stockData.result.averageVolume)), //Done
-          address: stockData.result.address2, //Done
-          fiftyDayAverage: Number(stockData.result.fiftyDayAverage).toFixed(2), // Done
-          fiftyTwoWeekHigh: stockData.result.fiftyTwoWeekHigh, //Done
-          fiftyTwoWeekLow: stockData.result.fiftyTwoWeekLow, //Done
-          industry: stockData.result.industry, //Done
-          longBusinessSummary: stockData.result.longBusinessSummary, //Done
-          marketCap: formatNumber(stockData.result.marketCap), //Done
-          previousClose: stockData.result.previousClose,//Done
-          totalDebt: formatNumber(Number(stockData.result.totalDebt)), //Done
-          totalRevenue: formatNumber(Number(stockData.result.totalRevenue)), //Done
-          twoHundredDayAverage: Number(
-            stockData.result.twoHundredDayAverage
-          ).toFixed(2), //Done
+          name: stockData.result.shortName,
+          symbol: stockData.result.symbol,
+          open: stockData.result.open,
+          dayHigh: stockData.result.dayHigh,
+          dayLow: stockData.result.dayLow,
+          currPrice: stockData.result.currentPrice,
+          percentageChange: stockPChange,
+          stockPriceChange: stockMoneyC.toFixed(2),
+          currVolume: formatNumber(Number(stockData.result.volume)),
+          avgVolume: formatNumber(Number(stockData.result.averageVolume)),
+          address: stockData.result.address2,
+          fiftyDayAverage: Number(stockData.result.fiftyDayAverage).toFixed(2),
+          fiftyTwoWeekHigh: stockData.result.fiftyTwoWeekHigh,
+          fiftyTwoWeekLow: stockData.result.fiftyTwoWeekLow,
+          industry: stockData.result.industry,
+          longBusinessSummary: stockData.result.longBusinessSummary,
+          marketCap: formatNumber(stockData.result.marketCap),
+          previousClose: stockData.result.previousClose,
+          totalDebt: formatNumber(Number(stockData.result.totalDebt)),
+          totalRevenue: formatNumber(Number(stockData.result.totalRevenue)),
+          twoHundredDayAverage: Number(stockData.result.twoHundredDayAverage).toFixed(2),
           website: stockData.result.website,
-          longName: stockData.result.longName, //Done
-          city: stockData.result.city, //Done
+          longName: stockData.result.longName,
+          city: stockData.result.city,
         });
       };
 
@@ -121,13 +144,15 @@ const StockInfo = () => {
         <div className="stockDashboard">
           <div className="stockTopBar">
             <div className="leftI">
-              <i
-                onClick={() => navigate("/search")}
-                className="fa-solid fa-arrow-left"
-              ></i>
+              <i onClick={() => navigate("/search")} className="fa-solid fa-arrow-left"></i>
             </div>
             <div className="rightI">
-              <i className="fa-solid fa-bookmark"></i>
+              <i
+                ref={savedIconRef}
+                id="savedIcon"
+                onClick={() => handleSaveClick()}
+                className={`fa-solid fa-bookmark ${savedTrue ? 'active' : 'not-active'}`}
+              ></i>
               <i className="fa-solid fa-chart-simple"></i>
               <i className="fa-solid fa-newspaper"></i>
               <i className="fa-solid fa-download"></i>
@@ -143,7 +168,6 @@ const StockInfo = () => {
               <div className="topDetailsBro">
                 <div className="stockNameTop">
                   <h1 className="stockName">{impStockData?.name}</h1>
-
                   <h3 className="stockSymbol">{impStockData?.symbol}</h3>
                 </div>
 
@@ -263,16 +287,17 @@ const StockInfo = () => {
 
                 <details>
                   <summary>Company Information</summary>
-                
                   <p>{impStockData?.longBusinessSummary}</p>
-                  
                 </details>
 
                 <div className="companyAdd">
                   <span>Address : </span> {impStockData?.address}, {impStockData?.city}
                 </div>
                 <div className="companyWeb">
-                  <span>Website : </span> <a target="_blank" href={impStockData?.website}>{impStockData?.website}</a>
+                  <span>Website : </span>{" "}
+                  <a target="_blank" rel="noopener noreferrer" href={impStockData?.website}>
+                    {impStockData?.website}
+                  </a>
                 </div>
               </div>
             </div>
