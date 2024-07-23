@@ -10,6 +10,8 @@ CORS(app)
 def welcome():
     return jsonify('Hello To Trade X')
 
+
+# Get Stock Info with the help of its ticker
 # {
 #     "stockTicker" : "ZOMATO"
 # }

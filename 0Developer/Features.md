@@ -34,4 +34,6 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 17. Create a Save functionality -->
 
-18. Fix a Bug in Saved functionality everything is working right but if its saved and at initialization it doesnt check
+<!-- 18. Fix a Bug in Saved functionality everything is working right but if its saved and at initialization it doesnt check -->
+
+<!-- 19. Make Full Code Manageable with comments if needed... -->

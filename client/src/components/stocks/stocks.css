@@ -249,7 +249,7 @@ details p{
     margin-bottom: 5%;
 }
 
-.active{
+.stockDashboard .active{
   color: var(--logo);
 
 }

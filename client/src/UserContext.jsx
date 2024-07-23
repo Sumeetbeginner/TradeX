@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Check if user is authenticated or not and if yes it retrieves data from firebase and store it in user
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
@@ -32,6 +33,30 @@ export const UserProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+  //Updates user in firebase everytime the the user data changes
+  useEffect(() => {
+    if (user) {
+      const userRef = ref(database, `users/${user.uid}`);
+      set(userRef, user).catch((error) => {
+        console.error("Error updating user data:", error);
+      });
+    }
+  }, [user]);
+
+  // Wait until data is retrieved from firebase
+  useEffect(() => {
+    if (user !== null) {
+      setLoading(false);
+    }
+  }, [user]);
+
+  // Check if ticker exists in savedStock or not
+  const isStockSaved = (ticker) => {
+    console.log(user);
+    return user?.savedStocks?.includes(ticker) || false;
+  };
+
+  // Handle Stock (Add or Remove Stocks from savedStocks)
   const toggleSavedStock = (ticker) => {
     setUser((prevData) => {
       const savedStocks = prevData.savedStocks || [];
@@ -43,27 +68,6 @@ export const UserProvider = ({ children }) => {
       return { ...prevData, savedStocks: updatedSavedStocks };
     });
   };
-
-  useEffect(() => {
-    if (user) {
-      const userRef = ref(database, `users/${user.uid}`);
-      set(userRef, user).catch((error) => {
-        console.error("Error updating user data:", error);
-      });
-    }
-  }, [user]);
-
-  const isStockSaved = (ticker) => {
-    console.log(user);
-    return user?.savedStocks?.includes(ticker) || false;
-  };
-  
-
-  useEffect(() => {
-    if (user !== null) {
-      setLoading(false);
-    }
-  }, [user]);
 
   return (
     <UserContext.Provider value={{ user, setUser, loading, toggleSavedStock, isStockSaved }}>

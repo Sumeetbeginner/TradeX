@@ -8,15 +8,18 @@ const StockInfo = () => {
   const [stockData, setStockData] = useState(null);
   const [impStockData, setImpStockData] = useState(null);
   const [error, setError] = useState("");
-  const [savedTrue, setSavedTrue] = useState(false); // Initialize as boolean
+  const [savedTrue, setSavedTrue] = useState(false);
   const savedIconRef = useRef(null);
 
+  // Clicked Stock Ticker
   const currStockData = localStorage.getItem("currStockData");
 
   const navigate = useNavigate();
 
-  const { setUser, user, toggleSavedStock, isStockSaved } = useContext(UserContext);
+  const { toggleSavedStock, isStockSaved } = useContext(UserContext);
 
+  
+  // Fetch Stock info with the help of ticker from server
   const fetchStockInfo = async () => {
     if (!currStockData) {
       navigate("/");
@@ -47,31 +50,7 @@ const StockInfo = () => {
     }
   };
 
-  useEffect(() => {
-    fetchStockInfo();
-  }, [currStockData]);
-
-  useEffect(() => {
-    if (currStockData) {
-      const checkSavedStatus = async () => {
-        try {
-          const isSaved = await isStockSaved(currStockData); // Ensure it returns a boolean
-          console.log("Is stock saved:", isSaved); // Debugging line
-          setSavedTrue(isSaved);
-        } catch (error) {
-          console.error("Error checking stock saved status:", error);
-        }
-      };
-      checkSavedStatus();
-    }
-  }, [currStockData, isStockSaved]);
-
-  useEffect(() => {
-    if (savedIconRef.current) {
-      savedIconRef.current.style.color = savedTrue ? "var(--logo)" : "white";
-    }
-  }, [savedTrue]); // Ensure this effect runs when savedTrue changes
-
+  // Format Number : Ex - 1000 = 1K
   const formatNumber = (num) => {
     if (num >= 1e12) {
       return (num / 1e12).toFixed(1) + "T";
@@ -86,13 +65,12 @@ const StockInfo = () => {
     }
   };
 
-  const handleSaveClick = () => {
-    if (currStockData) {
-      toggleSavedStock(currStockData);
-      setSavedTrue(prevSavedTrue => !prevSavedTrue); // Toggle the state
-    }
-  };
+  // If Stock Ticker Changes then it fetches stock data again
+  useEffect(() => {
+    fetchStockInfo();
+  }, [currStockData]);
 
+  // Set Imp Stock Data in seperate json object
   useEffect(() => {
     if (stockData) {
       const setImpStock = () => {
@@ -126,7 +104,9 @@ const StockInfo = () => {
           previousClose: stockData.result.previousClose,
           totalDebt: formatNumber(Number(stockData.result.totalDebt)),
           totalRevenue: formatNumber(Number(stockData.result.totalRevenue)),
-          twoHundredDayAverage: Number(stockData.result.twoHundredDayAverage).toFixed(2),
+          twoHundredDayAverage: Number(
+            stockData.result.twoHundredDayAverage
+          ).toFixed(2),
           website: stockData.result.website,
           longName: stockData.result.longName,
           city: stockData.result.city,
@@ -137,6 +117,37 @@ const StockInfo = () => {
     }
   }, [stockData]);
 
+  // Checks if the currStock is saved by user or not
+  useEffect(() => {
+    if (currStockData) {
+      const checkSavedStatus = async () => {
+        try {
+          const isSaved = await isStockSaved(currStockData); 
+          console.log("Is stock saved:", isSaved); 
+          setSavedTrue(isSaved);
+        } catch (error) {
+          console.error("Error checking stock saved status:", error);
+        }
+      };
+      checkSavedStatus();
+    }
+  }, [currStockData, isStockSaved]);
+
+  // Update color of saved icon based on saved or not
+  useEffect(() => {
+    if (savedIconRef.current) {
+      savedIconRef.current.style.color = savedTrue ? "var(--logo)" : "white";
+    }
+  }, [savedTrue]);
+
+  // OnClick Save Icon Update Saved Ticker or Not in User Data and Toggle Saved Icon
+  const handleSaveClick = () => {
+    if (currStockData) {
+      toggleSavedStock(currStockData);
+      setSavedTrue((prevSavedTrue) => !prevSavedTrue);
+    }
+  };
+
   return (
     <div className="stockDBody">
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -144,14 +155,19 @@ const StockInfo = () => {
         <div className="stockDashboard">
           <div className="stockTopBar">
             <div className="leftI">
-              <i onClick={() => navigate("/search")} className="fa-solid fa-arrow-left"></i>
+              <i
+                onClick={() => navigate("/search")}
+                className="fa-solid fa-arrow-left"
+              ></i>
             </div>
             <div className="rightI">
               <i
                 ref={savedIconRef}
                 id="savedIcon"
                 onClick={() => handleSaveClick()}
-                className={`fa-solid fa-bookmark ${savedTrue ? 'active' : 'not-active'}`}
+                className={`fa-solid fa-bookmark ${
+                  savedTrue ? "active" : "not-active"
+                }`}
               ></i>
               <i className="fa-solid fa-chart-simple"></i>
               <i className="fa-solid fa-newspaper"></i>
@@ -291,11 +307,16 @@ const StockInfo = () => {
                 </details>
 
                 <div className="companyAdd">
-                  <span>Address : </span> {impStockData?.address}, {impStockData?.city}
+                  <span>Address : </span> {impStockData?.address},{" "}
+                  {impStockData?.city}
                 </div>
                 <div className="companyWeb">
                   <span>Website : </span>{" "}
-                  <a target="_blank" rel="noopener noreferrer" href={impStockData?.website}>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={impStockData?.website}
+                  >
                     {impStockData?.website}
                   </a>
                 </div>
