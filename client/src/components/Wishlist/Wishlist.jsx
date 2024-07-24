@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../UserContext';
+import './wishlist.css'
 
 const Wishlist = () => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [savedStock, setSavedStock] = useState(user.savedStocks || []);
   const [savedSData, setSavedSData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -63,20 +64,36 @@ const Wishlist = () => {
     }
   }, [savedStock]);
 
+      
+  const removeStock = (index) => {
+    const updatedStocks = [...savedStock];
+    updatedStocks.splice(index, 1);
+    setSavedStock(updatedStocks);
+    setUser((prevUser) => ({
+      ...prevUser,
+      savedStocks: updatedStocks
+    }));
+  };
+
   if (loading) {
     return <div className="loader"></div>;
   }
 
   return (
-    <>
+    <div className='w100'>
       {savedSData.length > 0 ? (
-        <div>
+        <div className='parentS'>
           {savedSData.map((stock, index) => (
             <div key={index} className='savedS'>
               <div className="savedSName">{stock.stockName}</div>
+
+              <div className='flexRS'>
               <div className="savedSPrice">₹{stock.stockPrice}</div>
-              <div className="savedSChange" style={{ color: stock.stockMoneyC >= 0 ? 'green' : 'red' }}>
+              <div className="savedSChange" style={{ color: stock.stockMoneyC >= 0 ? 'rgb(21, 169, 21)' : 'red' }}>
                 ₹{stock.stockMoneyC} ({stock.stockPChange}%)
+              </div>
+
+              <i id='removeSaved' onClick={() => {removeStock(index)}} className="fa-solid fa-xmark"></i>
               </div>
             </div>
           ))}
@@ -84,7 +101,7 @@ const Wishlist = () => {
       ) : (
         <p>No saved stocks found</p>
       )}
-    </>
+    </div>
   );
 };
 

@@ -40,4 +40,8 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 20. Show Saved Files in wishlist [stockname  stockPrice stockChange saveicon] in this format -->
 
-21. Apply Saved Icon at the last and handle saved on wishlist page and apply css 
+<!-- 21. Apply CSS to Wishlist -->
+
+<!-- 22. Handle remove from saved Icon -->
+
+23. Handle on click name of stock open stockinfo
