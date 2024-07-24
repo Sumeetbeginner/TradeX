@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../UserContext';
 import './wishlist.css'
+import {useNavigate} from 'react-router-dom'
 
 const Wishlist = () => {
   const { user, setUser } = useContext(UserContext);
@@ -8,11 +9,15 @@ const Wishlist = () => {
   const [savedSData, setSavedSData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     setSavedStock(user.savedStocks || []);
   }, [user]);
 
   useEffect(() => {
+
+    // Fetch Stock Info of Ticker
     const fetchStockInfo = async (savedS) => {
       try {
         const response = await fetch("http://localhost:3000/stockinfo", {
@@ -35,6 +40,7 @@ const Wishlist = () => {
       }
     };
 
+    // Fetch All Saved Stock Info 
     const updateSavedSData = async () => {
       setLoading(true);
       const updatedData = await Promise.all(savedStock.map(async (stockTicker) => {
@@ -64,7 +70,8 @@ const Wishlist = () => {
     }
   }, [savedStock]);
 
-      
+
+  // Remove Stock from wishlist and savedStock with the help of index
   const removeStock = (index) => {
     const updatedStocks = [...savedStock];
     updatedStocks.splice(index, 1);
@@ -74,6 +81,12 @@ const Wishlist = () => {
       savedStocks: updatedStocks
     }));
   };
+
+  // Open Clicked stock Info
+  const openSInfo = (stockTicker) => {
+    localStorage.setItem('currStockData', stockTicker);
+    navigate('/stockinfo')
+  }
 
   if (loading) {
     return <div className="loader"></div>;
@@ -85,10 +98,10 @@ const Wishlist = () => {
         <div className='parentS'>
           {savedSData.map((stock, index) => (
             <div key={index} className='savedS'>
-              <div className="savedSName">{stock.stockName}</div>
+              <div onClick={() => {openSInfo(stock.stockTicker)}} className="savedSName">{stock.stockName}</div>
 
               <div className='flexRS'>
-              <div className="savedSPrice">₹{stock.stockPrice}</div>
+              <div  className="savedSPrice">₹{stock.stockPrice}</div>
               <div className="savedSChange" style={{ color: stock.stockMoneyC >= 0 ? 'rgb(21, 169, 21)' : 'red' }}>
                 ₹{stock.stockMoneyC} ({stock.stockPChange}%)
               </div>

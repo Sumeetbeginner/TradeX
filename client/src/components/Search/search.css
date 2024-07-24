@@ -51,3 +51,7 @@
   .suggestion:active{
     background-color: var(--material);
   }
+
+  .search-container input:focus{
+    border: solid 2px var(--logo);
+  }

@@ -1,0 +1,53 @@
+
+.walletui{
+    position: relative;
+    width: 80%;
+    height: 100vh;
+    /* background-color: var(--dark); */
+    display: block;
+    margin: auto;
+}
+
+.flexui{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5%;
+    gap: 1.2%;
+
+}
+
+.leftWallet{
+    width: 59%;
+    height: 95vh;
+    /* background-color: var(--dark); */
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.7%;
+}
+
+.rightWallet{
+    width: 39%;
+    height: 95vh;
+    background-color: var(--dark);
+    border-radius: 13px;
+
+}
+
+.graphHist{
+    width: 100%;
+    height: 46.6vh;
+    background-color: var(--dark);
+    margin-top: 0.2%;
+    border-radius: 13px;
+}
+
+.transHist{
+    width: 100%;
+    height: 46.5vh;
+    background-color: var(--dark);
+    margin-top: 0.7%;
+    border-radius: 13px;
+}
+

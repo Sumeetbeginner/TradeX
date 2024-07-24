@@ -44,4 +44,8 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 22. Handle remove from saved Icon -->
 
-23. Handle on click name of stock open stockinfo
+<!-- 23. Handle on click name of stock open stockinfo -->
+
+<!-- 24. Create Wallet Dashboard ONLY UI -> Last 5 transaction analytics graph , Last 30 Transactions History, Wallet (Balance) & Trading Account Balance and its analaytics -->
+
+0. Run All Saved Stock info every 5 seconds
