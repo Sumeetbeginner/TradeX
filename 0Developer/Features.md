@@ -37,3 +37,7 @@ and pass the stock data on stockinfo page var -->
 <!-- 18. Fix a Bug in Saved functionality everything is working right but if its saved and at initialization it doesnt check -->
 
 <!-- 19. Make Full Code Manageable with comments if needed... -->
+
+<!-- 20. Show Saved Files in wishlist [stockname  stockPrice stockChange saveicon] in this format -->
+
+21. Apply Saved Icon at the last and handle saved on wishlist page and apply css 
