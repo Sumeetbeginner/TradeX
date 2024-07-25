@@ -46,6 +46,17 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 23. Handle on click name of stock open stockinfo -->
 
-<!-- 24. Create Wallet Dashboard ONLY UI -> Last 5 transaction analytics graph , Last 30 Transactions History, Wallet (Balance) & Trading Account Balance and its analaytics -->
+<!-- 24. Create Wallet Dashboard ONLY UI -> Last 5 transaction analytics graph , Last 30 Transactions History, last 30 transactions pie graph profit/loss, Wallet (Balance) -->
+
+<!-- 25. Create Right Wallet UI -->
+
+26. Create a Buy Functionality and save transaction if less than 30 length of transaction array remove oldest transaction and push new transaction else push transaction {transMess, transAmt, transStatus : {debit/credit}}
 
 0. Run All Saved Stock info every 5 seconds
+
+0. Save Imp Info in .env variable include firebase credential
+
+0. Optimization
+{
+
+}

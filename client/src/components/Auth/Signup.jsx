@@ -45,7 +45,7 @@ const Signup = () => {
         username: username,
         email: email,
         balance : 100000,
-        salary : 500000,
+        salary : 50000,
       });
 
 
