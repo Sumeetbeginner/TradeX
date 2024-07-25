@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../UserContext";
 import "./portfolio.css";
+import {useNavigate} from 'react-router-dom'
 
 const Portfolio = () => {
   const { user } = useContext(UserContext);
@@ -8,6 +9,30 @@ const Portfolio = () => {
   const [portfolioData, setPortfolioData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [initialLoad, setInitialLoad] = useState(true);
+
+  const navigate = useNavigate()
+
+    // Format Currency for better presentation
+    function formatCurrency(amount) {
+      if (typeof amount !== 'number') {
+        amount = parseFloat(amount);
+      }
+      if (isNaN(amount)) return 'Invalid number';
+    
+      const [integerPart, decimalPart] = amount.toFixed(2).split('.');
+    
+      let lastThree = integerPart.slice(-3);
+      const otherNumbers = integerPart.slice(0, -3);
+    
+      if (otherNumbers !== '') {
+        lastThree = ',' + lastThree;
+      }
+    
+      const result =
+        otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + lastThree;
+    
+      return `₹${result}.${decimalPart}`;
+    }
 
   useEffect(() => {
     // Fetch Stock Info of Ticker
@@ -85,6 +110,11 @@ const Portfolio = () => {
     return () => clearInterval(intervalId);
   }, [portfolio]);
 
+  const openStockInfo = (stockTicker) =>{
+    localStorage.setItem('currStockData', stockTicker)
+    navigate('/stockinfo')
+  }
+
   if (loading) {
     return <div className="loader"></div>;
   }
@@ -109,10 +139,12 @@ const Portfolio = () => {
             {portfolioData.slice().reverse().map((stock, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td className="stockTiku">{stock.stockTicker}</td>
+                <td onClick={() => {openStockInfo(stock.stockTicker)}} className="stockTiku">{stock.stockTicker}</td>
                 <td>{stock.quantity}</td>
-                <td>₹{stock.buyValue}</td>
-                <td className="boldBhai">₹{stock.currentValue}</td>
+                <td>{formatCurrency(stock.buyValue)}</td>
+                <td   style={{
+                    color: stock.rupeeChange >= 0 ? "rgb(21, 169, 21)" : "red",
+                  }} className="boldBhai">{formatCurrency(stock.currentValue)}</td>
                 <td className="boldBhai"
                   style={{
                     color: stock.rupeeChange >= 0 ? "rgb(21, 169, 21)" : "red",

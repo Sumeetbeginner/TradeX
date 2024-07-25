@@ -60,7 +60,7 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 30. Apply CSS on Portfolio -->
 
-31. Onclick ticker on portfolio open that stock info
+<!-- 31. Onclick ticker on portfolio open that stock info -->
 
 32. Apply Sell Functionality from portfolio
 
