@@ -6,7 +6,8 @@ const Portfolio = () => {
   const { user } = useContext(UserContext);
   const [portfolio, setPortfolio] = useState(user.portfolio || []);
   const [portfolioData, setPortfolioData] = useState([]);
-  const [loading, setLoading] = useState(false); // Set loading to true initially
+  const [loading, setLoading] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
     // Fetch Stock Info of Ticker
@@ -63,6 +64,8 @@ const Portfolio = () => {
       );
 
       setPortfolioData(updatedData.filter((stock) => stock !== null));
+      setLoading(false);
+      setInitialLoad(false);
       // setLoading(false); // Set loading to false after data is fetched
     };
 
@@ -90,42 +93,42 @@ const Portfolio = () => {
     <div className="portfolio-container">
       {portfolioData.length > 0 ? (
         <table className="portfolio-table">
-          <thead>
+          <thead className="portH">
             <tr>
               <th>Index</th>
               <th>Stock Name</th>
               <th>Quantity</th>
               <th>Buy Value (₹)</th>
-              <th>Current Value (₹)</th>
-              <th>Rupee Change (₹)</th>
-              <th>Percent Change (%)</th>
-              <th>Sell</th>
+              <th>Curr Price (₹)</th>
+              <th>₹ Change</th>
+              <th>% Change</th>
+              <th>Sell Stock</th>
             </tr>
           </thead>
-          <tbody>
-            {portfolioData.map((stock, index) => (
+          <tbody className="portB">
+            {portfolioData.slice().reverse().map((stock, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{stock.stockTicker}</td>
+                <td className="stockTiku">{stock.stockTicker}</td>
                 <td>{stock.quantity}</td>
                 <td>₹{stock.buyValue}</td>
-                <td>₹{stock.currentValue}</td>
-                <td
+                <td className="boldBhai">₹{stock.currentValue}</td>
+                <td className="boldBhai"
                   style={{
                     color: stock.rupeeChange >= 0 ? "rgb(21, 169, 21)" : "red",
                   }}
                 >
                   ₹{stock.rupeeChange}
                 </td>
-                <td
+                <td className="boldBhai"
                   style={{
                     color: stock.percentChange >= 0 ? "rgb(21, 169, 21)" : "red",
                   }}
                 >
-                  {stock.percentChange}%
+                  ({stock.percentChange}%)
                 </td>
                 <td>
-                  <button
+                  <button id="portSBtn"
                     onClick={() => {
                       // Handle sell stock logic here
                     }}
@@ -138,7 +141,7 @@ const Portfolio = () => {
           </tbody>
         </table>
       ) : (
-        <div className="loader loaderkabhai"></div>
+        <div className="loader"></div>
       )}
     </div>
   );

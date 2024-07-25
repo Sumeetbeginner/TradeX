@@ -58,7 +58,7 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 29. Show Portfolio on table {index, stockname, quantity, buyprice*quantity, currPrice*quantity, rupee change, percent change sell} -->
 
-30. Apply CSS on Portfolio
+<!-- 30. Apply CSS on Portfolio -->
 
 31. Onclick ticker on portfolio open that stock info
 

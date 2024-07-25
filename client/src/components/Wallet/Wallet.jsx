@@ -45,7 +45,7 @@ const Wallet = () => {
 
           <h2 className='thTop'>Transaction History</h2>
           <div className="transHis">
-            {user.transactions.map((transaction, index) => (
+            {user.transactions.slice().reverse().map((transaction, index) => (
               <div
                 className='transactionS'
                 key={index}

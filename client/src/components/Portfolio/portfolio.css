@@ -1,0 +1,61 @@
+
+.portfolio-container table{
+
+    width: 100%;
+
+    
+}
+
+.portfolio-container{
+    width: 80%;
+    margin-left: 1%;
+    margin-top: 1%;
+    
+}
+
+.portH th{
+    background-color: var(--material);
+    font-size: 18px;
+    padding: 1.7% 0%;
+
+}
+
+.portB td{
+    background-color: var(--dark);
+    text-align: center;
+    font-size: 18px;
+    padding: 1.7% 0%;
+}
+
+
+#portSBtn{
+    width: 70%;
+    border: none;
+    outline: none;
+    height: 5vh;
+    background-color: rgb(224, 22, 22);
+    cursor: pointer;
+    color: white;
+    /* font-weight: 600; */
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+#portSBtn:hover{
+    opacity: 0.8;
+}
+
+.boldBhai{
+    font-weight: 600;
+}
+
+.stockTiku{
+    color: var(--logo);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.stockTiku:hover{
+    background-color: var(--logo);
+    color: white;
+}

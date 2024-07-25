@@ -111,7 +111,7 @@ const Wishlist = () => {
     <div className="w100">
       {savedSData.length > 0 ? (
         <div className="parentS">
-          {savedSData.map((stock, index) => (
+          {savedSData.slice().reverse().map((stock, index) => (
             <div key={index} className="savedS">
               <div
                 onClick={() => {
