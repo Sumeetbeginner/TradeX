@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import './wallet.css';
 import { UserContext } from '../../UserContext';
+import BarChart from './BarChart';
+import PieChart from './PieChart';
 
 const Wallet = () => {
   const { user } = useContext(UserContext);
@@ -32,9 +34,9 @@ const Wallet = () => {
       <div className="flexui">
         <div className="leftWallet">
           <div className='graphHist'>
-            Bar Chart of Last 5 Transactions
+            <BarChart transactions={user.transactions}/>
           </div>
-          <div className='pieHist'>Pie Chart of Last 30 Transactions Profit/loss</div>
+          <div className='pieHist'><PieChart transactions={user.transactions}/></div>
         </div>
 
         <div className="rightWallet">

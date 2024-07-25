@@ -52,9 +52,9 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 26. Create a Buy Functionality and save transaction if less than 30 length of transaction array remove oldest transaction and push new transaction else push transaction {transMess, transAmt, transStatus : {debit/credit}} AND Update Portfolio {stockticker , stockname, quantity, buyprice per stock} AND Update StockInfo and Wishlist every 5 seconds -->
 
-27. show all transactions hisory below wallet balance
+<!-- 27. show all transactions hisory below wallet balance -->
 
-0. Run All Saved Stock info every 5 seconds
+<!-- 28. Show Last 5 Stock Analytics & and pie chart for debit and credit -->
 
 0. Save Imp Info in .env variable include firebase credential
 

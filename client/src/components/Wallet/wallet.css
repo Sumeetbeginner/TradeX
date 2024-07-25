@@ -90,6 +90,7 @@
     margin: auto;
     border-radius: 0px 0px 10px 10px;
     padding-top: 1.7%;
+    padding-bottom: 2%;
 }
 
 .thTop{
@@ -126,4 +127,23 @@
 
 #transA{
     font-weight: 600;
+    
+}
+
+.graphHist canvas{
+
+    margin-top: 5%;
+    padding:  0% 4%;
+
+    
+}
+
+
+.pieHist canvas{
+    display: block;
+    margin: auto;
+    padding-top: 4%;
+    padding-bottom: 6%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
