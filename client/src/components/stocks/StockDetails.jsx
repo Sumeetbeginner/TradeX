@@ -172,7 +172,7 @@ const StockInfo = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       fetchStockInfo();
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(intervalId);
   }, []);

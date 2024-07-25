@@ -14,8 +14,8 @@ const PieChart = ({ transactions }) => {
     }
   });
 
-  console.log('Total Debit:', totalDebit);
-  console.log('Total Credit:', totalCredit);
+//   console.log('Total Debit:', totalDebit);
+//   console.log('Total Credit:', totalCredit);
 
   const data = {
     labels: ['Debit', 'Credit'],

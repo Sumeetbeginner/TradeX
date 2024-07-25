@@ -75,7 +75,7 @@ const Wishlist = () => {
       if (savedStock.length > 0) {
         updateSavedSData();
       }
-    }, 5000);
+    }, 10000);
 
     // Run updateSavedSData on initial load
     if (savedStock.length > 0) {

@@ -56,6 +56,16 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 28. Show Last 5 Stock Analytics & and pie chart for debit and credit -->
 
+<!-- 29. Show Portfolio on table {index, stockname, quantity, buyprice*quantity, currPrice*quantity, rupee change, percent change sell} -->
+
+30. Apply CSS on Portfolio
+
+31. Onclick ticker on portfolio open that stock info
+
+32. Apply Sell Functionality from portfolio
+
+33. Apply Sell Functionality from stockinfo
+
 0. Save Imp Info in .env variable include firebase credential
 
 0. Change Firebase Credential or new firebase acc and use env var and store that there 
