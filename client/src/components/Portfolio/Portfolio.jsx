@@ -52,6 +52,14 @@ const Portfolio = () => {
 
   useEffect(() => {
 
+   
+  if (portfolio.length === 0) {
+    console.log('No Stocks Found');
+    setLoading(false);
+    setPortfolioData([]); 
+    return; 
+  } else {
+    console.log('Fetching data for portfolio');
     const fetchStockInfo = async (stockTicker) => {
       try {
         const response = await fetch("http://localhost:3000/stockinfo", {
@@ -150,6 +158,7 @@ const Portfolio = () => {
     } else {
       setLoading(false);
     }
+  }
   }, [portfolio, updateP]);
 
   const openStockInfo = (stockTicker) => {

@@ -66,8 +66,7 @@ and pass the stock data on stockinfo page var -->
 
 34. Apply Sell Functionality from portfolio -->
 
-
-0. Fix Not Harmful Bug - After Portfolio length is empty it is not updating portfolio page only ui 
+<!-- 35. Fix Not Harmful Bug - After Portfolio length is empty it is not updating portfolio page only ui  -->
 
 0. Save Imp Info in .env variable include firebase credential
 
