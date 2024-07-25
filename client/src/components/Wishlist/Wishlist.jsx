@@ -1,22 +1,18 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { UserContext } from '../../UserContext';
-import './wishlist.css'
-import {useNavigate} from 'react-router-dom'
+import React, { useEffect, useState, useContext } from "react";
+import { UserContext } from "../../UserContext";
+import "./wishlist.css";
+import { useNavigate } from "react-router-dom";
 
 const Wishlist = () => {
   const { user, setUser } = useContext(UserContext);
   const [savedStock, setSavedStock] = useState(user.savedStocks || []);
   const [savedSData, setSavedSData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true);
 
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    setSavedStock(user.savedStocks || []);
-  }, [user]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-
     // Fetch Stock Info of Ticker
     const fetchStockInfo = async (savedS) => {
       try {
@@ -40,36 +36,55 @@ const Wishlist = () => {
       }
     };
 
-    // Fetch All Saved Stock Info 
+    // Fetch All Saved Stock Info
     const updateSavedSData = async () => {
-      setLoading(true);
-      const updatedData = await Promise.all(savedStock.map(async (stockTicker) => {
-        const sdata = await fetchStockInfo(stockTicker);
-        if (sdata) {
-          const stockMoneyC = Number(sdata.result.currentPrice) - Number(sdata.result.open);
-          const stockPChange = ((stockMoneyC / Number(sdata.result.open)) * 100).toFixed(2);
+      const updatedData = await Promise.all(
+        savedStock.map(async (stockTicker) => {
+          const sdata = await fetchStockInfo(stockTicker);
+          if (sdata) {
+            // Calculate the absolute change in stock price
+            let stockMoneyC =
+              Number(sdata.result.currentPrice) -
+              Number(sdata.result.previousClose);
 
-          return {
-            stockTicker,
-            stockName: sdata.result.shortName,
-            stockPrice: sdata.result.currentPrice,
-            stockMoneyC: stockMoneyC.toFixed(2),
-            stockPChange: Number(stockPChange).toFixed(2),
-          };
-        }
-        return null;
-      }));
+            // Calculate the percentage change based on the opening price
+            let stockPChange = (
+              (stockMoneyC / Number(sdata.result.open)) *
+              100
+            ).toFixed(2);
 
-      // Filter out any null values if fetch failed
-      setSavedSData(updatedData.filter(stock => stock !== null));
+            return {
+              stockTicker,
+              stockName: sdata.result.shortName,
+              stockPrice: sdata.result.currentPrice,
+              stockMoneyC: stockMoneyC.toFixed(2),
+              stockPChange: Number(stockPChange).toFixed(2),
+            };
+          }
+          return null;
+        })
+      );
+
+      setSavedSData(updatedData.filter((stock) => stock !== null));
       setLoading(false);
+      setInitialLoad(false);
     };
 
+    // Run updateSavedSData every 5 seconds
+    const intervalId = setInterval(() => {
+      if (savedStock.length > 0) {
+        updateSavedSData();
+      }
+    }, 5000);
+
+    // Run updateSavedSData on initial load
     if (savedStock.length > 0) {
       updateSavedSData();
     }
-  }, [savedStock]);
 
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
+  }, [savedStock]);
 
   // Remove Stock from wishlist and savedStock with the help of index
   const removeStock = (index) => {
@@ -78,41 +93,61 @@ const Wishlist = () => {
     setSavedStock(updatedStocks);
     setUser((prevUser) => ({
       ...prevUser,
-      savedStocks: updatedStocks
+      savedStocks: updatedStocks,
     }));
   };
 
   // Open Clicked stock Info
   const openSInfo = (stockTicker) => {
-    localStorage.setItem('currStockData', stockTicker);
-    navigate('/stockinfo')
-  }
+    localStorage.setItem("currStockData", stockTicker);
+    navigate("/stockinfo");
+  };
 
   if (loading) {
     return <div className="loader"></div>;
   }
 
   return (
-    <div className='w100'>
+    <div className="w100">
       {savedSData.length > 0 ? (
-        <div className='parentS'>
+        <div className="parentS">
           {savedSData.map((stock, index) => (
-            <div key={index} className='savedS'>
-              <div onClick={() => {openSInfo(stock.stockTicker)}} className="savedSName">{stock.stockName}</div>
-
-              <div className='flexRS'>
-              <div  className="savedSPrice">₹{stock.stockPrice}</div>
-              <div className="savedSChange" style={{ color: stock.stockMoneyC >= 0 ? 'rgb(21, 169, 21)' : 'red' }}>
-                ₹{stock.stockMoneyC} ({stock.stockPChange}%)
+            <div key={index} className="savedS">
+              <div
+                onClick={() => {
+                  openSInfo(stock.stockTicker);
+                }}
+                className="savedSName"
+              >
+                {stock.stockName}
               </div>
 
-              <i id='removeSaved' onClick={() => {removeStock(index)}} className="fa-solid fa-xmark"></i>
+              <div className="flexRS">
+                <div className="savedSPrice">
+                  ₹{Number(stock.stockPrice).toFixed(2)}
+                </div>
+                <div
+                  className="savedSChange"
+                  style={{
+                    color: stock.stockMoneyC >= 0 ? "rgb(21, 169, 21)" : "red",
+                  }}
+                >
+                  ₹{stock.stockMoneyC} ({stock.stockPChange}%)
+                </div>
+
+                <i
+                  id="removeSaved"
+                  onClick={() => {
+                    removeStock(index);
+                  }}
+                  className="fa-solid fa-xmark"
+                ></i>
               </div>
             </div>
           ))}
         </div>
       ) : (
-        <p>No saved stocks found</p>
+        <div className="loader loaderkabhai"></div>
       )}
     </div>
   );

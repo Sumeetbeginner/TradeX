@@ -44,7 +44,7 @@ const Signup = () => {
       await set(ref(database, 'users/' + user.uid), {
         username: username,
         email: email,
-        balance : 100000,
+        balance : 300000,
         salary : 50000,
       });
 
@@ -55,7 +55,7 @@ const Signup = () => {
 
       setLoading(false)
       setSuccess('User registered successfully!');
-      console.log('User registered:', user);
+      // console.log('User registered:', user);
       location('/login')
     } catch (error) {
       setLoading(false)

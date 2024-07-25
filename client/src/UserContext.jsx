@@ -52,7 +52,7 @@ export const UserProvider = ({ children }) => {
 
   // Check if ticker exists in savedStock or not
   const isStockSaved = (ticker) => {
-    console.log(user);
+    // console.log(user);
     return user?.savedStocks?.includes(ticker) || false;
   };
 

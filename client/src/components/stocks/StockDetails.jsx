@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import StockLineChart from "./StockChart";
 import { UserContext } from "../../UserContext";
 import "./stocks.css";
+import BuyBox from "./BuyBox";
 
 const StockInfo = () => {
   const [stockData, setStockData] = useState(null);
@@ -11,14 +12,13 @@ const StockInfo = () => {
   const [savedTrue, setSavedTrue] = useState(false);
   const savedIconRef = useRef(null);
 
+  const navigate = useNavigate();
+
   // Clicked Stock Ticker
   const currStockData = localStorage.getItem("currStockData");
 
-  const navigate = useNavigate();
+  const { toggleSavedStock, isStockSaved, user } = useContext(UserContext);
 
-  const { toggleSavedStock, isStockSaved } = useContext(UserContext);
-
-  
   // Fetch Stock info with the help of ticker from server
   const fetchStockInfo = async () => {
     if (!currStockData) {
@@ -76,15 +76,20 @@ const StockInfo = () => {
       const setImpStock = () => {
         if (!stockData) return;
 
-        let stockMoneyC =
-          Number(stockData.result.currentPrice) - Number(stockData.result.open);
-        let stockPChange = (
-          (stockMoneyC / Number(stockData.result.open)) *
-          100
-        ).toFixed(2);
+         // Calculate the absolute change in stock price
+         let stockMoneyC =
+         Number(stockData.result.currentPrice) -
+         Number(stockData.result.previousClose);
+
+       // Calculate the percentage change based on the opening price
+       let stockPChange = (
+         (stockMoneyC / Number(stockData.result.open)) *
+         100
+       ).toFixed(2);
 
         setImpStockData({
           name: stockData.result.shortName,
+          stockTicker : currStockData,
           symbol: stockData.result.symbol,
           open: stockData.result.open,
           dayHigh: stockData.result.dayHigh,
@@ -111,6 +116,7 @@ const StockInfo = () => {
           longName: stockData.result.longName,
           city: stockData.result.city,
         });
+        // console.log(impStockData);
       };
 
       setImpStock();
@@ -122,8 +128,8 @@ const StockInfo = () => {
     if (currStockData) {
       const checkSavedStatus = async () => {
         try {
-          const isSaved = await isStockSaved(currStockData); 
-          console.log("Is stock saved:", isSaved); 
+          const isSaved = await isStockSaved(currStockData);
+          // console.log("Is stock saved:", isSaved);
           setSavedTrue(isSaved);
         } catch (error) {
           console.error("Error checking stock saved status:", error);
@@ -148,6 +154,29 @@ const StockInfo = () => {
     }
   };
 
+  const [buyBoxV, setBuyBoxV] = useState(false);
+
+  const buyCurrentStock = () => {
+    if (Number(user.balance) < impStockData.currPrice) {
+      alert("⚠️ Not enough money to buy this stock");
+    } else {
+      setBuyBoxV(true);
+    }
+  };
+
+  const togglePopupB = () => {
+    setBuyBoxV(false);
+  };
+
+  // Fetch Stock Info Every 5 seconds
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      fetchStockInfo();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div className="stockDBody">
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -156,7 +185,7 @@ const StockInfo = () => {
           <div className="stockTopBar">
             <div className="leftI">
               <i
-                onClick={() => navigate("/search")}
+                onClick={() => navigate(-1)}
                 className="fa-solid fa-arrow-left"
               ></i>
             </div>
@@ -255,7 +284,9 @@ const StockInfo = () => {
                 </div>
               </div>
               <div className="btnActionBS">
-                <button className="buyBtn">Buy</button>
+                <button className="buyBtn" onClick={() => buyCurrentStock()}>
+                  Buy
+                </button>
                 <button className="sellBtn">Sell</button>
               </div>
             </div>
@@ -323,6 +354,10 @@ const StockInfo = () => {
               </div>
             </div>
           </div>
+
+          {buyBoxV && (
+            <BuyBox stockData={impStockData} closePopup={togglePopupB} />
+          )}
         </div>
       ) : (
         <div className="loader"></div>

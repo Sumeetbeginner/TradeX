@@ -50,7 +50,7 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 25. Create Right Wallet UI -->
 
-26. Create a Buy Functionality and save transaction if less than 30 length of transaction array remove oldest transaction and push new transaction else push transaction {transMess, transAmt, transStatus : {debit/credit}}
+<!-- 26. Create a Buy Functionality and save transaction if less than 30 length of transaction array remove oldest transaction and push new transaction else push transaction {transMess, transAmt, transStatus : {debit/credit}} AND Update Portfolio {stockticker , stockname, quantity, buyprice per stock} AND Update StockInfo and Wishlist every 5 seconds -->
 
 0. Run All Saved Stock info every 5 seconds
 

@@ -9,7 +9,7 @@ const Search = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("Loaded stocks data:", stocksData);
+    // console.log("Loaded stocks data:", stocksData);
   }, []);
 
   // On Entering Value in Input it will filter target value in json data and store it 
@@ -34,7 +34,7 @@ const Search = () => {
 
   // On Click Store the selected stock in local storage and redirect to stockinfo to show details about that particular stock
   const handleSuggestionClick = (stock) => {
-    console.log("Selected stock:", stock); 
+    // console.log("Selected stock:", stock); 
     localStorage.setItem('currStockData', stock.SYMBOL)
     navigate("/stockinfo");
   };
