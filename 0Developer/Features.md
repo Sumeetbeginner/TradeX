@@ -62,9 +62,12 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 31. Onclick ticker on portfolio open that stock info -->
 
-32. Apply Sell Functionality from portfolio
+<!-- 33. Apply Sell Functionality from stockinfo
 
-33. Apply Sell Functionality from stockinfo
+34. Apply Sell Functionality from portfolio -->
+
+
+0. Fix Not Harmful Bug - After Portfolio length is empty it is not updating portfolio page only ui 
 
 0. Save Imp Info in .env variable include firebase credential
 

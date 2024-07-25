@@ -284,7 +284,7 @@ details p{
   font-size: 20px;
 }
 
-.topBuy{
+.topBuy, .topSell{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -296,8 +296,18 @@ details p{
   font-size: 27px;
   cursor: pointer;
 }
+.topSell i{
+  font-size: 27px;
+  cursor: pointer;
+}
 
 .topBuy h2{
+  color: var(--logo);
+  font-size: 26px;
+  margin-right: auto;
+  
+}
+.topSell h2{
   color: var(--logo);
   font-size: 26px;
   margin-right: auto;
@@ -369,7 +379,25 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 9%;
 
 }
+.sell-button{
+  width: 50%;
+  height: 6vh;
+  background-color: rgb(211, 21, 21);
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  color: white;
+  font-size: 18px;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  margin-top: 9%;
+
+}
 
 .buy-button:hover{
+  opacity: 0.9;
+}
+.sell-button:hover{
   opacity: 0.9;
 }

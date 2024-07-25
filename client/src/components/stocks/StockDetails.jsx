@@ -4,6 +4,7 @@ import StockLineChart from "./StockChart";
 import { UserContext } from "../../UserContext";
 import "./stocks.css";
 import BuyBox from "./BuyBox";
+import SellBox from "./SellBox";
 
 const StockInfo = () => {
   const [stockData, setStockData] = useState(null);
@@ -11,6 +12,7 @@ const StockInfo = () => {
   const [error, setError] = useState("");
   const [savedTrue, setSavedTrue] = useState(false);
   const savedIconRef = useRef(null);
+  const [updateP, setUpdateP] = useState(false)
 
   const navigate = useNavigate();
 
@@ -18,6 +20,10 @@ const StockInfo = () => {
   const currStockData = localStorage.getItem("currStockData");
 
   const { toggleSavedStock, isStockSaved, user } = useContext(UserContext);
+
+  const updateParentState = (newValue) =>{
+    setUpdateP(newValue)
+  }
 
   // Fetch Stock info with the help of ticker from server
   const fetchStockInfo = async () => {
@@ -155,6 +161,7 @@ const StockInfo = () => {
   };
 
   const [buyBoxV, setBuyBoxV] = useState(false);
+  const [sellBoxV, setSellBoxV] = useState(false);
 
   const buyCurrentStock = () => {
     if (Number(user.balance) < impStockData.currPrice) {
@@ -163,9 +170,15 @@ const StockInfo = () => {
       setBuyBoxV(true);
     }
   };
+  const sellCurrentStock = () => {
+    setSellBoxV(true)
+  };
 
   const togglePopupB = () => {
     setBuyBoxV(false);
+  };
+  const togglePopupS = () => {
+    setSellBoxV(false);
   };
 
   // Fetch Stock Info Every 5 seconds
@@ -287,7 +300,7 @@ const StockInfo = () => {
                 <button className="buyBtn" onClick={() => buyCurrentStock()}>
                   Buy
                 </button>
-                <button className="sellBtn">Sell</button>
+                <button className="sellBtn" onClick={() => sellCurrentStock()}>Sell</button>
               </div>
             </div>
 
@@ -357,6 +370,9 @@ const StockInfo = () => {
 
           {buyBoxV && (
             <BuyBox stockData={impStockData} closePopup={togglePopupB} />
+          )}
+          {sellBoxV && (
+            <SellBox updateP={updateP} stockData={impStockData} closePopup={togglePopupS} updateParentState={updateParentState}/>
           )}
         </div>
       ) : (
