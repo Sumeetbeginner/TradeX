@@ -72,6 +72,8 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 37. Get Top Gainers and Top Loser Today's Ticker using webscraping -->
 
+<!-- 38. Create API for both top gainers and top losers and return the output in json -->
+
 0. Forgot Password functionality in login
 
 0. Functionality : user can buy and sell stocks between 9.15 to 3.00pm (Monday to Friday)
