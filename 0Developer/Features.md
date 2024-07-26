@@ -68,9 +68,13 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 35. Fix Not Harmful Bug - After Portfolio length is empty it is not updating portfolio page only ui  -->
 
-36. Fix all New User Bug
+<!-- 36. Fix all New User Bug -->
+
+<!-- 37. Get Top Gainers and Top Loser Today's Ticker using webscraping -->
 
 0. Forgot Password functionality in login
+
+0. Functionality : user can buy and sell stocks between 9.15 to 3.00pm (Monday to Friday)
 
 0. Every Month update balance + salary
 
