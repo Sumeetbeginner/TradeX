@@ -7,12 +7,21 @@ const Wishlist = () => {
   const { user, setUser } = useContext(UserContext);
   const [savedStock, setSavedStock] = useState(user.savedStocks || []);
   const [savedSData, setSavedSData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [initialLoad, setInitialLoad] = useState(true);
+  const [loading, setLoading] = useState(true);
+
 
   const navigate = useNavigate();
 
   useEffect(() => {
+
+
+    if (savedStock.length === 0) {
+      // console.log(savedStock.length);
+      // console.log('No Stocks Found');
+      setLoading(false);
+      setSavedSData([]); 
+      return; 
+    }else{
     // Fetch Stock Info of Ticker
     const fetchStockInfo = async (savedS) => {
       try {
@@ -84,6 +93,7 @@ const Wishlist = () => {
 
     // Clean up interval on component unmount
     return () => clearInterval(intervalId);
+  }
   }, [savedStock]);
 
   // Remove Stock from wishlist and savedStock with the help of index
@@ -147,7 +157,7 @@ const Wishlist = () => {
           ))}
         </div>
       ) : (
-        <div className="loader loaderkabhai"></div>
+        <div className="">No Saved Stock Found</div>
       )}
     </div>
   );

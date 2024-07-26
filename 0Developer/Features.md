@@ -68,7 +68,11 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 35. Fix Not Harmful Bug - After Portfolio length is empty it is not updating portfolio page only ui  -->
 
-0. Save Imp Info in .env variable include firebase credential
+36. Fix all New User Bug
+
+0. Forgot Password functionality in login
+
+0. Every Month update balance + salary
 
 0. Change Firebase Credential or new firebase acc and use env var and store that there 
 

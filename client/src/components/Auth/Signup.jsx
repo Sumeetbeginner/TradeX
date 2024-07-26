@@ -44,7 +44,7 @@ const Signup = () => {
       await set(ref(database, 'users/' + user.uid), {
         username: username,
         email: email,
-        balance : 300000,
+        balance : 500000,
         salary : 50000,
       });
 
