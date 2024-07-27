@@ -82,7 +82,7 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 41. Create and test api for curr business news webscrape the news -->
 
-42. Move TopGainers and TopLosers to Search Page
+<!-- 42. Move TopGainers and TopLosers to Search Page -->
 
 43. Keep Search bar at home page too
 
