@@ -84,9 +84,9 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 42. Move TopGainers and TopLosers to Search Page -->
 
-43. Keep Search bar at home page too
+<!-- 43. Keep Search bar at home page too -->
 
-44. Onclick stock open stockinfo in top gainers and toplosers
+<!-- 44. Onclick stock open stockinfo in top gainers and toplosers -->
 
 45. Create Layout for home Page
 

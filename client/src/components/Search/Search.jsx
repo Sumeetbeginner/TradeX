@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import stocksData from "../../assets/data/nse.json";
 import "./search.css";
 import { UserContext } from "../../UserContext";
+import SearchBar from "./SearchBar";
 
 const Search = () => {
-  const [query, setQuery] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
-  const navigate = useNavigate();
+  // const [query, setQuery] = useState("");
+  // const [suggestions, setSuggestions] = useState([]);
+  // const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const [topGainers, setTopGainers] = useState([]);
   const [topGainersF, setTopGainersF] = useState([]);
@@ -15,36 +16,36 @@ const Search = () => {
   const [topLosersF, setTopLosersF] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // console.log("Loaded stocks data:", stocksData);
-  }, []);
+  // useEffect(() => {
+  //   // console.log("Loaded stocks data:", stocksData);
+  // }, []);
 
-  // On Entering Value in Input it will filter target value in json data and store it
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setQuery(value);
+  // // On Entering Value in Input it will filter target value in json data and store it
+  // const handleSearch = (e) => {
+  //   const value = e.target.value;
+  //   setQuery(value);
 
-    if (value.length > 1) {
-      const filteredSuggestions = stocksData
-        .filter(
-          (stock) =>
-            stock["NAME OF COMPANY"] &&
-            stock["NAME OF COMPANY"].toLowerCase().includes(value.toLowerCase())
-        )
-        .slice(0, 7);
-      // console.log("Filtered suggestions:", filteredSuggestions);
-      setSuggestions(filteredSuggestions);
-    } else {
-      setSuggestions([]);
-    }
-  };
+  //   if (value.length > 1) {
+  //     const filteredSuggestions = stocksData
+  //       .filter(
+  //         (stock) =>
+  //           stock["NAME OF COMPANY"] &&
+  //           stock["NAME OF COMPANY"].toLowerCase().includes(value.toLowerCase())
+  //       )
+  //       .slice(0, 7);
+  //     // console.log("Filtered suggestions:", filteredSuggestions);
+  //     setSuggestions(filteredSuggestions);
+  //   } else {
+  //     setSuggestions([]);
+  //   }
+  // };
 
   // On Click Store the selected stock in local storage and redirect to stockinfo to show details about that particular stock
-  const handleSuggestionClick = (stock) => {
-    // console.log("Selected stock:", stock);
-    localStorage.setItem("currStockData", stock.SYMBOL);
-    navigate("/stockinfo");
-  };
+  // const handleSuggestionClick = (stock) => {
+  //   // console.log("Selected stock:", stock);
+  //   localStorage.setItem("currStockData", stock.SYMBOL);
+  //   navigate("/stockinfo");
+  // };
 
   // Function to fetch top gainers from the server
   const fetchTopGainers = async () => {
@@ -204,7 +205,7 @@ const Search = () => {
 
   return (
     <div className="bhaiK">
-      <div className="search-container">
+      {/* <div className="search-container">
         <input
           type="text"
           value={query}
@@ -224,7 +225,8 @@ const Search = () => {
             ))}
           </div>
         )}
-      </div>
+      </div> */}
+      <SearchBar />
 
       <div className="bothB">
         <p className="headN">Nifty 200 Top Gainers</p>
@@ -259,7 +261,6 @@ const Search = () => {
           )}
         </div>
       </div>
-
     </div>
   );
 };
