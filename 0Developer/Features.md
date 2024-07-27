@@ -74,6 +74,16 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 38. Create API for both top gainers and top losers and return the output in json -->
 
+<!-- 39. On home page call the api for topgainers and store it in json object and then call stockinfo api for each ticker in object and store (stockname, stockticker, currentprice, perChange, priceC ) -->
+
+<!-- 40. Fetch topgainers and toplosers simulataneously and show on home page -->
+
+41. Fix and Apply CSS To Home Page
+
+42. Keep Search bar at home page too
+
+0. Uncomment update top gainers and toplosers every 5 seconds
+
 0. Forgot Password functionality in login
 
 0. Functionality : user can buy and sell stocks between 9.15 to 3.00pm (Monday to Friday)

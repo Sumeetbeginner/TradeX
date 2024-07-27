@@ -76,7 +76,7 @@ const Wishlist = () => {
 
       setSavedSData(updatedData.filter((stock) => stock !== null));
       setLoading(false);
-      setInitialLoad(false);
+      // setInitialLoad(false);
     };
 
     // Run updateSavedSData every 5 seconds
