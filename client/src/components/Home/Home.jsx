@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../UserContext.jsx";
 import "./home.css";
@@ -75,6 +75,8 @@ const Home = () => {
       return null;
     }
   };
+
+  
 
   // Function to fetch and update all top gainers and losers
   const fetchAllData = async () => {
@@ -171,37 +173,38 @@ const Home = () => {
   return (
     <>
       <div className="bothB">
+      <p className="headN">Nifty 200 Top Gainers</p>
         <div className="gainersE">
-          <h2>Top Gainers</h2>
           {topGainersF.length > 0 ? (
             topGainersF.map((gainer, index) => (
-              <div key={index}>
-                <p>{gainer.stockName}</p>
-                <p>{gainer.stockTicker}</p>
-                <p>Price: {gainer.stockPrice}</p>
-                <p>Change: {gainer.stockMoneyC}</p>
-                <p>Percentage Change: {gainer.stockPChange}%</p>
+              <div key={index} className="gainerChild">
+             
+                <p className="stockTickerH">{gainer.stockTicker}</p>
+                <p className="stockPriceH" >₹{gainer.stockPrice}</p>
+                <p className="stockMoneyCHG">+₹{gainer.stockMoneyC}</p>
+                <p className="stockPerHG">{gainer.stockPChange}%</p>
               </div>
             ))
           ) : (
-            <div className="loader"></div>
+            <div className="loader1">Loading Stocks...</div>
           )}
         </div>
 
+        <p className="headN">Nifty 200 Top Losers</p>
         <div className="losersE">
-          <h2>Top Losers</h2>
+
           {topLosersF.length > 0 ? (
             topLosersF.map((loser, index) => (
-              <div key={index}>
-                <p>{loser.stockName}</p>
-                <p>{loser.stockTicker}</p>
-                <p>Price: {loser.stockPrice}</p>
-                <p>Change: {loser.stockMoneyC}</p>
-                <p>Percentage Change: {loser.stockPChange}%</p>
+              <div key={index} className="loserChild">
+            
+                <p className="stockTickerH">{loser.stockTicker}</p>
+                <p className="stockPriceH" >₹{loser.stockPrice}</p>
+                <p className="stockMoneyCHL">₹{loser.stockMoneyC}</p>
+                <p className="stockPerHL">{loser.stockPChange}%</p>
               </div>
             ))
           ) : (
-            <div className="loader"></div>
+            <div className="loader1">Loading Stocks...</div>
           )}
         </div>
       </div>
