@@ -3,6 +3,7 @@ from flask_cors import CORS
 import yfinance as yf
 from Algorithms.Gainers.topgainers import fetch_top_gainers
 from Algorithms.Gainers.toplosers import fetch_top_losers
+from Algorithms.News.scrapenews import fetch_stock_news
 
 app = Flask(__name__)
 CORS(app)
@@ -36,6 +37,15 @@ def top_losers():
     try:
         top_losers_list = fetch_top_losers()
         return jsonify({'top_losers': top_losers_list})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+# Get Stock News with the help of its ticker
+@app.route('/stocknews', methods=['GET'])
+def stock_news():
+    try:
+        news = fetch_stock_news()
+        return jsonify({'news': news})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

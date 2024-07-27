@@ -78,9 +78,19 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 40. Fetch topgainers and toplosers simulataneously and show on home page -->
 
-41. Fix and Apply CSS To Home Page
+<!-- 41. Fix and Apply CSS To Home Page -->
 
-42. Keep Search bar at home page too
+<!-- 41. Create and test api for curr business news webscrape the news -->
+
+42. Move TopGainers and TopLosers to Search Page
+
+43. Keep Search bar at home page too
+
+44. Onclick stock open stockinfo in top gainers and toplosers
+
+45. Create Layout for home Page
+
+46. On Home Page -> Show Wallet Balance, Top IT Stock, Trending Stocks, Top Bank Stocks, 
 
 0. Uncomment update top gainers and toplosers every 5 seconds
 
