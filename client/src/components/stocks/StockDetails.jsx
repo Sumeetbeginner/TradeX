@@ -5,6 +5,7 @@ import { UserContext } from "../../UserContext";
 import "./stocks.css";
 import BuyBox from "./BuyBox";
 import SellBox from "./SellBox";
+import {jsPDF} from 'jspdf'
 
 const StockInfo = () => {
   const [stockData, setStockData] = useState(null);
@@ -190,6 +191,26 @@ const StockInfo = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const handleDownload = () => {
+    const doc = new jsPDF();
+
+    doc.setFontSize(16);
+    doc.text(`${stockData.result.shortName} Data`, 20, 20);
+
+    let yPosition = 30;
+    for (const [key, value] of Object.entries(stockData.result)) {
+        if (key !== 'companyOfficers') { 
+            doc.setFontSize(12);
+            doc.text(`${key}: ${value}`, 20, yPosition);
+            yPosition += 10;
+        }
+    }
+
+    doc.save(`${stockData.result.shortName}.pdf`);
+};
+
+
+
   return (
     <div className="stockDBody">
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -213,7 +234,7 @@ const StockInfo = () => {
               ></i>
               <i className="fa-solid fa-chart-simple"></i>
               <i className="fa-solid fa-newspaper"></i>
-              <i className="fa-solid fa-download"></i>
+              <i onClick={() => {handleDownload()}} className="fa-solid fa-download"></i>
               <i
                 onClick={() => fetchStockInfo()}
                 className="fa-solid fa-rotate-right"

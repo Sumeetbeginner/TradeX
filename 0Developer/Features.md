@@ -96,6 +96,19 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 47. On Home Page -> Nifty Data,Show Wallet Balance, News -->
 
+48. News Feature in stock Info
+
+49. Analytics feature in stock info
+
+50. Download feature in stock info
+
+52. User Profile Feature
+
+0. Setting Feature
+{
+    
+}
+
 0. Update Nifty 50 Data Every 5 Seconds
 
 0. Uncomment update top gainers and toplosers every 5 seconds
@@ -109,6 +122,11 @@ and pass the stock data on stockinfo page var -->
 0. Change Firebase Credential or new firebase acc and use env var and store that there 
 
 0. Optimization
+{
+
+}
+
+0. Updates
 {
 
 }
