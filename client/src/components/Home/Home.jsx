@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../Search/SearchBar";
 import "./home.css";
+import Nifty from "./Nifty";
 
 const Home = () => {
   const [newsD, setNewsD] = useState([]);
@@ -23,7 +24,7 @@ const Home = () => {
         const data = await response.json();
         setNewsD(data.news);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching news:", error);
       } finally {
         setLoadingNews(false);
       }
@@ -38,7 +39,9 @@ const Home = () => {
         <SearchBar />
       </div>
       <div className="flexCHome">
-        <div className="othersLeft"></div>
+        <div className="othersLeft">
+          <Nifty />
+        </div>
         <div className="newsRight">
           {loadingNews ? (
             <div className="loader"></div>

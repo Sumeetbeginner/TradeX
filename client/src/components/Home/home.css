@@ -77,3 +77,60 @@
 .newsBro:hover{
   background-color: var(--material);
 }
+
+.spanBhai span{
+  color: var(--logo);
+  font-weight: 600;
+}
+
+.headNifty{
+  color: var(--logo);
+  font-weight: 600;
+  margin-left: 4%;
+  font-size: 35px;
+}
+
+.flexPrice{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 4%;
+}
+
+.niftyParent{
+  width: 96%;
+  display: block;
+  margin: auto;
+  margin-top: 4%;
+}
+
+.currPriceN{
+  margin-top: 1%;
+}
+
+.currPerN{
+  margin-left: 2%;
+  margin-top: 1%;
+  /* color: rgb(1, 172, 1); */
+}
+
+.niftyChart{
+  margin-top: 4%;
+}
+
+.flexNifty{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.spanBhai{
+  display: block;
+  margin-top: 11%;
+  font-size: 19px;
+}
+
+.flexNifty hr{
+  margin-top: 3%;
+  width: 1px;
+  background-color: white;
+}

@@ -4,6 +4,7 @@ import yfinance as yf
 from Algorithms.Gainers.topgainers import fetch_top_gainers
 from Algorithms.Gainers.toplosers import fetch_top_losers
 from Algorithms.News.scrapenews import fetch_stock_news
+from Algorithms.niftydata.nifty import fetch_nifty
 
 app = Flask(__name__)
 CORS(app)
@@ -46,6 +47,15 @@ def stock_news():
     try:
         news = fetch_stock_news()
         return jsonify({'news': news})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+# Get Nifty Data
+@app.route('/niftydata', methods=['GET'])
+def nifty_data():
+    try:
+        nifty_data = fetch_nifty()
+        return jsonify({'nifty50data': nifty_data})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
