@@ -100,7 +100,7 @@ and pass the stock data on stockinfo page var -->
 
 49. Analytics feature in stock info
 
-50. Download feature in stock info
+<!-- 50. Download feature in stock info -->
 
 52. User Profile Feature
 
