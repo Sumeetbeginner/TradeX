@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useContext} from "react";
 import SearchBar from "../Search/SearchBar";
 import "./home.css";
 import Nifty from "./Nifty";
+import {UserContext} from '../../UserContext'
 
 const Home = () => {
+
+  const { user } = useContext(UserContext);
   const [newsD, setNewsD] = useState([]);
   const [loadingNews, setLoadingNews] = useState(true);
 
@@ -37,6 +40,9 @@ const Home = () => {
     <div className="homeBody">
       <div className="homeSearch">
         <SearchBar />
+        <div className="accBal">
+         🪙 Balance : ₹{Number(user.balance).toFixed(2)}
+        </div>
       </div>
       <div className="flexCHome">
         <div className="othersLeft">

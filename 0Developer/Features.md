@@ -94,7 +94,9 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 47. Fetch Nifty 50 Data and show graph and data on home page -->
 
-47. On Home Page -> Nifty Data,Show Wallet Balance, News
+<!-- 47. On Home Page -> Nifty Data,Show Wallet Balance, News -->
+
+0. Update Nifty 50 Data Every 5 Seconds
 
 0. Uncomment update top gainers and toplosers every 5 seconds
 

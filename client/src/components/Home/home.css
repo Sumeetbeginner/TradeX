@@ -134,3 +134,18 @@
   width: 1px;
   background-color: white;
 }
+
+.homeSearch{
+  display: flex;
+  align-items: center;
+}
+
+.accBal{
+  background-color: var(--material);
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 2.4%;
+  padding: 0.7% 2%;
+  border-radius: 10px;
+  white-space: nowrap;
+}
