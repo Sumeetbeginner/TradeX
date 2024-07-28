@@ -88,9 +88,11 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 44. Onclick stock open stockinfo in top gainers and toplosers -->
 
-45. Create Layout for home Page
+<!-- 45. Create Layout for home Page -->
 
-46. On Home Page -> Show Wallet Balance, News, Top IT Stock, Trending Stocks, Top Bank Stocks
+46. Show News on Righbar home page
+
+47. On Home Page -> Show Wallet Balance, News, Top IT Stock, Trending Stocks, Top Bank Stocks
 
 0. Uncomment update top gainers and toplosers every 5 seconds
 

@@ -13,12 +13,10 @@ def fetch_stock_news():
     for link in links:
         title = link.get('title')
         href = link.get('href')
-        
-        # Find the img tag inside the a tag
         img_tag = link.find('img')
-        img_src = img_tag['src'] if img_tag else None
+        img_src = img_tag.get('data-src') if img_tag.get('data-src') else img_tag.get('src')
         
-        if title and href:
+        if title and href and img_src:
             news_items.append({
                 'title': title,
                 'href': href,
@@ -26,4 +24,3 @@ def fetch_stock_news():
             })
     
     return news_items
-

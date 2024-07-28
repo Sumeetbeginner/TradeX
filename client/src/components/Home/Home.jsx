@@ -1,21 +1,62 @@
-import React from "react";
-import Search from "../Search/Search";
+import React, { useEffect, useState } from "react";
 import SearchBar from "../Search/SearchBar";
 import "./home.css";
 
 const Home = () => {
+  const [newsD, setNewsD] = useState([]);
+  const [loadingNews, setLoadingNews] = useState(true);
 
-  
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/stocknews", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (!response.ok) {
+          const errorT = await response.text();
+          throw new Error(`Network response was not ok: ${errorT}`);
+        }
+
+        const data = await response.json();
+        setNewsD(data.news);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoadingNews(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   return (
     <div className="homeBody">
       <div className="homeSearch">
         <SearchBar />
       </div>
-
       <div className="flexCHome">
         <div className="othersLeft"></div>
-        <div className="newsRight">News</div>
+        <div className="newsRight">
+          {loadingNews ? (
+            <div className="loader"></div>
+          ) : newsD.length > 0 ? (
+            <div className="newsContainer">
+              {newsD.map((news, index) => (
+                <div key={index} className="newsBro">
+                  <a target="_blank" href={news.href} className="flexNewsC">
+                    <img src={news.img_src} alt={news.title} />
+                    <p>{news.title}</p>
+                  </a>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="noNews">No news available</div>
+          )}
+        </div>
       </div>
     </div>
   );

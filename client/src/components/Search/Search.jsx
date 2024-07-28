@@ -6,9 +6,7 @@ import { UserContext } from "../../UserContext";
 import SearchBar from "./SearchBar";
 
 const Search = () => {
-  // const [query, setQuery] = useState("");
-  // const [suggestions, setSuggestions] = useState([]);
-  // const navigate = useNavigate();
+
   const { user } = useContext(UserContext);
   const [topGainers, setTopGainers] = useState([]);
   const [topGainersF, setTopGainersF] = useState([]);
@@ -16,38 +14,6 @@ const Search = () => {
   const [topLosersF, setTopLosersF] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   // console.log("Loaded stocks data:", stocksData);
-  // }, []);
-
-  // // On Entering Value in Input it will filter target value in json data and store it
-  // const handleSearch = (e) => {
-  //   const value = e.target.value;
-  //   setQuery(value);
-
-  //   if (value.length > 1) {
-  //     const filteredSuggestions = stocksData
-  //       .filter(
-  //         (stock) =>
-  //           stock["NAME OF COMPANY"] &&
-  //           stock["NAME OF COMPANY"].toLowerCase().includes(value.toLowerCase())
-  //       )
-  //       .slice(0, 7);
-  //     // console.log("Filtered suggestions:", filteredSuggestions);
-  //     setSuggestions(filteredSuggestions);
-  //   } else {
-  //     setSuggestions([]);
-  //   }
-  // };
-
-  // On Click Store the selected stock in local storage and redirect to stockinfo to show details about that particular stock
-  // const handleSuggestionClick = (stock) => {
-  //   // console.log("Selected stock:", stock);
-  //   localStorage.setItem("currStockData", stock.SYMBOL);
-  //   navigate("/stockinfo");
-  // };
-
-  // Function to fetch top gainers from the server
   const fetchTopGainers = async () => {
     try {
       const response = await fetch("http://localhost:3000/topgainers", {
@@ -61,7 +27,7 @@ const Search = () => {
       }
 
       const data = await response.json();
-      setTopGainers(data.top_gainers); // Access the 'top_gainers' array
+      setTopGainers(data.top_gainers);
     } catch (error) {
       console.error("Error fetching top gainers:", error);
     }
@@ -81,7 +47,7 @@ const Search = () => {
       }
 
       const data = await response.json();
-      setTopLosers(data.top_losers); // Access the 'top_losers' array
+      setTopLosers(data.top_losers); 
     } catch (error) {
       console.error("Error fetching top losers:", error);
     }
@@ -205,27 +171,7 @@ const Search = () => {
 
   return (
     <div className="bhaiK">
-      {/* <div className="search-container">
-        <input
-          type="text"
-          value={query}
-          onChange={handleSearch}
-          placeholder="Search stocks..."
-        />
-        {suggestions.length > 0 && (
-          <div className="suggestions">
-            {suggestions.map((stock, index) => (
-              <div
-                key={index}
-                className="suggestion"
-                onClick={() => handleSuggestionClick(stock)}
-              >
-                {stock["NAME OF COMPANY"]}
-              </div>
-            ))}
-          </div>
-        )}
-      </div> */}
+
       <SearchBar />
 
       <div className="bothB">
