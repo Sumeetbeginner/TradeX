@@ -90,7 +90,7 @@ and pass the stock data on stockinfo page var -->
 
 45. Create Layout for home Page
 
-46. On Home Page -> Show Wallet Balance, Top IT Stock, Trending Stocks, Top Bank Stocks, 
+46. On Home Page -> Show Wallet Balance, News, Top IT Stock, Trending Stocks, Top Bank Stocks
 
 0. Uncomment update top gainers and toplosers every 5 seconds
 
