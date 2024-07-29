@@ -14,6 +14,8 @@ const Search = () => {
   const [topLosersF, setTopLosersF] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const navigate = useNavigate();
+
   const fetchTopGainers = async () => {
     try {
       const response = await fetch("http://localhost:3000/topgainers", {
@@ -169,6 +171,11 @@ const Search = () => {
     return <div className="loader"></div>;
   }
 
+  const openStockBro = (stockTicker) =>{
+    localStorage.setItem('currStockData', stockTicker)
+    navigate('/stockinfo')
+  }
+
   return (
     <div className="bhaiK">
 
@@ -179,7 +186,7 @@ const Search = () => {
         <div className="gainersE">
           {topGainersF.length > 0 ? (
             topGainersF.map((gainer, index) => (
-              <div key={index} className="gainerChild">
+              <div onClick={() => {openStockBro(gainer.stockTicker)}} key={index} className="gainerChild">
                 <p className="stockTickerH">{gainer.stockTicker}</p>
                 <p className="stockPriceH">₹{gainer.stockPrice}</p>
                 <p className="stockMoneyCHG">+₹{gainer.stockMoneyC}</p>
@@ -195,7 +202,7 @@ const Search = () => {
         <div className="losersE">
           {topLosersF.length > 0 ? (
             topLosersF.map((loser, index) => (
-              <div key={index} className="loserChild">
+              <div  onClick={() => {openStockBro(loser.stockTicker)}}  key={index} className="loserChild">
                 <p className="stockTickerH">{loser.stockTicker}</p>
                 <p className="stockPriceH">₹{loser.stockPrice}</p>
                 <p className="stockMoneyCHL">₹{loser.stockMoneyC}</p>
