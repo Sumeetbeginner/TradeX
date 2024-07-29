@@ -86,7 +86,7 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 43. Keep Search bar at home page too -->
 
-<!-- 44. Onclick stock open stockinfo in top gainers and toplosers -->
+44. Onclick stock open stockinfo in top gainers and toplosers
 
 <!-- 45. Create Layout for home Page -->
 
@@ -96,20 +96,20 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 47. On Home Page -> Nifty Data,Show Wallet Balance, News -->
 
-48. News Feature in stock Info
+48. Setting Feature
+{
+    <!-- 1. Create Setting UI -> Personal Details, Security -> Lock App, Setting, Themes, Wallet Setting -> Change Salary(Premium), Other Icons -->
+}
 
-49. Analytics feature in stock info
+49. News Feature in stock Info
 
 <!-- 50. Download feature in stock info -->
+
+51. Analytics feature in stock info
 
 52. User Profile Feature
 
 <!-- 53. Change Firebase Credential or new firebase acc and use env var and store that there  -->
-
-0. Setting Feature
-{
-    
-}
 
 0. Update Nifty 50 Data Every 5 Seconds
 
