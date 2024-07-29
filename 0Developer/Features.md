@@ -104,6 +104,8 @@ and pass the stock data on stockinfo page var -->
 
 52. User Profile Feature
 
+<!-- 53. Change Firebase Credential or new firebase acc and use env var and store that there  -->
+
 0. Setting Feature
 {
     
@@ -118,8 +120,6 @@ and pass the stock data on stockinfo page var -->
 0. Functionality : user can buy and sell stocks between 9.15 to 3.00pm (Monday to Friday)
 
 0. Every Month update balance + salary
-
-0. Change Firebase Credential or new firebase acc and use env var and store that there 
 
 0. Optimization
 {
