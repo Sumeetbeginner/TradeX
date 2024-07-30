@@ -99,6 +99,7 @@ and pass the stock data on stockinfo page var -->
 48. Setting Feature
 {
     <!-- 1. Create Setting UI -> Personal Details, Security -> Lock App, Setting, Themes, Wallet Setting -> Change Salary(Premium), Other Icons -->
+
 }
 
 49. News Feature in stock Info
