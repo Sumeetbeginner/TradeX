@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 def fetch_nifty():
     # URL of the webpage
@@ -10,7 +11,7 @@ def fetch_nifty():
     soup = BeautifulSoup(response.content, "html.parser")
     
     # Scrape the required data
-    price_change_div = soup.find("div", id="sp_ch_prch", class_="pricupdn grn")
+    price_change_div = soup.find("div", id="sp_ch_prch", class_=re.compile(r"pricupdn (grn|red)"))
     price_change_text = price_change_div.text.strip()
     price_change_value, price_change_percent = price_change_text.split("(")
     price_change_percent = price_change_percent.rstrip(")%")
