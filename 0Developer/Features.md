@@ -1,4 +1,3 @@
-
 <!-- 1. Client Setup -->
 
 <!-- 2. Setup React Routers for all Components and create components => Welcome, Signup, Login, Home, Portfolio, Wishlist, Wallet, Profile, Setting -->
@@ -97,8 +96,10 @@ and pass the stock data on stockinfo page var -->
 <!-- 47. On Home Page -> Nifty Data,Show Wallet Balance, News -->
 
 48. Setting Feature
-{
+    {
     <!-- 1. Create Setting UI -> Personal Details, Security -> Lock App, Setting, Themes, Wallet Setting -> Change Salary(Premium), Other Icons -->
+
+    <!-- 2. Create Setting Update Functionality + Back Button -->
 
 }
 
@@ -114,21 +115,20 @@ and pass the stock data on stockinfo page var -->
 
 0. Update Nifty 50 Data Every 5 Seconds
 
-0. Uncomment update top gainers and toplosers every 5 seconds
+1. Uncomment update top gainers and toplosers every 5 seconds
 
-0. Forgot Password functionality in login
+2. Forgot Password functionality in login
 
-0. Functionality : user can buy and sell stocks between 9.15 to 3.00pm (Monday to Friday)
+3. Functionality : user can buy and sell stocks between 9.15 to 3.00pm (Monday to Friday)
 
-0. Every Month update balance + salary
+4. Every Month update balance + salary
 
-0. Optimization
-{
+5. Optimization
+   {
 
 }
 
 0. Updates
-{
+   {
 
 }
-
