@@ -101,6 +101,8 @@ and pass the stock data on stockinfo page var -->
 
     <!-- 2. Create Setting Update Functionality + Back Button -->
 
+    3. Change Theme Functionality
+
 }
 
 49. News Feature in stock Info

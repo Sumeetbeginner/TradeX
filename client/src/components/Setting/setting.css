@@ -158,3 +158,45 @@
 .resetDB:hover{
     opacity: 0.8;
 }
+
+.flexBhaiA{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* background-color: red; */
+    height: 37vh;
+}
+
+.flexThemeC img{
+
+    width: 87%;
+    margin-left: 7%;
+    border-radius: 6px ;
+}
+
+
+.flexThemeC button {
+    display: block;
+    width: 50%;
+    height: 5vh;
+    border: none;
+    outline: none;
+    background-color: var(--material);
+    color: white;
+    font-size: 18px;
+    border-radius: 12px;
+    margin: auto;
+    cursor: pointer;
+    margin-top: 10%;
+}
+
+.flexThemeC button:hover {
+    opacity: 0.8;
+}
+
+.flexPF2 h3{
+    text-align: center;
+    font-size: 26px;
+    margin-top: 3%;
+}

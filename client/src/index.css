@@ -24,9 +24,12 @@ body {
     height: 100vh;
     background-color: var(--light);
     user-select: none;
-    color: white;
+    color: var(--text) !important;
     font-family: 'Open Sans';
     overflow: hidden;
+}
+input{
+    color: var(--text) !important;
 }
 
 ::-webkit-scrollbar {

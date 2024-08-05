@@ -61,7 +61,7 @@
 }
 
 .newsBro p{
-  color: white;
+  color: var(--text);
   text-decoration: unset;
   font-size: 15.5px;
 }

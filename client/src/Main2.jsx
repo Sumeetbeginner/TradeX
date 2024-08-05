@@ -14,6 +14,7 @@ import Wallet from './components/Wallet/Wallet';
 import { UserContext } from './UserContext.jsx';
 import Search from './components/Search/Search.jsx';
 import StockDetails from './components/stocks/StockDetails.jsx';
+import SetTheme from './SetTheme.jsx';
 
 const Main2 = () => {
 
@@ -25,8 +26,11 @@ const Main2 = () => {
 
   if(loading) return <div className="loader"></div>
 
+
   return (
     <>
+
+    <SetTheme/>
     <div className="flexParent">
       {!noNavbarPaths.includes(location.pathname) && <Navbar />}
       <Routes>
