@@ -147,7 +147,13 @@ const Setting = () => {
             </div>
             </div>
           </div>
-          <div className="flexPF3">Other Icons</div>
+          <div className="flexPF3">
+          <i title="Help" class="fa-solid fa-question"></i>
+          <i title="Chat with us" class="fa-solid fa-comments"></i>
+          <i title="Chat With AI" class="fa-solid fa-robot"></i>
+          <i title="Premium" class="fa-solid fa-crown"></i>
+          <i title="Download User Data"  class="fa-solid fa-download"></i>
+          </div>
         </div>
       </div>
     </div>

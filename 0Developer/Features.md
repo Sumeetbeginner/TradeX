@@ -101,7 +101,9 @@ and pass the stock data on stockinfo page var -->
 
     <!-- 2. Create Setting Update Functionality + Back Button -->
 
-    3. Change Theme Functionality
+    <!-- 3. Change Theme Functionality -->
+
+    <!-- 4. Other Icons UI -->
 
 }
 
