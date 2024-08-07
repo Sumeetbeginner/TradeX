@@ -47,6 +47,8 @@ const Signup = () => {
         balance : 500000,
         salary : 50000,
         theme : 1,
+        passcode : "unset",
+        premium : "false",
       });
 
 

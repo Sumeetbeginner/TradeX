@@ -105,6 +105,12 @@ and pass the stock data on stockinfo page var -->
 
     <!-- 4. Other Icons UI -->
 
+    <!-- 5. Wallet Setting Functionality -->
+
+    6. Show Premium Box when setShowPrem is True
+
+    7. Security - Set Passcode for buying and selling stocks
+
 }
 
 49. News Feature in stock Info

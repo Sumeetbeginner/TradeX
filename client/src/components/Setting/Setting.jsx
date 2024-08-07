@@ -6,6 +6,7 @@ import userLogo from "../../assets/icons/trader.png";
 import theme1 from "../../assets/images/theme1.png";
 import theme2 from "../../assets/images/theme2.png";
 import theme3 from "../../assets/images/theme3.png";
+import SalaryBox from "./SalaryBox";
 
 const Setting = () => {
   const { user, setUser, loading } = useContext(UserContext);
@@ -14,6 +15,8 @@ const Setting = () => {
   const [updatedUser, setUpdatedUser] = useState(user);
   const [usernameU, setUsernameU] = useState(user.username);
   const [emailU, setEmailU] = useState(user.email);
+  const [showPremBox, setShowPremBox] = useState(false);
+  const [editSalaryBox, setEditSalaryBox] = useState(false);
 
   useEffect(() => {
     console.log(updatedUser);
@@ -33,8 +36,7 @@ const Setting = () => {
   };
 
   const changeThemeOfPage = (theme) => {
-
-    const themeData = { ...updatedUser, theme : theme };
+    const themeData = { ...updatedUser, theme: theme };
     setUpdatedUser(themeData);
     setUser(themeData);
 
@@ -66,10 +68,26 @@ const Setting = () => {
       document.documentElement.style.setProperty("--green", "#1ac465");
       document.documentElement.style.setProperty("--logo", "#6482AD");
     }
-  
   };
 
   if (loading) return <div className="loader"></div>;
+
+  const formatNumber = (number) => {
+    return new Intl.NumberFormat("en-IN").format(number);
+  };
+
+  const editSalary = () => {
+    if (user.premium == "false") {
+      setShowPremBox(true);
+      alert("No Premium");
+    } else {
+      setEditSalaryBox(true);
+    }
+  };
+
+  const toggleP = () =>{
+    setEditSalaryBox(false)
+  }
 
   return (
     <div className="settParent">
@@ -102,7 +120,7 @@ const Setting = () => {
                 }}
               />
               <div className="balanceV">
-                Balance: ₹{Number(user.balance).toFixed(2)}
+                Balance: ₹{formatNumber(Number(user.balance).toFixed(2))}
               </div>
               <button className="resetDB" onClick={resetToDefault}>
                 Reset to Default
@@ -118,44 +136,54 @@ const Setting = () => {
       </div>
       <div className="blockParentF">
         <div className="flexPF">
-          <div className="flexPF1">Wallet Setting</div>
+          <div className="flexPF1">
+            <h2>Wallet</h2>
+
+            <p>Balance : ₹{formatNumber(Number(user.balance).toFixed(2))}</p>
+            <p>Salary : ₹{formatNumber(Number(user.salary))}/Month</p>
+
+            <button onClick={() => editSalary()}>
+              <i className="fa-solid fa-crown"></i> Edit Salary
+            </button>
+          </div>
           <div className="flexPF1">Security</div>
         </div>
         <div className="flexPF">
-
           <div className="flexPF2">
             <h3>Change Theme</h3>
-        <div className="flexBhaiA">
-            <div className="flexThemeC">
-              <img src={theme1} alt="" />
-              <button className="selT2" onClick={() => changeThemeOfPage(1)}>
-                Dark
-              </button>
-            </div>
-            <div className="flexThemeC">
-              <img src={theme2} alt="" />
+            <div className="flexBhaiA">
+              <div className="flexThemeC">
+                <img src={theme1} alt="" />
+                <button className="selT2" onClick={() => changeThemeOfPage(1)}>
+                  Dark
+                </button>
+              </div>
+              <div className="flexThemeC">
+                <img src={theme2} alt="" />
 
-              <button className="selT2" onClick={() => changeThemeOfPage(2)}>
-                Light
-              </button>
-            </div>
-            <div className="flexThemeC">
-              <img src={theme3} alt="" />
-              <button className="selT2" onClick={() => changeThemeOfPage(3)}>
-                Aesthetic
-              </button>
-            </div>
+                <button className="selT2" onClick={() => changeThemeOfPage(2)}>
+                  Light
+                </button>
+              </div>
+              <div className="flexThemeC">
+                <img src={theme3} alt="" />
+                <button className="selT2" onClick={() => changeThemeOfPage(3)}>
+                  Aesthetic
+                </button>
+              </div>
             </div>
           </div>
           <div className="flexPF3">
-          <i title="Help" class="fa-solid fa-question"></i>
-          <i title="Chat with us" class="fa-solid fa-comments"></i>
-          <i title="Chat With AI" class="fa-solid fa-robot"></i>
-          <i title="Premium" class="fa-solid fa-crown"></i>
-          <i title="Download User Data"  class="fa-solid fa-download"></i>
+            <i title="Help" class="fa-solid fa-question"></i>
+            <i title="Chat with us" class="fa-solid fa-comments"></i>
+            <i title="Chat With AI" class="fa-solid fa-robot"></i>
+            <i title="Premium" class="fa-solid fa-crown"></i>
+            <i title="Download User Data" class="fa-solid fa-download"></i>
           </div>
         </div>
       </div>
+
+      {editSalaryBox && <SalaryBox  closePopup={toggleP}/>}
     </div>
   );
 };

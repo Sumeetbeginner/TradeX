@@ -215,6 +215,59 @@
     cursor: pointer;
 }
 
-.fa-crown:hover{
+.flexPF3 .fa-crown:hover{
     color: yellow !important;
+}
+
+.flexPF1 h2{
+    text-align: center;
+    margin-top: 4%;
+    font-size:27px;
+}
+
+.flexPF1 p:nth-child(2){
+    background-color: var(--material);
+    width: fit-content;
+    font-size: 25px;
+    padding: 2% 3%;
+    display: block;
+    margin: auto;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 6%;
+}
+.flexPF1 p:nth-child(3){
+    background-color: var(--light);
+    width: fit-content;
+    font-size: 25px;
+    padding: 2% 3%;
+    display: block;
+    margin: auto;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 8%;
+}
+
+.flexPF1 button {
+    display: block;
+    width: 40%;
+    height: 6vh;
+    border: none;
+    outline: none;
+    background-color: rgb(116, 116, 1);
+    color: white;
+    font-size: 18px;
+    border-radius: 12px;
+    margin: auto;
+    cursor: pointer;
+    margin-top: 7%;
+}
+
+.flexPF1 button:hover {
+    opacity: 0.8;
+}
+
+.flexPF1 .fa-crown{
+    color: yellow;
+    padding: 0% 2% ;
 }
