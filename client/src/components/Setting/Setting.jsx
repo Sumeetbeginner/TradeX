@@ -7,6 +7,7 @@ import theme1 from "../../assets/images/theme1.png";
 import theme2 from "../../assets/images/theme2.png";
 import theme3 from "../../assets/images/theme3.png";
 import SalaryBox from "./SalaryBox";
+import PremiumBox from "./PremiumBox";
 
 const Setting = () => {
   const { user, setUser, loading } = useContext(UserContext);
@@ -87,6 +88,7 @@ const Setting = () => {
 
   const toggleP = () =>{
     setEditSalaryBox(false)
+    setShowPremBox(false)
   }
 
   return (
@@ -177,13 +179,14 @@ const Setting = () => {
             <i title="Help" class="fa-solid fa-question"></i>
             <i title="Chat with us" class="fa-solid fa-comments"></i>
             <i title="Chat With AI" class="fa-solid fa-robot"></i>
-            <i title="Premium" class="fa-solid fa-crown"></i>
+            <i onClick={() => setShowPremBox(true)} title="Premium" class="fa-solid fa-crown"></i>
             <i title="Download User Data" class="fa-solid fa-download"></i>
           </div>
         </div>
       </div>
 
       {editSalaryBox && <SalaryBox  closePopup={toggleP}/>}
+      {showPremBox && <PremiumBox  closePopup={toggleP}/>}
     </div>
   );
 };

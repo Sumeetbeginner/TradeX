@@ -271,3 +271,25 @@
     color: yellow;
     padding: 0% 2% ;
 }
+
+#premHead{
+    color: yellow;
+
+}
+
+.premiumD h3{
+    font-size: 23px;
+    margin-top: 2%;
+    color: var(--logo);
+    margin-top: 7%;
+}
+
+.premiumD p{
+    font-size: 18px;
+    margin-top: 5%;
+}
+
+#buttonPre{
+    color: black;
+    background-color: rgb(189, 189, 3) !important;
+}

@@ -107,10 +107,13 @@ and pass the stock data on stockinfo page var -->
 
     <!-- 5. Wallet Setting Functionality -->
 
-    6. Show Premium Box when setShowPrem is True
+    <!-- 6. Show Premium Box when setShowPrem is True -->
 
     7. Security - Set Passcode for buying and selling stocks
 
+    8. No Stock Found -> CSS
+
+    9. Paymemt Integration for Buying Premium
 }
 
 49. News Feature in stock Info
