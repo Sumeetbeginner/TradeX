@@ -18,6 +18,9 @@ const Setting = () => {
   const [emailU, setEmailU] = useState(user.email);
   const [showPremBox, setShowPremBox] = useState(false);
   const [editSalaryBox, setEditSalaryBox] = useState(false);
+  const [passcode, setPasscode] = useState(user.passcode)
+  const [prevPassCode, setPrevPasscode] = useState('')
+  const [newPasscode, setNewPasscode] = useState('')
 
   useEffect(() => {
     console.log(updatedUser);
@@ -86,9 +89,29 @@ const Setting = () => {
     }
   };
 
-  const toggleP = () =>{
+  const toggleP = () => {
     setEditSalaryBox(false)
-    setShowPremBox(false)
+    setShowPremBox(false);
+  };
+
+  const setPasscodeBro = () => {
+    if(passcode == 'unset'){
+      setPasscode(newPasscode)
+      setUser({...user, passcode:newPasscode})
+      alert('✅ New Passcode Set')
+    }
+    else{
+      if(Number(prevPassCode) == Number(passcode)){
+        setPasscode(newPasscode)
+        setUser({...user, passcode:newPasscode})
+        alert('✅ New Passcode Set')
+        setNewPasscode('')
+        setPrevPasscode('')
+      }
+      else{
+        alert('⚠️ Incorrect Previous Passcode')
+      }
+    }
   }
 
   return (
@@ -148,7 +171,22 @@ const Setting = () => {
               <i className="fa-solid fa-crown"></i> Edit Salary
             </button>
           </div>
-          <div className="flexPF1">Security</div>
+          <div className="flexPF1">
+            {" "}
+            <h2>Security</h2>
+            
+            <div className="passcodeInp">
+              {passcode == 'unset' ? <><p>⚠️ Enhance your Security by Setting your Passcode Now</p> <input  className='unsetP' onChange={(e) => {setNewPasscode(e.target.value)}} type="text" placeholder="Create a Passcode" /> </>: <div className="setP">
+              <p>⚠️ Enhance your Security by Setting your Passcode Now</p>
+                <input type="text" onChange={(e) => {setPrevPasscode(e.target.value)}} placeholder="Enter Previous Passcode"/>
+                <input type="text" onChange={(e) => {setNewPasscode(e.target.value)}} placeholder="Create New Passcode"/>
+              </div> }
+            </div>
+
+            <button onClick={() => setPasscodeBro()}>
+              Set Passcode
+            </button>
+          </div>
         </div>
         <div className="flexPF">
           <div className="flexPF2">
@@ -179,14 +217,18 @@ const Setting = () => {
             <i title="Help" class="fa-solid fa-question"></i>
             <i title="Chat with us" class="fa-solid fa-comments"></i>
             <i title="Chat With AI" class="fa-solid fa-robot"></i>
-            <i onClick={() => setShowPremBox(true)} title="Premium" class="fa-solid fa-crown"></i>
+            <i
+              onClick={() => setShowPremBox(true)}
+              title="Premium"
+              class="fa-solid fa-crown"
+            ></i>
             <i title="Download User Data" class="fa-solid fa-download"></i>
           </div>
         </div>
       </div>
 
-      {editSalaryBox && <SalaryBox  closePopup={toggleP}/>}
-      {showPremBox && <PremiumBox  closePopup={toggleP}/>}
+      {editSalaryBox && <SalaryBox closePopup={toggleP} />}
+      {showPremBox && <PremiumBox closePopup={toggleP} />}
     </div>
   );
 };

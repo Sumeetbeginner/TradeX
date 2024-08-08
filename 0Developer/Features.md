@@ -109,11 +109,13 @@ and pass the stock data on stockinfo page var -->
 
     <!-- 6. Show Premium Box when setShowPrem is True -->
 
-    7. Security - Set Passcode for buying and selling stocks
+    <!-- 7. Security - Set Passcode for buying and selling stocks -->
+
+    8. Ask Passcode Before Buying and Selling Stocks
 
     <!-- 8. No Stock Found -> CSS -->
 
-    9. Paymemt Integration for Buying Premium
+    9. Payment Integration for Buying Premium
 }
 
 49. News Feature in stock Info
@@ -125,6 +127,8 @@ and pass the stock data on stockinfo page var -->
 52. User Profile Feature
 
 <!-- 53. Change Firebase Credential or new firebase acc and use env var and store that there  -->
+
+54. Create new Firebase database - TradeX
 
 0. Update Nifty 50 Data Every 5 Seconds
 
