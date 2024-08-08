@@ -267,7 +267,7 @@ const Portfolio = () => {
           )}
         </table>
       ) : (
-        <div className="">No Stock Found in Portfolio</div>
+        <div className="noStock2">⚠️ No Saved Stock Found</div>
       )}
     </div>
   );

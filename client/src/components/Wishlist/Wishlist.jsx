@@ -157,7 +157,7 @@ const Wishlist = () => {
           ))}
         </div>
       ) : (
-        <div className="">No Saved Stock Found</div>
+        <div className="noStock">⚠️ No Saved Stock Found</div>
       )}
     </div>
   );

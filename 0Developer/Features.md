@@ -111,7 +111,7 @@ and pass the stock data on stockinfo page var -->
 
     7. Security - Set Passcode for buying and selling stocks
 
-    8. No Stock Found -> CSS
+    <!-- 8. No Stock Found -> CSS -->
 
     9. Paymemt Integration for Buying Premium
 }

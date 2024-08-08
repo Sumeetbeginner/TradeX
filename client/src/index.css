@@ -108,3 +108,18 @@ button :hover{
 .navEleL.active {
     background-color: var(--material);
   }
+
+  .noStock{
+    text-align: center;
+    font-size: 27px;
+    font-weight: 600;
+    padding: 12% 20%;
+    white-space: nowrap;
+  }
+  .noStock2{
+   
+    font-size: 27px;
+    font-weight: 600;
+    padding: 2% 4%;
+    white-space: nowrap;
+  }
