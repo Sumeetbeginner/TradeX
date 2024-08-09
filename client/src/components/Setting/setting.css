@@ -262,6 +262,21 @@
     cursor: pointer;
     margin-top: 7%;
 }
+#setPB {
+    display: block;
+    width: 40%;
+    height: 6vh;
+    border: none;
+    outline: none;
+    background-color: rgb(116, 116, 1);
+    color: white;
+    font-size: 18px;
+    border-radius: 12px;
+    margin: auto;
+    cursor: pointer;
+    margin-top: 4%;
+}
+
 
 .flexPF1 button:hover {
     opacity: 0.8;
@@ -337,4 +352,15 @@
 
 .setP input:focus{
     border: solid 2px var(--material);
+}
+.removePasscode{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.removePasscode:hover{
+    color: var(--logo);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
 }

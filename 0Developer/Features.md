@@ -117,7 +117,7 @@ and pass the stock data on stockinfo page var -->
 
     9. Payment Integration for Buying Premium
 
-    10. Remove Passcode option in setting
+    <!-- 10. Remove Passcode option in setting -->
 }
 
 49. News Feature in stock Info

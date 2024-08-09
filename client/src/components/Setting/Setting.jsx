@@ -114,6 +114,12 @@ const Setting = () => {
     }
   }
 
+  const unsetPasscode = () => {
+    setUser({...user, passcode : 'unset'})
+    setPasscode('unset')
+    alert('✅ Password is Now Unset')
+  }
+
   return (
     <div className="settParent">
       <div className="personalDet">
@@ -183,9 +189,11 @@ const Setting = () => {
               </div> }
             </div>
 
-            <button onClick={() => setPasscodeBro()}>
+            <button id="setPB" onClick={() => setPasscodeBro()}>
               Set Passcode
             </button>
+
+            <p onClick={() => unsetPasscode()} className="removePasscode">Remove Passcode 🚫</p>
           </div>
         </div>
         <div className="flexPF">
