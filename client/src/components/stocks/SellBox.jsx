@@ -6,15 +6,17 @@ const SellBox = ({ updateP, stockData, closePopup, updateParentState }) => {
   const { user, setUser } = useContext(UserContext);
   const [stockCount, setStockCount] = useState(0);
   const [liveStockCP, setLiveStockCP] = useState(Number(stockData.currPrice));
-
-  console.log();
+  const [usePasscode, setUsePasscode] = useState(false);
+  const [enteredPasscode, setEnteredPasscode] = useState("");
 
   useEffect(() => {
-  
-    console.log(stockData);
-    setLiveStockCP((Number(stockCount) * Number(stockData.currPrice)).toFixed(2));
-    console.log(liveStockCP);
+    if (user.passcode !== "unset") {
+      setUsePasscode(true);
+    }
+  }, [user.passcode]);
 
+  useEffect(() => {
+    setLiveStockCP((Number(stockCount) * Number(stockData.currPrice)).toFixed(2));
   }, [stockCount, stockData.currPrice]);
 
   const handleStockC = (e) => {
@@ -38,33 +40,33 @@ const SellBox = ({ updateP, stockData, closePopup, updateParentState }) => {
       return;
     }
 
+    if (usePasscode && enteredPasscode !== user.passcode) {
+      alert("⚠️ Incorrect Passcode");
+      return;
+    }
+
     const totalRevenue = stockCount * Number(stockData.currPrice);
     const newPortfolio = user.portfolio || [];
 
-    // Find existing stock index
     const existingStockIndex = newPortfolio.findIndex(
       (stock) => stock.stockTicker === stockData.stockTicker
     );
 
     if (existingStockIndex >= 0) {
-      // Stock exists, update the quantity
       const existingStock = newPortfolio[existingStockIndex];
       const previousQuantity = existingStock.quantity || 0;
 
       const newQuantity = previousQuantity - stockCount;
 
       if (newQuantity > 0) {
-        // Update existing stock
         newPortfolio[existingStockIndex] = {
           ...existingStock,
           quantity: newQuantity,
         };
       } else {
-        // Remove stock from portfolio if quantity is zero
         newPortfolio.splice(existingStockIndex, 1);
       }
 
-      // Update transactions
       const newTransactions = user.transactions || [];
       const transaction = {
         transMess: `Sell ${stockCount} shares of ${stockData.stockTicker}`,
@@ -73,11 +75,10 @@ const SellBox = ({ updateP, stockData, closePopup, updateParentState }) => {
       };
 
       if (newTransactions.length >= 30) {
-        newTransactions.shift(); // Remove oldest transaction if there are already 30
+        newTransactions.shift();
       }
       newTransactions.push(transaction);
 
-      // Update user state
       const updatedUser = {
         ...user,
         balance: user.balance + totalRevenue,
@@ -85,17 +86,14 @@ const SellBox = ({ updateP, stockData, closePopup, updateParentState }) => {
         transactions: newTransactions,
       };
       setUser(updatedUser);
-      console.log(user);
 
       updateParentState(!updateP);
-      // Close popup after updating user state
       closePopup();
     } else {
       alert("⚠️ Stock not found in portfolio");
     }
   };
 
-  // Check if the portfolio is empty
   const isPortfolioEmpty = !user.portfolio || user.portfolio.length === 0;
 
   return (
@@ -129,6 +127,17 @@ const SellBox = ({ updateP, stockData, closePopup, updateParentState }) => {
             className="inputStock"
           />
           <h2 className="stockPL">₹{liveStockCP}</h2>
+
+          {usePasscode && (
+            <input
+              type="password"
+              placeholder="Enter Passcode"
+              value={enteredPasscode}
+              onChange={(e) => setEnteredPasscode(e.target.value)}
+              className="passcode-input"
+            />
+          )}
+
           <button onClick={handleSell} className="sell-button">
             Sell
           </button>

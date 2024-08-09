@@ -310,6 +310,9 @@
     margin-top: 6%;
 }
 
+.unsetP:focus{
+    border: solid 2px var(--material);
+}
 .passcodeInp p{
     margin-top: 3%;
     text-align: center;
@@ -330,4 +333,8 @@
     color: white;
     border-radius: 10px;
     margin-top: 6%;
+}
+
+.setP input:focus{
+    border: solid 2px var(--material);
 }

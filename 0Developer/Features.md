@@ -111,11 +111,13 @@ and pass the stock data on stockinfo page var -->
 
     <!-- 7. Security - Set Passcode for buying and selling stocks -->
 
-    8. Ask Passcode Before Buying and Selling Stocks
+    <!-- 8. Ask Passcode Before Buying and Selling Stocks -->
 
     <!-- 8. No Stock Found -> CSS -->
 
     9. Payment Integration for Buying Premium
+
+    10. Remove Passcode option in setting
 }
 
 49. News Feature in stock Info
