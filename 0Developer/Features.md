@@ -119,7 +119,9 @@ and pass the stock data on stockinfo page var -->
 
     <!-- 10. Remove Passcode option in setting -->
 
-    11. Update Razorpay Key in Premium Box 
+    11. Update Razorpay Key in Premium Box (*Use env)
+
+    12. Before Removing the Passcode if password is not unset ask prev passcode
 }
 
 49. News Feature in stock Info

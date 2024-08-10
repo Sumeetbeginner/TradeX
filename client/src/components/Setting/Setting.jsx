@@ -18,9 +18,9 @@ const Setting = () => {
   const [emailU, setEmailU] = useState(user.email);
   const [showPremBox, setShowPremBox] = useState(false);
   const [editSalaryBox, setEditSalaryBox] = useState(false);
-  const [passcode, setPasscode] = useState(user.passcode)
-  const [prevPassCode, setPrevPasscode] = useState('')
-  const [newPasscode, setNewPasscode] = useState('')
+  const [passcode, setPasscode] = useState(user.passcode);
+  const [prevPassCode, setPrevPasscode] = useState('');
+  const [newPasscode, setNewPasscode] = useState('');
 
   useEffect(() => {
     console.log(updatedUser);
@@ -90,44 +90,49 @@ const Setting = () => {
   };
 
   const toggleP = () => {
-    setEditSalaryBox(false)
+    setEditSalaryBox(false);
     setShowPremBox(false);
   };
 
   const setPasscodeBro = () => {
-    if(passcode == 'unset'){
-      setPasscode(newPasscode)
-      setUser({...user, passcode:newPasscode})
-      alert('✅ New Passcode Set')
-    }
-    else{
-      if(Number(prevPassCode) == Number(passcode)){
-        setPasscode(newPasscode)
-        setUser({...user, passcode:newPasscode})
-        alert('✅ New Passcode Set')
-        setNewPasscode('')
-        setPrevPasscode('')
-      }
-      else{
-        alert('⚠️ Incorrect Previous Passcode')
+    if (passcode == "unset") {
+      setPasscode(newPasscode);
+      setUser({ ...user, passcode: newPasscode });
+      alert("✅ New Passcode Set");
+    } else {
+      if (Number(prevPassCode) == Number(passcode)) {
+        setPasscode(newPasscode);
+        setUser({ ...user, passcode: newPasscode });
+        alert("✅ New Passcode Set");
+        setNewPasscode("");
+        setPrevPasscode("");
+      } else {
+        alert("⚠️ Incorrect Previous Passcode");
       }
     }
-  }
+  };
 
   const unsetPasscode = () => {
-    setUser({...user, passcode : 'unset'})
-    setPasscode('unset')
-    alert('✅ Password is Now Unset')
-  }
+    if (user.passcode !== "unset") {
+      if (Number(prevPassCode) === Number(passcode)) {
+        setUser({ ...user, passcode: "unset" });
+        setPasscode("unset");
+        alert("✅ Passcode is Now Unset");
+      } else {
+        alert("⚠️ Please Enter Previous Passcode");
+      }
+    } else {
+      setUser({ ...user, passcode: "unset" });
+      setPasscode("unset");
+      alert("✅ Passcode is Now Unset");
+    }
+  };
 
   return (
     <div className="settParent">
       <div className="personalDet">
         <div className="leftI2">
-          <i
-            onClick={() => navigate(-1)}
-            className="fa-solid fa-arrow-left"
-          ></i>
+          <i onClick={() => navigate(-1)} className="fa-solid fa-arrow-left"></i>
 
           {updatedUser ? (
             <div className="userInfoU">
@@ -180,20 +185,48 @@ const Setting = () => {
           <div className="flexPF1">
             {" "}
             <h2>Security</h2>
-            
+
             <div className="passcodeInp">
-              {passcode == 'unset' ? <><p>⚠️ Enhance your Security by Setting your Passcode Now</p> <input  className='unsetP' onChange={(e) => {setNewPasscode(e.target.value)}} type="text" placeholder="Create a Passcode" /> </>: <div className="setP">
-              <p>⚠️ Enhance your Security by Setting your Passcode Now</p>
-                <input type="text" onChange={(e) => {setPrevPasscode(e.target.value)}} placeholder="Enter Previous Passcode"/>
-                <input type="text" onChange={(e) => {setNewPasscode(e.target.value)}} placeholder="Create New Passcode"/>
-              </div> }
+              {passcode == "unset" ? (
+                <>
+                  <p>⚠️ Enhance your Security by Setting your Passcode Now</p>{" "}
+                  <input
+                    className="unsetP"
+                    onChange={(e) => {
+                      setNewPasscode(e.target.value);
+                    }}
+                    type="text"
+                    placeholder="Create a Passcode"
+                  />{" "}
+                </>
+              ) : (
+                <div className="setP">
+                  <p>⚠️ Enhance your Security by Setting your Passcode Now</p>
+                  <input
+                    type="text"
+                    onChange={(e) => {
+                      setPrevPasscode(e.target.value);
+                    }}
+                    placeholder="Enter Previous Passcode"
+                  />
+                  <input
+                    type="text"
+                    onChange={(e) => {
+                      setNewPasscode(e.target.value);
+                    }}
+                    placeholder="Create New Passcode"
+                  />
+                </div>
+              )}
             </div>
 
             <button id="setPB" onClick={() => setPasscodeBro()}>
               Set Passcode
             </button>
 
-            <p onClick={() => unsetPasscode()} className="removePasscode">Remove Passcode 🚫</p>
+            <p onClick={() => unsetPasscode()} className="removePasscode">
+              Remove Passcode 🚫
+            </p>
           </div>
         </div>
         <div className="flexPF">
@@ -203,40 +236,27 @@ const Setting = () => {
               <div className="flexThemeC">
                 <img src={theme1} alt="" />
                 <button className="selT2" onClick={() => changeThemeOfPage(1)}>
-                  Dark
+                  <i className="fa-solid fa-pen"></i> Select Theme
                 </button>
               </div>
               <div className="flexThemeC">
                 <img src={theme2} alt="" />
-
                 <button className="selT2" onClick={() => changeThemeOfPage(2)}>
-                  Light
+                  <i className="fa-solid fa-pen"></i> Select Theme
                 </button>
               </div>
               <div className="flexThemeC">
                 <img src={theme3} alt="" />
                 <button className="selT2" onClick={() => changeThemeOfPage(3)}>
-                  Aesthetic
+                  <i className="fa-solid fa-pen"></i> Select Theme
                 </button>
               </div>
             </div>
           </div>
-          <div className="flexPF3">
-            <i title="Help" class="fa-solid fa-question"></i>
-            <i title="Chat with us" class="fa-solid fa-comments"></i>
-            <i title="Chat With AI" class="fa-solid fa-robot"></i>
-            <i
-              onClick={() => setShowPremBox(true)}
-              title="Premium"
-              class="fa-solid fa-crown"
-            ></i>
-            <i title="Download User Data" class="fa-solid fa-download"></i>
-          </div>
         </div>
       </div>
-
-      {editSalaryBox && <SalaryBox closePopup={toggleP} />}
-      {showPremBox && <PremiumBox closePopup={toggleP} />}
+      {showPremBox && <PremiumBox toggleP={toggleP} />}
+      {editSalaryBox && <SalaryBox toggleP={toggleP} />}
     </div>
   );
 };
