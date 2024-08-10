@@ -115,9 +115,11 @@ and pass the stock data on stockinfo page var -->
 
     <!-- 8. No Stock Found -> CSS -->
 
-    9. Payment Integration for Buying Premium
+    <!-- 9. Payment Integration for Buying Premium -->
 
     <!-- 10. Remove Passcode option in setting -->
+
+    11. Update Razorpay Key in Premium Box 
 }
 
 49. News Feature in stock Info
