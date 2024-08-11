@@ -8,7 +8,7 @@ import Signup from './components/Auth/Signup';
 import Login from './components/Auth/Login';
 import Portfolio from './components/Portfolio/Portfolio';
 import Wishlist from './components/Wishlist/Wishlist';
-import Profile from './components/Profile/Profile';
+// import Profile from './components/Profile/Profile';
 import Setting from './components/Setting/Setting';
 import Wallet from './components/Wallet/Wallet';
 import { UserContext } from './UserContext.jsx';
@@ -20,13 +20,13 @@ const Main2 = () => {
 
   const location = useLocation();
   const navigate = useNavigate()
-  const noNavbarPaths = ['/welcome', '/signup', '/login', '/setting', '/profile', '/stockinfo'];
+  const noNavbarPaths = ['/welcome', '/signup', '/login', '/setting', '/stockinfo'];
 
   const { user, loading } = useContext(UserContext);
 
   useEffect(() => {
     
-    if(!user){
+    if(!localStorage.getItem('firebase:host:tradezone3690-default-rtdb.firebaseio.com')){
       navigate('/welcome')
     }
     
@@ -49,7 +49,7 @@ const Main2 = () => {
         <Route path='/portfolio' element={<Portfolio />} />
         <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/setting' element={<Setting />} />
-        <Route path='/profile' element={<Profile />} />
+        {/* <Route path='/profile' element={<Profile />} /> */}
         <Route path='/wallet' element={<Wallet />} />
         <Route path='/search' element={<Search />} />
         <Route path='/stockinfo' element={<StockDetails />} />

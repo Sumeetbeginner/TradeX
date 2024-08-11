@@ -1,6 +1,8 @@
 import React, { useContext, useLayoutEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from "../../UserContext.jsx";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase.js";
 import appLogo from "../../assets/icons/appLogo.png";
 import "./navbar.css";
 
@@ -18,6 +20,17 @@ const Navbar = () => {
       }
     }
   }, [user, loading, navigate]);
+
+  const applyLogout = async () => {
+    try {
+      localStorage.removeItem('firebase:host:tradezone3690-default-rtdb.firebaseio.com')
+      await signOut(auth);
+      console.log("✅ User logged out successfully");
+      navigate("/login"); 
+    } catch (error) { 
+      console.error("Error logging out: ", error);
+    }
+  };
 
   if(loading) return <div className="loader"></div>
 
@@ -87,8 +100,8 @@ const Navbar = () => {
               className="fa-solid fa-gear"
             ></i>
             <i
-              onClick={() => navigate("/profile")}
-              className="fa-solid fa-user"
+              onClick={() => applyLogout()}
+              class="fa-solid fa-power-off"
             ></i>
           </div>
         </div>

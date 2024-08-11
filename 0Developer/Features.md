@@ -130,11 +130,13 @@ and pass the stock data on stockinfo page var -->
 
 51. Analytics feature in stock info
 
-52. User Profile Feature
+52. Remove User Profile and Keep Logout Functionality
 
 <!-- 53. Change Firebase Credential or new firebase acc and use env var and store that there  -->
 
 54. Create new Firebase database - TradeX
+
+55. Create Layout For Profile Page
 
 0. Update Nifty 50 Data Every 5 Seconds
 
