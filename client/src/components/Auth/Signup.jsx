@@ -102,7 +102,7 @@ const Signup = () => {
           <button type="submit">Register</button>
         </form>
 
-        <p>Already a Registered User? <span onClick={() => location('/login')}>Log In</span></p>
+        <p className="nbhai">Already a Registered User? <span onClick={() => location('/login')}>Log In</span></p>
 
         {error && <p id="showError" className="error">{error}</p>}
         {success && <p id="showSuccess" className="success">{success}</p>}

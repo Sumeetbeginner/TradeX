@@ -7,7 +7,9 @@ from Algorithms.News.scrapenews import fetch_stock_news
 from Algorithms.niftydata.nifty import fetch_nifty
 
 app = Flask(__name__)
-CORS(app)
+
+# Define CORS settings
+CORS(app, resources={r"/*": {"origins": ["https://tradexs.vercel.app", "http://localhost:5173"]}})
 
 @app.route('/', methods=['GET'])
 def welcome():

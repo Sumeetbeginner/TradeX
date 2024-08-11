@@ -97,7 +97,7 @@ const Login = () => {
 
       <p>OR</p>
 
-      <p>New User? <span onClick={() => navigate('/signup')}>Sign Up</span></p>
+      <p className='nbhai'>New User? <span onClick={() => navigate('/signup')}>Sign Up</span></p>
 
       {error && <p id="showError" className="error">{error}</p>}
     </div>
