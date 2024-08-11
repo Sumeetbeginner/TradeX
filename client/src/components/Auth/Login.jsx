@@ -5,6 +5,7 @@ import { auth, database } from '../../firebase.js';
 import { UserContext } from '../../UserContext.jsx';
 import { useNavigate } from 'react-router-dom';
 import appLogo from '../../assets/icons/appLogo.png';
+import { sendPasswordResetEmail } from 'firebase/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -46,6 +47,25 @@ const Login = () => {
 
   if (loading) return <div className="loader"></div>;
 
+  const handleForgotPassword = async () => {
+    if (!email) {
+      setError('Please enter your email address');
+      return;
+    }
+  
+    setLoading(true);
+  
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setLoading(false);
+      setError('Password reset email sent! Please check your inbox.');
+    } catch (error) {
+      setLoading(false);
+      setError('Failed to send password reset email. Please try again.');
+      console.error('Error sending password reset email:', error);
+    }
+  };
+
   return (
     <div className="signupForm">
       <div className="topSign">
@@ -70,6 +90,12 @@ const Login = () => {
         />
         <button type="submit" disabled={loading}>Login</button>
       </form>
+
+
+
+      <p>Forgot Password? <span onClick={() => handleForgotPassword()}>Reset Password</span></p>
+
+      <p>OR</p>
 
       <p>New User? <span onClick={() => navigate('/signup')}>Sign Up</span></p>
 

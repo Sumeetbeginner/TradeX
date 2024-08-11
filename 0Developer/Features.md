@@ -130,7 +130,7 @@ and pass the stock data on stockinfo page var -->
 
 51. Analytics feature in stock info
 
-52. Remove User Profile and Keep Logout Functionality
+<!-- 52. Remove User Profile and Keep Logout Functionality -->
 
 <!-- 53. Change Firebase Credential or new firebase acc and use env var and store that there  -->
 
@@ -138,11 +138,11 @@ and pass the stock data on stockinfo page var -->
 
 55. Create Layout For Profile Page
 
+<!-- 56. Forgot Password functionality in login -->
+
 0. Update Nifty 50 Data Every 5 Seconds
 
 1. Uncomment update top gainers and toplosers every 5 seconds
-
-2. Forgot Password functionality in login
 
 3. Functionality : user can buy and sell stocks between 9.15 to 3.00pm (Monday to Friday)
 
