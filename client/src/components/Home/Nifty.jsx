@@ -10,7 +10,7 @@ const Nifty = () => {
   useEffect(() => {
     const fetchNiftyData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/niftydata", {
+        const response = await fetch("https://smttradexserver.vercel.app/niftydata", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
