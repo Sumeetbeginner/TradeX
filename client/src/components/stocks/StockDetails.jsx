@@ -233,7 +233,7 @@ const StockInfo = () => {
                 }`}
               ></i>
               <i className="fa-solid fa-chart-simple"></i>
-              <i className="fa-solid fa-newspaper"></i>
+              {/* <i className="fa-solid fa-newspaper"></i> */}
               <i onClick={() => {handleDownload()}} className="fa-solid fa-download"></i>
               <i
                 onClick={() => fetchStockInfo()}

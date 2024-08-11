@@ -124,8 +124,6 @@ and pass the stock data on stockinfo page var -->
     12. Before Removing the Passcode if password is not unset ask prev passcode -->
 }
 
-49. News Feature in stock Info
-
 <!-- 50. Download feature in stock info -->
 
 51. Analytics feature in stock info
@@ -135,8 +133,6 @@ and pass the stock data on stockinfo page var -->
 <!-- 53. Change Firebase Credential or new firebase acc and use env var and store that there  -->
 
 54. Create new Firebase database - TradeX
-
-55. Create Layout For Profile Page
 
 <!-- 56. Forgot Password functionality in login -->
 
