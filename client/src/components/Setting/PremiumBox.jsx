@@ -1,37 +1,37 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../UserContext";
 import './setting.css';
-import Razorpay from 'razorpay';
+// import Razorpay from 'razorpay';
 
 const PremiumBox = ({ closePopup }) => {
   const { user, setUser } = useContext(UserContext);
 
-  const buyPremium = () => {
-    const options = {
-      key: 'YOUR_RAZORPAY_KEY', // Replace with your Razorpay key
-      amount: 9900, // Amount is in paise (₹99.00)
-      currency: 'INR',
-      name: 'TradeHere Premium',
-      description: 'Purchase premium membership',
-      image: 'https://example.com/your_logo', // Replace with your logo URL
-      handler: function (response) {
-        // Payment was successful, update user's premium status
-        setUser({ ...user, premium: true });
-        closePopup(); // Close the popup after payment
-        alert('Payment successful! You are now a premium member.');
-      },
-      prefill: {
-        name: user.name, // Prefill user's name
-        email: user.email, // Prefill user's email
-      },
-      theme: {
-        color: '#3399cc',
-      },
-    };
+  // const buyPremium = () => {
+  //   const options = {
+  //     key: 'YOUR_RAZORPAY_KEY', // Replace with your Razorpay key
+  //     amount: 9900, // Amount is in paise (₹99.00)
+  //     currency: 'INR',
+  //     name: 'TradeHere Premium',
+  //     description: 'Purchase premium membership',
+  //     image: 'https://example.com/your_logo', // Replace with your logo URL
+  //     handler: function (response) {
+  //       // Payment was successful, update user's premium status
+  //       setUser({ ...user, premium: true });
+  //       closePopup(); // Close the popup after payment
+  //       alert('Payment successful! You are now a premium member.');
+  //     },
+  //     prefill: {
+  //       name: user.name, // Prefill user's name
+  //       email: user.email, // Prefill user's email
+  //     },
+  //     theme: {
+  //       color: '#3399cc',
+  //     },
+  //   };
 
-    const rzp = new window.Razorpay(options);
-    rzp.open();
-  };
+  //   const rzp = new window.Razorpay(options);
+  //   rzp.open();
+  // };
 
   return (
     <div className="popup-container">
