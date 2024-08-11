@@ -83,7 +83,7 @@ const Setting = () => {
   const editSalary = () => {
     if (user.premium == "false") {
       setShowPremBox(true);
-      alert("No Premium");
+      // alert("No Premium");
     } else {
       setEditSalaryBox(true);
     }
@@ -236,27 +236,40 @@ const Setting = () => {
               <div className="flexThemeC">
                 <img src={theme1} alt="" />
                 <button className="selT2" onClick={() => changeThemeOfPage(1)}>
-                  <i className="fa-solid fa-pen"></i> Select Theme
+                  Dark
                 </button>
               </div>
               <div className="flexThemeC">
                 <img src={theme2} alt="" />
+
                 <button className="selT2" onClick={() => changeThemeOfPage(2)}>
-                  <i className="fa-solid fa-pen"></i> Select Theme
+                  Light
                 </button>
               </div>
               <div className="flexThemeC">
                 <img src={theme3} alt="" />
                 <button className="selT2" onClick={() => changeThemeOfPage(3)}>
-                  <i className="fa-solid fa-pen"></i> Select Theme
+                  Aesthetic
                 </button>
               </div>
             </div>
           </div>
+          <div className="flexPF3">
+            <i title="Help" class="fa-solid fa-question"></i>
+            <i title="Chat with us" class="fa-solid fa-comments"></i>
+            <i title="Chat With AI" class="fa-solid fa-robot"></i>
+            <i
+              onClick={() => setShowPremBox(true)}
+              title="Premium"
+              class="fa-solid fa-crown"
+            ></i>
+            <i title="Download User Data" class="fa-solid fa-download"></i>
+          </div>
         </div>
       </div>
-      {showPremBox && <PremiumBox toggleP={toggleP} />}
-      {editSalaryBox && <SalaryBox toggleP={toggleP} />}
+
+      {editSalaryBox && <SalaryBox closePopup={toggleP} />}
+      {showPremBox && <PremiumBox closePopup={toggleP} />}
     </div>
   );
 };

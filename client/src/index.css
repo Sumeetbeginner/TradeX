@@ -123,3 +123,13 @@ button :hover{
     padding: 2% 4%;
     white-space: nowrap;
   }
+
+  .gainersE{
+    border: none;
+    padding: 2% 2%;
+  }
+  
+  .losersE{
+    border: none;
+    padding: 2% 2%;
+  }

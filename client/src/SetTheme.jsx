@@ -3,7 +3,13 @@ import { UserContext } from "./UserContext";
 
 const SetTheme = () => {
   const { user } = useContext(UserContext);
-  const [theme, setTheme] = useState(user.theme)
+  const [theme, setTheme] = useState('')
+  useEffect(() => {
+    if(user){
+     setTheme(user.theme)
+    }
+  }, [user])
+
 
   useEffect(() => {
     changeThemeOfPage(theme)

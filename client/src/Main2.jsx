@@ -24,6 +24,14 @@ const Main2 = () => {
 
   const { user, loading } = useContext(UserContext);
 
+  useEffect(() => {
+    
+    if(!user){
+      navigate('/welcome')
+    }
+    
+  }, [user])
+
   if(loading) return <div className="loader"></div>
 
 
