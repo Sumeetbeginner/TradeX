@@ -9,7 +9,7 @@ from Algorithms.niftydata.nifty import fetch_nifty
 app = Flask(__name__)
 
 # Define CORS settings
-CORS(app, resources={r"/*": {"origins": ["https://tradexs.vercel.app", "http://localhost:5173"]}})
+CORS(app, resources={r"/*": {"origins": ["https://tradexs.vercel.app", "http://localhost:5173", "http://localhost:3000"]}})
 
 @app.route('/', methods=['GET'])
 def welcome():
