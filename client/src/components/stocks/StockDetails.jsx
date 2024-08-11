@@ -35,7 +35,7 @@ const StockInfo = () => {
     }
 
     try {
-      const response = await fetch("https://smttradexserver.vercel.app/stockinfo", {
+      const response = await fetch("https://tradexservers.vercel.app/stockinfo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

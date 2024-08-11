@@ -18,7 +18,7 @@ const Search = () => {
 
   const fetchTopGainers = async () => {
     try {
-      const response = await fetch("https://smttradexserver.vercel.app/topgainers", {
+      const response = await fetch("https://tradexservers.vercel.app/topgainers", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -38,7 +38,7 @@ const Search = () => {
   // Function to fetch top losers from the server
   const fetchTopLosers = async () => {
     try {
-      const response = await fetch("https://smttradexserver.vercel.app/toplosers", {
+      const response = await fetch("https://tradexservers.vercel.app/toplosers", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -58,7 +58,7 @@ const Search = () => {
   // Function to fetch stock info for a given ticker
   const fetchStockInfo = async (stockTicker) => {
     try {
-      const response = await fetch("https://smttradexserver.vercel.app/stockinfo", {
+      const response = await fetch("https://tradexservers.vercel.app/stockinfo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

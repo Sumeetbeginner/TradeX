@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch("https://smttradexserver.vercel.app/stocknews", {
+        const response = await fetch("https://tradexservers.vercel.app/stocknews", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
