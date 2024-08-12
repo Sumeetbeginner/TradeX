@@ -48,7 +48,7 @@ const PremiumBox = ({ closePopup }) => {
           <p>▶ AI Buddy to Talk About Trading</p>
         </div>
 
-        <button id="buttonPre" onClick={buyPremium} className="buy-button">
+        <button id="buttonPre" className="buy-button">
           Buy Premium
         </button>
       </div>
