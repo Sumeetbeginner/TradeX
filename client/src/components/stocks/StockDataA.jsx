@@ -25,7 +25,7 @@ ChartJS.register(
 );
 
 const StockDataA = ({ closePopup }) => {
-  const [timeframe, setTimeframe] = useState("1wk"); // Default to 1 week
+  const [timeframe, setTimeframe] = useState("1mo"); // Default to 1 week
   const [chartData, setChartData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -138,12 +138,12 @@ const StockDataA = ({ closePopup }) => {
         </div>
 
         <div className="timeframe-buttons">
-          <button
+          {/* <button
             onClick={() => setTimeframe("1wk")}
             className={timeframe === "1wk" ? "active" : ""}
           >
             1 Week
-          </button>
+          </button> */}
           <button
             onClick={() => setTimeframe("1mo")}
             className={timeframe === "1mo" ? "active" : ""}
