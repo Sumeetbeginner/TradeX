@@ -33,6 +33,10 @@ const PremiumBox = ({ closePopup }) => {
   //   rzp.open();
   // };
 
+  const handlePremiumA = () =>{
+    alert('⚠️ Work is in Progress')
+  }
+
   return (
     <div className="popup-container">
       <div className="popup-box">
@@ -48,7 +52,7 @@ const PremiumBox = ({ closePopup }) => {
           <p>▶ AI Buddy to Talk About Trading</p>
         </div>
 
-        <button id="buttonPre" className="buy-button">
+        <button id="buttonPre" onClick={() => handlePremiumA()} className="buy-button">
           Buy Premium
         </button>
       </div>
