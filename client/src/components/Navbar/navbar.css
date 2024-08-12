@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 16%;
+    margin-top: 10%;
 }
 
 .topAppL img{
@@ -30,7 +30,7 @@
 }
 
 #navHome{
-    margin-top: 18%;
+    margin-top: 15%;
 }
 
 .navEleL:hover{
@@ -44,4 +44,23 @@
 
 #navG span{
     color: var(--logo);
+}
+
+.creditD{
+    text-align: center;
+    margin-top: 3%;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.creditD span{
+    color: var(--logo);
+    font-weight: 600;
+}
+
+.creditD i{
+    cursor: pointer;
+padding: 0% 2%;
+font-size: 20px;
+
 }

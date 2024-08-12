@@ -126,7 +126,7 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 50. Download feature in stock info -->
 
-51. Analytics feature in stock info
+<!-- 51. Analytics feature in stock info -->
 
 <!-- 52. Remove User Profile and Keep Logout Functionality -->
 

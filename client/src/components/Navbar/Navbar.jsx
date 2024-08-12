@@ -43,6 +43,8 @@ const Navbar = () => {
             <img src={appLogo} alt="App Logo" />
           </div>
 
+          <p onClick={() => window.location = "https://linkedin.com/in/sumeet-gupta-ba2216209"} className="creditD">Made By  <i className="fa-brands fa-linkedin" ></i> <span>Sumeet Gupta</span></p>
+
           <h2 id="navG">
             Welcome, <span>{user.username}</span>
           </h2>
