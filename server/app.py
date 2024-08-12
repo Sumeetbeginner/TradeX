@@ -61,3 +61,19 @@ def nifty_data():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+# Get Historical Data for a Stock
+@app.route('/historicaldata', methods=['POST'])
+def historical_data():
+    try:
+        data = request.get_json()
+        stockTickerName = data['stockTicker'] + '.NS'
+        period = data.get('period', '1mo')
+
+        msft = yf.Ticker(stockTickerName)
+        historical_data = msft.history(period=period)
+
+        historical_data_json = historical_data.reset_index().to_dict(orient='records')
+        
+        return jsonify({'historical_data': historical_data_json})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

@@ -6,6 +6,7 @@ import "./stocks.css";
 import BuyBox from "./BuyBox";
 import SellBox from "./SellBox";
 import {jsPDF} from 'jspdf'
+import StockDataA from "./StockDataA";
 
 const StockInfo = () => {
   const [stockData, setStockData] = useState(null);
@@ -14,6 +15,8 @@ const StockInfo = () => {
   const [savedTrue, setSavedTrue] = useState(false);
   const savedIconRef = useRef(null);
   const [updateP, setUpdateP] = useState(false)
+
+  const [showStockA, setShowStockA] = useState(false)
 
   const navigate = useNavigate();
 
@@ -180,6 +183,10 @@ const StockInfo = () => {
   };
   const togglePopupS = () => {
     setSellBoxV(false);
+    setShowStockA(false)
+    console.log('Hellop');
+    
+
   };
 
   // Fetch Stock Info Every 5 seconds
@@ -232,7 +239,7 @@ const StockInfo = () => {
                   savedTrue ? "active" : "not-active"
                 }`}
               ></i>
-              <i className="fa-solid fa-chart-simple"></i>
+              <i onClick={() => {setShowStockA(true)}} className="fa-solid fa-chart-simple"></i>
               {/* <i className="fa-solid fa-newspaper"></i> */}
               <i onClick={() => {handleDownload()}} className="fa-solid fa-download"></i>
               <i
@@ -394,6 +401,9 @@ const StockInfo = () => {
           )}
           {sellBoxV && (
             <SellBox updateP={updateP} stockData={impStockData} closePopup={togglePopupS} updateParentState={updateParentState}/>
+          )}
+          {showStockA && (
+            <StockDataA closePopup={togglePopupS}/>
           )}
         </div>
       ) : (
