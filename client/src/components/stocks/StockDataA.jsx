@@ -57,6 +57,8 @@ const StockDataA = ({ closePopup }) => {
           }
 
           const data = await response.json();
+          console.log(data);
+          
           const labels = data.historical_data.map((item) => {
             const date = new Date(item.Date);
             return date.toDateString().slice(4); // Trim the weekday name
