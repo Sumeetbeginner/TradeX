@@ -6,6 +6,7 @@ import { UserContext } from '../../UserContext.jsx';
 import { useNavigate } from 'react-router-dom';
 import appLogo from '../../assets/icons/appLogo.png';
 import { sendPasswordResetEmail } from 'firebase/auth';
+import './mauth.css'
 
 const Login = () => {
   const [email, setEmail] = useState('');

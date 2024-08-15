@@ -1,0 +1,54 @@
+
+@media only screen and (max-width: 868px)
+{
+
+    .stockTW{
+        display: block;
+    }
+
+    .stockNW{
+        display: none;
+    }
+
+    .parentS{
+        width: 105%;
+        margin-left: auto;
+
+    }
+
+    .savedS{
+        display: block;
+        width: fit-content !important;
+        justify-content: center !important;
+        margin-left: 2.3%;
+        margin-top: 5%;
+        padding: 5% 4%;
+        width: 90% !important;
+        min-width: 0%;
+    }
+
+    .w100{
+        width: 93%;
+    }
+
+    .flexRS{
+        margin-top: 2%;
+       justify-content: start;
+    }
+
+   .savedSChange{
+    margin-right: 5%;
+    margin-right: auto !important;
+    
+   }
+
+
+   .bhaiR{
+    display: flex;
+    /* background-color: red; */
+    margin-left: auto !important;
+    margin-right: 9%;
+
+    gap: 14%;
+   }
+}

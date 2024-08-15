@@ -5,6 +5,7 @@ import { ref, set, get, child } from "firebase/database";
 import appLogo from "../../assets/icons/appLogo.png";
 import './auth.css'
 import { useNavigate } from "react-router-dom";
+import './mauth.css'
 
 const Signup = () => {
   const [username, setUsername] = useState("");

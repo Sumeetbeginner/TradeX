@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import illu1 from "../../assets/images/illu1.png";
 import illu2 from "../../assets/images/illu2.png";
 import illu3 from "../../assets/images/illu3.png";
+import './mwelcome.css'
 
 const Welcome = () => {
   const location = useNavigate();
@@ -70,7 +71,7 @@ const Welcome = () => {
             <div className="introP">
               <h2>
                 Real-like Simulated Trading Platform with Portfolio and
-                Real-time Sharing Updates
+                Real-time Updates
               </h2>
               <p>
                 Our platform provides a realistic trading experience with a
@@ -113,31 +114,31 @@ const Welcome = () => {
         <div className="animationP">
           <p>
             <span className="s">TCS : </span>
-            <span className="p td">₹4,298.00<i class="fa-solid fa-arrow-trend-down"></i></span>
+            <span className="p td">₹4,298.00<i className="fa-solid fa-arrow-trend-down"></i></span>
           </p>
           <p>
             <span className="s">Infosys : </span>
-            <span className="p tu">₹1,789.35<i class="fa-solid fa-arrow-trend-up"></i></span>
+            <span className="p tu">₹1,789.35<i className="fa-solid fa-arrow-trend-up"></i></span>
           </p>
           <p>
             <span className="s">Just Dial LTD : </span>
-            <span className="p tu">₹1,250.00<i class="fa-solid fa-arrow-trend-up"></i></span>
+            <span className="p tu">₹1,250.00<i className="fa-solid fa-arrow-trend-up"></i></span>
           </p>
           <p>
             <span className="s">Reliance Industries Ltd : </span>
-            <span className="p td">₹3,116.95<i class="fa-solid fa-arrow-trend-down"></i></span>
+            <span className="p td">₹3,116.95<i className="fa-solid fa-arrow-trend-down"></i></span>
           </p>
           <p>
             <span className="s">ITC LTD : </span>
-            <span className="p tu">₹473.15<i class="fa-solid fa-arrow-trend-up"></i></span>
+            <span className="p tu">₹473.15<i className="fa-solid fa-arrow-trend-up"></i></span>
           </p>
           <p>
             <span className="s"> State Bank of India : </span>
-            <span className="p td">₹889.50<i class="fa-solid fa-arrow-trend-down"></i></span>
+            <span className="p td">₹889.50<i className="fa-solid fa-arrow-trend-down"></i></span>
           </p>
           <p>
             <span className="s">Axis Bank Ltd </span>
-            <span className="p td">₹1,293.80<i class="fa-solid fa-arrow-trend-down"></i></span>
+            <span className="p td">₹1,293.80<i className="fa-solid fa-arrow-trend-down"></i></span>
           </p>
         </div>
       </div>

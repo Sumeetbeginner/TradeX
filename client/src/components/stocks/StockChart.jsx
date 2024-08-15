@@ -32,8 +32,8 @@ const StockLineChart = ({ stockData }) => {
         display: false,
       },
       y: {
-        min: dayLow/1.1,
-        max: dayHigh*1.1,
+        min: (dayLow/1.1).toFixed(2),
+        max: (dayHigh*1.1).toFixed(2),
       },
     },
   };

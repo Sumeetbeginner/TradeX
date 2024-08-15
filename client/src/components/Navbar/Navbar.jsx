@@ -4,7 +4,7 @@ import { UserContext } from "../../UserContext.jsx";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase.js";
 import appLogo from "../../assets/icons/appLogo.png";
-import "./navbar.css";
+import './navbar.css'
 
 const Navbar = () => {
   const { user, loading } = useContext(UserContext);
@@ -103,7 +103,7 @@ const Navbar = () => {
             ></i>
             <i
               onClick={() => applyLogout()}
-              class="fa-solid fa-power-off"
+              className="fa-solid fa-power-off"
             ></i>
           </div>
         </div>

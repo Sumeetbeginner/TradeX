@@ -11,6 +11,13 @@
 
 }
 
+.searchbhai{
+  width: 100%;
+}
+.mobilebhai{
+  display: none;
+}
+
 .flexCHome{
   display: flex;
   justify-content: center;

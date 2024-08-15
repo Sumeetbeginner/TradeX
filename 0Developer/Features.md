@@ -132,24 +132,12 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 53. Change Firebase Credential or new firebase acc and use env var and store that there  -->
 
-54. Create new Firebase database - TradeX
-
 <!-- 56. Forgot Password functionality in login -->
 
-0. Update Nifty 50 Data Every 5 Seconds
+57. Mobile Responsive Design
 
-1. Uncomment update top gainers and toplosers every 5 seconds
+<!-- 58. Update stocks on portfolio,wishlist and stockInfo when market is open -->
 
-3. Functionality : user can buy and sell stocks between 9.15 to 3.00pm (Monday to Friday)
+<!-- 59. Update Nifty 50 Data Every 5 Seconds -->
 
-4. Every Month update balance + salary
-
-5. Optimization
-   {
-
-}
-
-0. Updates
-   {
-
-}
+60. Every Month update balance + salary

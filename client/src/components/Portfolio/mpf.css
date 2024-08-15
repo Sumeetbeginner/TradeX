@@ -1,0 +1,132 @@
+@media only screen and (max-width: 868px) {
+  .portfolio-table th:nth-child(1),
+  .portfolio-table td:nth-child(1),
+  .portfolio-table th:nth-child(6),
+  .portfolio-table td:nth-child(6) {
+    display: none;
+  }
+
+  /* Hide the table header */
+  .portfolio-table thead {
+    display: none;
+  }
+
+  /* Set up the grid layout for the table rows */
+  .portfolio-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  /* Style each cell to appear as a grid item */
+  .portfolio-table tbody td {
+    display: block;
+    text-align: left;
+    padding: 5px 10px;
+    position: relative;
+  }
+
+  /* Add labels for each data point (using pseudo-elements) */
+  .portfolio-table tbody td:nth-child(1)::before {
+    content: "Index: ";
+    font-weight: bold;
+  }
+
+  .portfolio-table tbody td:nth-child(2)::before {
+    /* content: "Stock Name: "; */
+    font-weight: bold;
+  }
+
+  .stockTiku {
+    font-size: 25px !important;
+  }
+
+  .portfolio-table tbody td:nth-child(3)::before {
+    content: "Quantity: ";
+    font-weight: bold;
+  }
+
+  .portfolio-table tbody td:nth-child(4)::before {
+    content: "Buy Value (₹): ";
+    font-weight: bold;
+  }
+
+  .portfolio-table tbody td:nth-child(5)::before {
+    content: "Curr Price (₹): ";
+    font-weight: bold;
+  }
+
+  .portfolio-table tbody td:nth-child(6)::before {
+    content: "₹ Change: ";
+    font-weight: bold;
+  }
+
+  .portfolio-table tbody td:nth-child(7)::before {
+    content: "% Change: ";
+    font-weight: bold;
+  }
+
+  .portfolio-table tbody td:nth-child(8)::before {
+    /* content: "Sell Stock: "; */
+
+    font-weight: bold;
+  }
+
+  /* Ensure the portfolio container or its parent has a defined height */
+  .portfolio-container {
+    height: 90vh; /* Set the container to full viewport height */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Define max-height and scrollable area for the table body */
+  .portB {
+    max-height: 70vh; /* Limit the height to 70% of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+
+  /* Ensure the table fits within the scrollable container */
+  .portfolio-table {
+    width: 100%;
+    table-layout: fixed; /* Prevent table from expanding outside the container */
+  }
+  /* Customize the Sell button in the grid */
+  .portfolio-table tbody td:nth-child(8) {
+    text-align: center;
+  }
+
+  .portfolio-table tbody td:nth-child(8) button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .portfolio-table tbody td:nth-child(8) button:hover {
+    background-color: #45a049;
+  }
+
+  .portB tr {
+    width: 90%;
+    margin: auto;
+    background-color: var(--dark);
+    border: none !important;
+    margin-top: 3%;
+    border-radius: 12px;
+    padding-bottom: 4% !important;
+  }
+
+  .portfolio-container {
+    width: 100% !important;
+  }
+
+  .popup-box{
+    width: 70%;
+  }
+}

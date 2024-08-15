@@ -1,0 +1,51 @@
+
+@media only screen and (max-width: 868px)
+{
+    
+.walletui{
+    width: 100%;
+}
+
+.flexui{
+    flex-direction: column;
+    margin-top: 0%;
+  
+}
+
+.leftWallet{
+    width: 100%;
+}
+.rightWallet{
+    width: 100%;
+    border-radius: 0px !important;
+    padding-top: 2%;
+    height: 87vh;
+    
+}
+
+.balanceRs{
+    margin-top: 9%;
+}
+
+.thTop{
+    margin-top: 12%;
+}
+
+.transHis, .thTop{
+    
+    width: 90%;
+}
+
+.graphHist{
+    height: 30vh;
+    border-radius: 0px;
+    margin-top: 3%;
+}
+
+.pieHist{
+    margin-top: 3%;
+    border-radius: 0px;
+}
+
+
+}

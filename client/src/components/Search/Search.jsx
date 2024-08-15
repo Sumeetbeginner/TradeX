@@ -4,6 +4,7 @@ import stocksData from "../../assets/data/nse.json";
 import "./search.css";
 import { UserContext } from "../../UserContext";
 import SearchBar from "./SearchBar";
+import './msearch.css'
 
 const Search = () => {
 

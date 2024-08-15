@@ -5,8 +5,9 @@ import { UserContext } from "../../UserContext";
 import "./stocks.css";
 import BuyBox from "./BuyBox";
 import SellBox from "./SellBox";
-import {jsPDF} from 'jspdf'
+import { jsPDF } from 'jspdf';
 import StockDataA from "./StockDataA";
+import './mstocks.css'
 
 const StockInfo = () => {
   const [stockData, setStockData] = useState(null);
@@ -14,9 +15,9 @@ const StockInfo = () => {
   const [error, setError] = useState("");
   const [savedTrue, setSavedTrue] = useState(false);
   const savedIconRef = useRef(null);
-  const [updateP, setUpdateP] = useState(false)
+  const [updateP, setUpdateP] = useState(false);
 
-  const [showStockA, setShowStockA] = useState(false)
+  const [showStockA, setShowStockA] = useState(false);
 
   const navigate = useNavigate();
 
@@ -25,9 +26,20 @@ const StockInfo = () => {
 
   const { toggleSavedStock, isStockSaved, user } = useContext(UserContext);
 
-  const updateParentState = (newValue) =>{
-    setUpdateP(newValue)
-  }
+  const updateParentState = (newValue) => {
+    setUpdateP(newValue);
+  };
+
+  // Function to check if current time is within market hours
+  const isMarketOpen = () => {
+    const now = new Date();
+    const day = now.getDay(); // 0 (Sunday) to 6 (Saturday)
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+
+    // Market is open Monday to Friday, from 9:15 AM to 3:30 PM
+    return day >= 1 && day <= 5 && (hour > 9 || (hour === 9 && minute >= 15)) && (hour < 15 || (hour === 15 && minute <= 30));
+  };
 
   // Fetch Stock info with the help of ticker from server
   const fetchStockInfo = async () => {
@@ -80,26 +92,26 @@ const StockInfo = () => {
     fetchStockInfo();
   }, [currStockData]);
 
-  // Set Imp Stock Data in seperate json object
+  // Set Imp Stock Data in separate json object
   useEffect(() => {
     if (stockData) {
       const setImpStock = () => {
         if (!stockData) return;
 
-         // Calculate the absolute change in stock price
-         let stockMoneyC =
-         Number(stockData.result.currentPrice) -
-         Number(stockData.result.previousClose);
+        // Calculate the absolute change in stock price
+        let stockMoneyC =
+          Number(stockData.result.currentPrice) -
+          Number(stockData.result.previousClose);
 
-       // Calculate the percentage change based on the opening price
-       let stockPChange = (
-         (stockMoneyC / Number(stockData.result.open)) *
-         100
-       ).toFixed(2);
+        // Calculate the percentage change based on the opening price
+        let stockPChange = (
+          (stockMoneyC / Number(stockData.result.open)) *
+          100
+        ).toFixed(2);
 
         setImpStockData({
           name: stockData.result.shortName,
-          stockTicker : currStockData,
+          stockTicker: currStockData,
           symbol: stockData.result.symbol,
           open: stockData.result.open,
           dayHigh: stockData.result.dayHigh,
@@ -126,7 +138,6 @@ const StockInfo = () => {
           longName: stockData.result.longName,
           city: stockData.result.city,
         });
-        // console.log(impStockData);
       };
 
       setImpStock();
@@ -139,7 +150,6 @@ const StockInfo = () => {
       const checkSavedStatus = async () => {
         try {
           const isSaved = await isStockSaved(currStockData);
-          // console.log("Is stock saved:", isSaved);
           setSavedTrue(isSaved);
         } catch (error) {
           console.error("Error checking stock saved status:", error);
@@ -175,7 +185,7 @@ const StockInfo = () => {
     }
   };
   const sellCurrentStock = () => {
-    setSellBoxV(true)
+    setSellBoxV(true);
   };
 
   const togglePopupB = () => {
@@ -183,20 +193,36 @@ const StockInfo = () => {
   };
   const togglePopupS = () => {
     setSellBoxV(false);
-    setShowStockA(false)
-    console.log('Hellop');
-    
-
+    setShowStockA(false);
   };
 
-  // Fetch Stock Info Every 5 seconds
+  // Fetch Stock Info Every 10 seconds if market is open
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      fetchStockInfo();
-    }, 10000);
+    let intervalId;
 
-    return () => clearInterval(intervalId);
-  }, []);
+    const startInterval = () => {
+      if (isMarketOpen()) {
+        intervalId = setInterval(() => {
+          fetchStockInfo();
+        }, 10000);
+      } else {
+        clearInterval(intervalId);
+      }
+    };
+
+    // Check market status immediately and start interval if market is open
+    startInterval();
+
+    // Check market status every minute and adjust interval
+    const marketCheckIntervalId = setInterval(() => {
+      startInterval();
+    }, 60000);
+
+    return () => {
+      clearInterval(intervalId);
+      clearInterval(marketCheckIntervalId);
+    };
+  }, [currStockData]);
 
   const handleDownload = () => {
     const doc = new jsPDF();
@@ -214,9 +240,7 @@ const StockInfo = () => {
     }
 
     doc.save(`${stockData.result.shortName}.pdf`);
-};
-
-
+  };
 
   return (
     <div className="stockDBody">
@@ -308,18 +332,18 @@ const StockInfo = () => {
                   </span>
                   <span className="spanBro">
                     {" "}
-                    <span>Market Capital</span> : ₹{impStockData?.marketCap}
+                    <span>Market Cap</span> : ₹{impStockData?.marketCap}
                   </span>
                 </div>
                 <hr className="lineB"></hr>
                 <div className="impDC">
                   <span className="spanBro sp2">
                     {" "}
-                    <span>50 Day Avg</span> : ₹{impStockData?.fiftyDayAverage}
+                    <span>50D Avg</span> : ₹{impStockData?.fiftyDayAverage}
                   </span>
                   <span className="spanBro">
                     {" "}
-                    <span>200 Day Avg</span> : ₹
+                    <span>200D Avg</span> : ₹
                     {impStockData?.twoHundredDayAverage}
                   </span>
                 </div>
@@ -341,16 +365,16 @@ const StockInfo = () => {
                 <div className="impDC">
                   <span className="spanBro sp2">
                     {" "}
-                    <span>52 Week High</span> : ₹
+                    <span>52W High</span> : ₹
                     {impStockData?.fiftyTwoWeekHigh}
                   </span>
                   <span className="spanBro">
                     {" "}
-                    <span>52 Week Low</span> : ₹{impStockData?.fiftyTwoWeekLow}
+                    <span>52W Low</span> : ₹{impStockData?.fiftyTwoWeekLow}
                   </span>
                   <span className="spanBro">
                     {" "}
-                    <span>Avg Volume</span> : {impStockData?.avgVolume}
+                    <span>Avg Vol</span> : {impStockData?.avgVolume}
                   </span>
                 </div>
                 <hr className="lineB"></hr>
@@ -365,7 +389,7 @@ const StockInfo = () => {
                   </span>
                   <span className="spanBro">
                     {" "}
-                    <span>Previous Close</span> : ₹{impStockData?.previousClose}
+                    <span>Prev Close</span> : ₹{impStockData?.previousClose}
                   </span>
                 </div>
               </div>

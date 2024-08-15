@@ -8,6 +8,7 @@ import theme2 from "../../assets/images/theme2.png";
 import theme3 from "../../assets/images/theme3.png";
 import SalaryBox from "./SalaryBox";
 import PremiumBox from "./PremiumBox";
+import './msett.css'
 
 const Setting = () => {
   const { user, setUser, loading } = useContext(UserContext);
@@ -255,15 +256,15 @@ const Setting = () => {
             </div>
           </div>
           <div className="flexPF3">
-            <i title="Help" class="fa-solid fa-question"></i>
-            <i title="Chat with us" class="fa-solid fa-comments"></i>
-            <i title="Chat With AI" class="fa-solid fa-robot"></i>
+            <i title="Help" className="fa-solid fa-question"></i>
+            <i title="Chat with us" className="fa-solid fa-comments"></i>
+            <i title="Chat With AI" className="fa-solid fa-robot"></i>
             <i
               onClick={() => setShowPremBox(true)}
               title="Premium"
-              class="fa-solid fa-crown"
+              className="fa-solid fa-crown"
             ></i>
-            <i title="Download User Data" class="fa-solid fa-download"></i>
+            <i title="Download User Data" className="fa-solid fa-download"></i>
           </div>
         </div>
       </div>

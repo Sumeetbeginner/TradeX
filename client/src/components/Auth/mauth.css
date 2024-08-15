@@ -1,0 +1,16 @@
+@media only screen and (max-width: 868px)
+{
+    
+.signupForm{
+    width: 100%;
+    margin-top: 0%;
+    border-radius: 0px;
+    height: 100vh;
+}
+
+.topSign{
+    border-radius: 0px;
+}
+
+
+}

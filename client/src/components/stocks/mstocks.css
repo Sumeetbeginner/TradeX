@@ -1,0 +1,110 @@
+
+@media only screen and (max-width: 868px)
+{
+    .stockTopBar{
+        height: 8.5vh;
+    }
+
+    .stockTopBar i{
+        font-size: 24px;
+    }
+
+    .rightI{
+        margin-right: 31%;
+        gap: 38%;
+    }
+
+    .leftI {
+
+     margin-left: 5%;
+     margin-top: -3%;
+     font-size: 30px !important;
+
+    }
+    .flexStock{
+        flex-direction: column;
+    }
+
+    .leftStock{
+        width: 100%;
+        border-radius: 0px;
+
+    }
+
+    .stockName{
+        font-size: 20px;
+    }
+
+    .stockPrice{
+        font-size: 24px;
+    }
+
+    .stockSymbol{
+        font-size: 15px;
+    }
+
+    .stockPriceC, .stockChange{
+        font-size: 16px;
+    }
+
+    .spanBro{
+        font-size: 16px;
+    }
+
+    .stockChart{
+        height: 24vh;
+        margin-top: 6%;
+    }
+
+    .impDataDown{
+        gap: 5%;
+        margin-top: 2%;
+    }
+
+    .btnActionBS{
+        margin-top: 9%;
+    }
+
+    .btnActionBS button{
+        width: 30%;
+    }
+
+    .leftStock{
+        height: 62vh;
+        margin-top: 2%;
+    }
+
+    .rightStock{
+        width: 100%;
+        border-radius: 0px;
+        margin-top:3%;
+    }
+
+    .industryT{
+        font-size: 18px;
+        border-radius: 5px;
+        margin-top: 6%;
+    }
+
+    .impD2{
+        margin-top: 2%;
+    }
+
+    .companyInfo h1{
+        font-size: 26px;
+        margin-top: 5%;
+    }
+
+    .companyAdd{
+        font-size: 18px;
+    }
+
+    .companyWeb{
+        margin-top: 6%;
+        font-size: 20px;
+    }
+
+    summary{
+        font-size: 17px;
+    }
+}

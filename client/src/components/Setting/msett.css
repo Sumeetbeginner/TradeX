@@ -1,0 +1,81 @@
+
+@media only screen and (max-width: 868px)
+{
+
+.settParent{
+    flex-direction: column;
+    height: 98vh;
+    justify-content: start;
+    gap: 0%;
+}
+
+.personalDet{
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 7%;
+
+    border-radius: 0px;
+}
+.flexPF{
+    flex-direction: column;
+  
+}
+
+.blockParentF{
+    width: 100% !important;
+
+}
+
+.flexPF1{
+    width: 100%;
+    border-radius: 0px;
+    height: 40vh;
+    margin-top: 2%;
+
+
+}
+
+.flexPF2{
+    width: 100%;
+    border-radius: 0px;
+    margin-top: 2%;
+}
+
+.flexBhaiA{
+    flex-direction: column;
+}
+
+.flexThemeC{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    margin-top: 5%;
+}
+
+.flexThemeC img{
+    width: 40%;
+}
+.flexThemeC button{
+    width: 30%;
+    margin-top: 5%;
+}
+
+.flexPF3{
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    flex-direction: row;
+    margin-bottom: 20%;
+}
+
+.timeframe-buttons{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.timeframe-buttons button{
+    width: 40%;
+    padding: 5% 5%;
+}
+
+}

@@ -3,6 +3,7 @@ import './wallet.css';
 import { UserContext } from '../../UserContext';
 import BarChart from './BarChart';
 import PieChart from './PieChart';
+import './mwallet.css'
 
 const Wallet = () => {
   const { user } = useContext(UserContext);
@@ -33,24 +34,8 @@ const Wallet = () => {
   return (
     <div className='walletui'>
       <div className="flexui">
-        <div className="leftWallet">
-          <div className='graphHist'>
-            {transactions.length > 0 ? (
-              <BarChart transactions={transactions} />
-            ) : (
-              <p>No transaction data available for Bar Chart.</p>
-            )}
-          </div>
-          <div className='pieHist'>
-            {transactions.length > 0 ? (
-              <PieChart transactions={transactions} />
-            ) : (
-              <p>No transaction data available for Pie Chart.</p>
-            )}
-          </div>
-        </div>
 
-        <div className="rightWallet">
+      <div className="rightWallet">
           <h2 className="balanceH">Account Balance</h2>
           <h1 className='balanceRs'>{formatCurrency(Number(user.balance))}</h1>
 
@@ -73,6 +58,24 @@ const Wallet = () => {
             )}
           </div>
         </div>
+        <div className="leftWallet">
+          <div className='graphHist'>
+            {transactions.length > 0 ? (
+              <BarChart transactions={transactions} />
+            ) : (
+              <p>No transaction data available for Bar Chart.</p>
+            )}
+          </div>
+          <div className='pieHist'>
+            {transactions.length > 0 ? (
+              <PieChart transactions={transactions} />
+            ) : (
+              <p>No transaction data available for Pie Chart.</p>
+            )}
+          </div>
+        </div>
+
+       
       </div>
     </div>
   );

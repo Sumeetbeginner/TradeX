@@ -1,11 +1,14 @@
-import React, { useEffect, useState , useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import SearchBar from "../Search/SearchBar";
 import "./home.css";
 import Nifty from "./Nifty";
-import {UserContext} from '../../UserContext'
+import { UserContext } from "../../UserContext";
+import "./mhome.css";
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase.js";
 
 const Home = () => {
-
   const { user } = useContext(UserContext);
   const [newsD, setNewsD] = useState([]);
   const [loadingNews, setLoadingNews] = useState(true);
@@ -36,12 +39,35 @@ const Home = () => {
     fetchNews();
   }, []);
 
+  const applyLogout = async () => {
+    try {
+      localStorage.removeItem(
+        "firebase:host:tradezone3690-default-rtdb.firebaseio.com"
+      );
+      await signOut(auth);
+      console.log("✅ User logged out successfully");
+      navigate("/login");
+    } catch (error) {
+      console.error("Error logging out: ", error);
+    }
+  };
+
+  const location = useNavigate();
+
   return (
     <div className="homeBody">
       <div className="homeSearch">
-        <SearchBar />
+        <div className="searchbhai">
+          <SearchBar />
+        </div>
+        <div className="mobilebhai">
+          <i className="fas fa-cog" onClick={() => location("/setting")}></i>
+
+          <i className="fa-solid fa-power-off" onClick={() => applyLogout()}></i>
+        </div>
+
         <div className="accBal">
-         🪙 Balance : ₹{Number(user.balance).toFixed(2)}
+          🪙 <span>Balance : </span>₹{Number(user.balance).toFixed(2)}
         </div>
       </div>
       <div className="flexCHome">

@@ -12,6 +12,10 @@
     border-radius: 10px;
 }
 
+.stockTW{
+    display: none;
+}
+
 .parentS{
     width: 230%;
     margin-left: 12%;
@@ -33,6 +37,11 @@
     justify-content: center;
     align-items: center;
     margin-left: auto;
+}
+
+.bhaiR{
+    display: flex;
+    margin-right: 15%;
 }
 
 .savedSPrice{
