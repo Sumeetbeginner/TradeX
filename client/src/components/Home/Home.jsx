@@ -13,6 +13,8 @@ const Home = () => {
   const [newsD, setNewsD] = useState([]);
   const [loadingNews, setLoadingNews] = useState(true);
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -41,9 +43,7 @@ const Home = () => {
 
   const applyLogout = async () => {
     try {
-      localStorage.removeItem(
-        "firebase:host:tradezone3690-default-rtdb.firebaseio.com"
-      );
+  
       await signOut(auth);
       console.log("✅ User logged out successfully");
       navigate("/login");

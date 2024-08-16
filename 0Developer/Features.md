@@ -119,7 +119,6 @@ and pass the stock data on stockinfo page var -->
 
     <!-- 10. Remove Passcode option in setting -->
 
-    11. Update Razorpay Key in Premium Box (*Use env)
 <!-- 
     12. Before Removing the Passcode if password is not unset ask prev passcode -->
 }
@@ -134,10 +133,22 @@ and pass the stock data on stockinfo page var -->
 
 <!-- 56. Forgot Password functionality in login -->
 
-57. Mobile Responsive Design
+<!-- 57. Mobile Responsive Design -->
 
 <!-- 58. Update stocks on portfolio,wishlist and stockInfo when market is open -->
 
 <!-- 59. Update Nifty 50 Data Every 5 Seconds -->
 
 60. Every Month update balance + salary
+
+61. Razorpay Premium Feature
+
+62. Help Page
+
+63. Chat with us and chat with ai page
+
+64. Download user data
+
+
+
+
