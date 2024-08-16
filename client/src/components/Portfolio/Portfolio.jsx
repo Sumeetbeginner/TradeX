@@ -216,7 +216,7 @@ const Portfolio = () => {
           <tbody className="portB">
             {portfolioData
               .slice()
-              .reverse()
+
               .map((stock, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
