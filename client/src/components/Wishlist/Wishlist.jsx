@@ -120,9 +120,8 @@ const Wishlist = () => {
   }, [savedStock]);
 
   // Remove stock from wishlist and savedStock with the help of index
-  const removeStock = (index) => {
-    const updatedStocks = [...savedStock];
-    updatedStocks.splice(index, 1);
+  const removeStock = (stockTicker) => {
+    const updatedStocks = savedStock.filter(ticker => ticker !== stockTicker);
     setSavedStock(updatedStocks);
     setUser((prevUser) => ({
       ...prevUser,
