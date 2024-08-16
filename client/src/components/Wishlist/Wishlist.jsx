@@ -120,8 +120,9 @@ const Wishlist = () => {
   }, [savedStock]);
 
   // Remove stock from wishlist and savedStock with the help of index
-  const removeStock = (stockTicker) => {
-    const updatedStocks = savedStock.filter(ticker => ticker !== stockTicker);
+  const removeStock = (index) => {
+    const updatedStocks = [...savedStock];
+    updatedStocks.splice(index, 1);
     setSavedStock(updatedStocks);
     setUser((prevUser) => ({
       ...prevUser,
@@ -145,7 +146,7 @@ const Wishlist = () => {
         <div className="parentS">
           {savedSData
             .slice()
-            .reverse()
+            // .reverse()
             .map((stock, index) => (
               <div key={index} className="savedS">
                 <div

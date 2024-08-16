@@ -34,7 +34,7 @@ const SellBox = ({ updateP, stockData, closePopup, updateParentState }) => {
     }
   };
 
-  const handleSell = () => {
+  const handleSell = async () => {
     if (stockCount === 0) {
       alert("⚠️ Please select number of stocks");
       return;
@@ -45,7 +45,24 @@ const SellBox = ({ updateP, stockData, closePopup, updateParentState }) => {
       return;
     }
 
-    const totalRevenue = stockCount * Number(stockData.currPrice);
+    // Fetch the latest stock price
+    const response = await fetch("https://tradexservers.vercel.app/stockinfo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ stockTicker: stockData.stockTicker }),
+    });
+
+    if (!response.ok) {
+      alert("⚠️ Error fetching stock price");
+      return;
+    }
+
+    const data = await response.json();
+    const latestPrice = parseFloat(data.result.currentPrice);
+    const totalRevenue = stockCount * latestPrice;
+
     const newPortfolio = user.portfolio || [];
 
     const existingStockIndex = newPortfolio.findIndex(

@@ -22,8 +22,10 @@ const Login = () => {
 
     try {
       const userCredential = await signInWithEmailAndPasswordV9(auth, email, password);
-      const userAuth = userCredential.user;
+      localStorage.setItem('firebase:host:tradezone3690-default-rtdb.firebaseio.com', "0")
 
+      const userAuth = userCredential.user;
+    
       if (userAuth) {
         const userRef = ref(database, `users/${userAuth.uid}`);
 
