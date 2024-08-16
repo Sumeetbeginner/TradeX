@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const applyLogout = async () => {
     try {
-      
+      localStorage.removeItem('firebase:host:tradezone3690-default-rtdb.firebaseio.com')
       await signOut(auth);
       console.log("✅ User logged out successfully");
       navigate("/login"); 
