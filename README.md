@@ -37,8 +37,9 @@ TradingZone is a stock market simulation platform where users can trade stocks i
 
 3. Start the server:
     ```bash
-    python main.py
+    python wsgi.py
     ```
+4. Convert all API endpoints in react to server localhost link
 
 ### Firebase Configuration
 
