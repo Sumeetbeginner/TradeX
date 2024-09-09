@@ -1,4 +1,4 @@
-# TradingZone
+# TradingX - https://tradexs.vercel.app
 
 ## Overview
 
