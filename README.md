@@ -4,6 +4,14 @@
 
 TradingZone is a stock market simulation platform where users can trade stocks in real-time with virtual money. It provides a learning environment for users to understand market dynamics without any financial risk.
 
+## Tech Stack
+
+Frontend > React
+
+Backend & Middleware > Flask
+
+Database > Firebase
+
 ## Setup Instructions
 
 ### Client Setup
