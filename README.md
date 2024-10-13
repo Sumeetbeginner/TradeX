@@ -1,8 +1,16 @@
-# TradingZone
+# TradingX - https://tradexs.vercel.app
 
 ## Overview
 
 TradingZone is a stock market simulation platform where users can trade stocks in real-time with virtual money. It provides a learning environment for users to understand market dynamics without any financial risk.
+
+## Tech Stack
+
+Frontend > React
+
+Backend & Middleware > Flask
+
+Database > Firebase
 
 ## Setup Instructions
 
@@ -37,8 +45,9 @@ TradingZone is a stock market simulation platform where users can trade stocks i
 
 3. Start the server:
     ```bash
-    python main.py
+    python wsgi.py
     ```
+4. Convert all API endpoints in react to server localhost link
 
 ### Firebase Configuration
 
