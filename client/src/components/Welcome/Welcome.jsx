@@ -58,8 +58,7 @@ const Welcome = () => {
               <p>
                 Dive into the world of stock trading with our platform. Use
                 virtual money to trade in real-time and enhance your financial
-                acumen without any risk. Perfect for beginners and enthusiasts
-                looking to learn and practice.
+                acumen without any risk.
               </p>
             </div>
           </div>
@@ -76,9 +75,7 @@ const Welcome = () => {
               <p>
                 Our platform provides a realistic trading experience with a
                 comprehensive portfolio management system. Stay updated with
-                real-time market data and trade like a pro. Track your
-                investments and see how your portfolio performs just like in
-                real-life trading.
+                real-time market data and trade like a pro.
               </p>
             </div>
           </div>
@@ -91,10 +88,8 @@ const Welcome = () => {
               <h2>Monthly Virtual Money Credited as a Salary</h2>
               <p>
                 Receive a virtual salary each month to your trading account
-                This allows you to continuously
-                engage in trading activities, strategize, and improve your
-                skills over time. Keep the momentum going with fresh virtual
-                funds every month.
+                Continuosly engage in trading activities, strategize, and improve your
+                skills over time.
               </p>
             </div>
           </div>
